@@ -1,4 +1,9 @@
 {
+    "initiate": "{colorwheel.response.wheel.{colorwheel.response.numbers.1}.colors.{colorwheel.response.numbers.2}.variable}",
+    "numbers":{
+        "1":"{solve_equation[floor((({time_now_unix} / 3600) % 6) + 0)]}",
+        "2":"{solve_equation[floor((({time_now_unix} / 60) % 60) + 0)]}"
+    },
 "wheel": [
     {
         "color_type": "Red-Like",
