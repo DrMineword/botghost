@@ -11,11 +11,9 @@ If you need help or have suggestions, join our **support server**:
 ## 🖼️ Author  
 ![DrMineword](https://drmineword.github.io/botghost/repofiles/drmineword.png)  
 **DrMineword**
-![banner_mineword](https://poopoo-api.vercel.app/api/image?url=https%3A%2F%2Fdrmineword.github.io%2FArtefact-Boost-Active%2Fbot%2Fiframe%2Fsript%3Fuserid%3D987284796789116949)
-
 ---
 
 ### 🏅 Special Thanks  
 **Marmoris**  
-![Marmoris](https://drmineword.github.io/botghost/repofiles/marmoris.gif)  
+![Marmoris](https://drmineword.github.io/botghost/repofiles/marmois.gif)  
 
