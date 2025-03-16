@@ -1,0 +1,1 @@
+{getRandomFromCollection([{Guild[{server_id}].members}])}
