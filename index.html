@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced API Documentation</title>
+    <title>BotGhost API Documentation</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
         h1, h2, h3 { color: #2c3e50; }
-        .endpoint { margin-bottom: 30px; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
-        .method { font-weight: bold; color: #e74c3c; }
-        .url { font-family: monospace; color: #2980b9; }
-        .description { margin-top: 5px; color: #7f8c8d; }
+        .endpoint { margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; background: #f9f9f9; }
+        .dropdown-header { padding: 10px; cursor: pointer; background: #ddd; font-weight: bold; }
+        .dropdown-content { display: none; padding: 10px; }
+        .description { color: #7f8c8d; }
         pre { background-color: #ecf0f1; padding: 10px; border-radius: 5px; overflow-x: auto; }
-        .section-title { margin-top: 40px; font-size: 24px; border-bottom: 2px solid #ccc; padding-bottom: 5px; }
+        a { color: #2980b9; text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -28,38 +28,35 @@
         "endpoints": [
             {
                 "type": "/json",
-                "description": "Advanced variables for BotGhost. Use via: /json/{file_name}.",
-                "examples": "Base URL: https://drmineword.github.io/botghost/json/{file_name}",
+                "description": "Advanced variables for BotGhost.",
+                "base_url": "https://drmineword.github.io/botghost/json/",
                 "files": [
                     {
                         "name": "flags_to_badges.json",
                         "description": "Converts Discord user public flags to badge collections.",
-                        "requirements": "{public_flags} = int value of user flags",
+                        "requirements": ["{public_flags} = int value of user flags"],
                         "api_block_name": "flags_to_badges",
-                        "execution": {
-                            "key": "initate",
-                            "post_execution": "{separate} = , // Converts response into a valid BotGhost collection"
-                        }
+                        "execution_key": "initate"
                     },
                     {
                         "name": "colorwheel.json",
                         "description": "Generates random hex colors based on the time of day (unix-based).",
-                        "requirements": "None",
+                        "requirements": [],
                         "api_block_name": "colorwheel",
-                        "execution": { "key": "initate" }
+                        "execution_key": "initate"
                     }
-                ]
-            },
-            {
-                "type": "/json/dev",
-                "description": "Custom executors with text manipulations and loops.",
-                "usage": "Use {initate} response and run it X times. Replace all '<NAME' with '{<API_BLOCK_NAME_USED' and '>' with '}'.",
-                "examples": "CMD_9234e3b6-ffba-4781-965d-bc167a0847ca",
-                "requirements": "Unique var setup required for loop executions."
+                ],
+                "sub_part": {
+                    "type": "/json/dev",
+                    "description": "Custom executors with text manipulations and loops.",
+                    "usage": "Use {initate} response and run it X times. Replace all '<NAME' with '{<API_BLOCK_NAME_USED' and '>' with '}'.",
+                    "example": "CMD_9234e3b6-ffba-4781-965d-bc167a0847ca"
+                }
             },
             {
                 "type": "/simpleraw",
                 "description": "Simple raw variables for direct use.",
+                "base_url": "https://drmineword.github.io/botghost/simpleraw/",
                 "files": [
                     "random_current_guild_member_id.strng",
                     "uuid_generate.strng"
@@ -78,51 +75,68 @@
         const jsonData = JSON.parse(document.getElementById('api-data').textContent);
         const docsContainer = document.getElementById('docs');
 
-        jsonData.endpoints.forEach(endpoint => {
+        function createDropdown(title, content) {
             const section = document.createElement('div');
             section.className = 'endpoint';
 
-            let html = `<h2>${endpoint.type}</h2>`;
-            html += `<p class="description">${endpoint.description}</p>`;
+            const header = document.createElement('div');
+            header.className = 'dropdown-header';
+            header.textContent = title;
+            header.onclick = () => {
+                content.style.display = content.style.display === 'none' ? 'block' : 'none';
+            };
 
-            if (endpoint.examples) {
-                html += `<pre>Example Usage:\n${endpoint.examples}</pre>`;
-            }
+            content.className = 'dropdown-content';
+            content.style.display = 'none';
 
-            if (endpoint.usage) {
-                html += `<p><strong>Usage Instructions:</strong> ${endpoint.usage}</p>`;
-            }
+            section.appendChild(header);
+            section.appendChild(content);
+            return section;
+        }
 
-            if (endpoint.requirements) {
-                html += `<p><strong>Requirements:</strong> ${endpoint.requirements}</p>`;
-            }
+        jsonData.endpoints.forEach(endpoint => {
+            const content = document.createElement('div');
+
+            content.innerHTML = `<p class="description">${endpoint.description}</p>`;
+            content.innerHTML += `<p><strong>Base URL:</strong> <a href="${endpoint.base_url}" target="_blank">${endpoint.base_url}</a></p>`;
 
             if (endpoint.files) {
-                html += `<h3>Files:</h3><ul>`;
+                const fileList = document.createElement('ul');
                 endpoint.files.forEach(file => {
-                    html += `
-                        <li>
-                            <strong>${file.name}</strong><br>
-                            <em>${file.description}</em><br>
-                            <strong>API Block Name:</strong> ${file.api_block_name}<br>
-                            <strong>Requirements:</strong> ${file.requirements || 'None'}<br>
-                            <strong>Execution Key:</strong> ${file.execution.key}<br>
-                            ${file.execution.post_execution ? `<strong>Post Execution:</strong> ${file.execution.post_execution}` : ''}
-                        </li>`;
+                    if (typeof file === 'string') {
+                        fileList.innerHTML += `<li><a href="${endpoint.base_url + file}" target="_blank">${file}</a></li>`;
+                    } else {
+                        fileList.innerHTML += `
+                            <li>
+                                <a href="${endpoint.base_url + file.name}" target="_blank">${file.name}</a><br>
+                                <em>${file.description}</em><br>
+                                <strong>API Block Name:</strong> <code>${file.api_block_name}</code><br>
+                                <strong>Requirements:</strong>
+                                <ul>${file.requirements.map(req => `<li>${req}</li>`).join("")}</ul>
+                                <strong>Execution Key:</strong> <code>${file.execution_key}</code>
+                            </li>`;
+                    }
                 });
-                html += `</ul>`;
+                content.appendChild(fileList);
+            }
+
+            if (endpoint.sub_part) {
+                const subContent = document.createElement('div');
+                subContent.innerHTML = `<p class="description">${endpoint.sub_part.description}</p>`;
+                subContent.innerHTML += `<p><strong>Usage:</strong> ${endpoint.sub_part.usage}</p>`;
+                subContent.innerHTML += `<pre>Example: ${endpoint.sub_part.example}</pre>`;
+                content.appendChild(createDropdown(endpoint.sub_part.type, subContent));
             }
 
             if (endpoint.other) {
-                html += `<h3>Other Files:</h3><ul>`;
+                const otherList = document.createElement('ul');
                 endpoint.other.forEach(file => {
-                    html += `<li>${file}</li>`;
+                    otherList.innerHTML += `<li><a href="${endpoint.base_url + file}" target="_blank">${file}</a></li>`;
                 });
-                html += `</ul>`;
+                content.appendChild(otherList);
             }
 
-            section.innerHTML = html;
-            docsContainer.appendChild(section);
+            docsContainer.appendChild(createDropdown(endpoint.type, content));
         });
     </script>
 
