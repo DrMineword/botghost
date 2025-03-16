@@ -11,12 +11,14 @@ If you need help or have suggestions, join our **support server**:
 ## 🖼️ Author 
 ---
 **DrMineword**
+
 ![DrMineword](https://drmineword.github.io/botghost/repofiles/drmineword.png)  
 ---
 
 ### 🏅 Special Thanks  
 ---
 **Marmoris**  
+
 ![Marmoris](https://drmineword.github.io/botghost/repofiles/marmois.gif)  
 ---
 
