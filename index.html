@@ -1,10 +1,130 @@
-{
-    "initiate": "Sorry...\nThere is nothing here\n\nSupport: https://discord.gg/7CKxPNEE7a",
-    "image": [
-        "███████ ██████  ██████   ██████  ██████  ",
-        "██      ██   ██ ██   ██ ██    ██ ██   ██ ",
-        "█████   ██████  ██████  ██    ██ ██████  ",
-        "██      ██   ██ ██   ██ ██    ██ ██   ██ ",
-        "███████ ██   ██ ██   ██  ██████  ██   ██ "
-    ]
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced API Documentation</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+        h1, h2, h3 { color: #2c3e50; }
+        .endpoint { margin-bottom: 30px; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+        .method { font-weight: bold; color: #e74c3c; }
+        .url { font-family: monospace; color: #2980b9; }
+        .description { margin-top: 5px; color: #7f8c8d; }
+        pre { background-color: #ecf0f1; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        .section-title { margin-top: 40px; font-size: 24px; border-bottom: 2px solid #ccc; padding-bottom: 5px; }
+    </style>
+</head>
+<body>
+
+    <h1>BotGhost API Documentation</h1>
+
+    <div id="docs"></div>
+
+    <!-- JSON Data -->
+    <script id="api-data" type="application/json">
+    {
+        "base_url": "https://drmineword.github.io/botghost",
+        "endpoints": [
+            {
+                "type": "/json",
+                "description": "Advanced variables for BotGhost. Use via: /json/{file_name}.",
+                "examples": "Base URL: https://drmineword.github.io/botghost/json/{file_name}",
+                "files": [
+                    {
+                        "name": "flags_to_badges.json",
+                        "description": "Converts Discord user public flags to badge collections.",
+                        "requirements": "{public_flags} = int value of user flags",
+                        "api_block_name": "flags_to_badges",
+                        "execution": {
+                            "key": "initate",
+                            "post_execution": "{separate} = , // Converts response into a valid BotGhost collection"
+                        }
+                    },
+                    {
+                        "name": "colorwheel.json",
+                        "description": "Generates random hex colors based on the time of day (unix-based).",
+                        "requirements": "None",
+                        "api_block_name": "colorwheel",
+                        "execution": { "key": "initate" }
+                    }
+                ]
+            },
+            {
+                "type": "/json/dev",
+                "description": "Custom executors with text manipulations and loops.",
+                "usage": "Use {initate} response and run it X times. Replace all '<NAME' with '{<API_BLOCK_NAME_USED' and '>' with '}'.",
+                "examples": "CMD_9234e3b6-ffba-4781-965d-bc167a0847ca",
+                "requirements": "Unique var setup required for loop executions."
+            },
+            {
+                "type": "/simpleraw",
+                "description": "Simple raw variables for direct use.",
+                "files": [
+                    "random_current_guild_member_id.strng",
+                    "uuid_generate.strng"
+                ],
+                "other": [
+                    "ascii_error_codes.json",
+                    "ascii_letters.json",
+                    "numbers_ascii_range_0-9998.strng"
+                ]
+            }
+        ]
+    }
+    </script>
+
+    <script>
+        const jsonData = JSON.parse(document.getElementById('api-data').textContent);
+        const docsContainer = document.getElementById('docs');
+
+        jsonData.endpoints.forEach(endpoint => {
+            const section = document.createElement('div');
+            section.className = 'endpoint';
+
+            let html = `<h2>${endpoint.type}</h2>`;
+            html += `<p class="description">${endpoint.description}</p>`;
+
+            if (endpoint.examples) {
+                html += `<pre>Example Usage:\n${endpoint.examples}</pre>`;
+            }
+
+            if (endpoint.usage) {
+                html += `<p><strong>Usage Instructions:</strong> ${endpoint.usage}</p>`;
+            }
+
+            if (endpoint.requirements) {
+                html += `<p><strong>Requirements:</strong> ${endpoint.requirements}</p>`;
+            }
+
+            if (endpoint.files) {
+                html += `<h3>Files:</h3><ul>`;
+                endpoint.files.forEach(file => {
+                    html += `
+                        <li>
+                            <strong>${file.name}</strong><br>
+                            <em>${file.description}</em><br>
+                            <strong>API Block Name:</strong> ${file.api_block_name}<br>
+                            <strong>Requirements:</strong> ${file.requirements || 'None'}<br>
+                            <strong>Execution Key:</strong> ${file.execution.key}<br>
+                            ${file.execution.post_execution ? `<strong>Post Execution:</strong> ${file.execution.post_execution}` : ''}
+                        </li>`;
+                });
+                html += `</ul>`;
+            }
+
+            if (endpoint.other) {
+                html += `<h3>Other Files:</h3><ul>`;
+                endpoint.other.forEach(file => {
+                    html += `<li>${file}</li>`;
+                });
+                html += `</ul>`;
+            }
+
+            section.innerHTML = html;
+            docsContainer.appendChild(section);
+        });
+    </script>
+
+</body>
+</html>
