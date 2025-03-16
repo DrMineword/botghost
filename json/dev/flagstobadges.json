@@ -1,6 +1,6 @@
 {
     "initiate": "<NAME.response.run.{isNumber(<NAME.response.local.public_flags>)>>",
-  "loop":"3",
+  "loop":"4",
     "local": {
         "public_flags": "{public_flags}",
         "null": ""
