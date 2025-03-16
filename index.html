@@ -5,9 +5,14 @@
     // Base64-encoded input (replace with your encoded string)
     const base64Input = "ewogICAgImluaXRpYXRlIjogIlNvcnJ5Li4uXG5UaGVyZSBpcyBub3RoaW5nIGhlcmVcblxuU3VwcG9ydDogaHR0cHM6Ly9kaXNjb3JkLmdnLzdDS3hQTkVFN2EiLAogICAgImltYWdlIjogWwogICAgICAgICLilojilojilojilojilojilojilogg4paI4paI4paI4paI4paI4paIICDilojilojilojilojilojiloggICDilojilojilojilojilojiloggIOKWiOKWiOKWiOKWiOKWiOKWiCAgIiwKICAgICAgICAi4paI4paIICAgICAg4paI4paIICAg4paI4paIIOKWiOKWiCAgIOKWiOKWiCDilojiloggICAg4paI4paIIOKWiOKWiCAgIOKWiOKWiCAiLAogICAgICAgICLilojilojilojilojiloggICDilojilojilojilojilojiloggIOKWiOKWiOKWiOKWiOKWiOKWiCAg4paI4paIICAgIOKWiOKWiCDilojilojilojilojilojiloggICIsCiAgICAgICAgIuKWiOKWiCAgICAgIOKWiOKWiCAgIOKWiOKWiCDilojiloggICDilojilogg4paI4paIICAgIOKWiOKWiCDilojiloggICDilojiloggIiwKICAgICAgICAi4paI4paI4paI4paI4paI4paI4paIIOKWiOKWiCAgIOKWiOKWiCDilojiloggICDilojiloggIOKWiOKWiOKWiOKWiOKWiOKWiCAg4paI4paIICAg4paI4paIICIKICAgIF0KfQ=="
 
-    // Decode Base64 and parse JSON
-    const decodedText = atob(base64Input);
-    const jsonObject = JSON.parse(decodedText);
+    // Decode Base64 safely for Unicode characters
+    function decodeBase64(str) {
+        try {
+            return decodeURIComponent(escape(atob(str)));
+        } catch (e) {
+            return "Error decoding Base64 string.";
+        }
+    }
 
     // Function to apply syntax highlighting
     function syntaxHighlight(json) {
@@ -22,14 +27,24 @@
             return value;
         }, 4)
         .replace(/^( +)(\".*?\"):/gm, (match, p1, p2) => {
-            return `${p1}<span style="color: darkorange;">${p2}</span>:`; // Highlight keys
+            return `${p1}<span style="color: #cc5500;">${p2}</span>:`; // Darker orange keys
         })
         .replace(/[{}]/g, (match) => {
-            return `<span style="color: black;">${match}</span>`; // Highlight braces
+            return `<span style="color: black;">${match}</span>`; // Black braces
         });
     }
 
-    // Insert the formatted JSON into the page
+    // Decode and highlight JSON
+    const decodedText = decodeBase64(base64Input);
+    let jsonObject;
+    try {
+        jsonObject = JSON.parse(decodedText);
+    } catch (e) {
+        document.getElementById('output').textContent = "Invalid JSON format.";
+        throw e;
+    }
+
+    // Display the formatted JSON
     document.getElementById('output').innerHTML = syntaxHighlight(jsonObject);
 </script>
 </body>
