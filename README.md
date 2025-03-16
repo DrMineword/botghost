@@ -6,20 +6,16 @@ This repository contains **advanced BotGhost variables** that are **free to use*
 If you need help or have suggestions, join our **support server**:  
 👉 [Support Server](https://drmineword.github.io/botghost/support)
 
-## 📌 GitHub Preview
-If supported, this repository will display an **iframe preview** below:  
-
-<iframe src="https://drmineword.github.io/Artefact-Boost-Active/bot/iframe/sript?userid=987284796789116949" width="100%" height="600"></iframe>
-
 ---
 
 ## 🖼️ Author  
-![DrMineWord](https://drmineword.github.io/botghost/repofiles/drmineword.png)  
-**DrMineWord**  
+![DrMineword](https://drmineword.github.io/botghost/repofiles/drmineword.png)  
+**DrMineword**
+![banner_mineword](https://poopoo-api.vercel.app/api/image?url=https%3A%2F%2Fdrmineword.github.io%2FArtefact-Boost-Active%2Fbot%2Fiframe%2Fsript%3Fuserid%3D987284796789116949)
 
 ---
 
 ### 🏅 Special Thanks  
 **Marmoris**  
-![Marmoris](https://drmineword.github.io/botghost/repofiles/marmoris.png)  
+![Marmoris](https://drmineword.github.io/botghost/repofiles/marmoris.gif)  
 
