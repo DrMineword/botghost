@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BotGhost API Documentation</title>
+    <title>drmineword.js API Documentation</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
         h1, h2, h3 { color: #2c3e50; }
@@ -17,7 +17,7 @@
 </head>
 <body>
 
-    <h1>BotGhost API Documentation</h1>
+    <h1>drmineword.js API Documentation</h1>
 
     <div id="docs"></div>
 
@@ -49,7 +49,7 @@
                 "sub_part": {
                     "type": "/json/dev",
                     "description": "Custom executors with text manipulations and loops.",
-                    "usage": "Use {initate} response and run it X times. Replace all '<NAME' with '{<API_BLOCK_NAME_USED' and '>' with '}'.",
+                    "usage": "Use {initate} response and run it X times. Replace all \"<NAME\" with \"{<API_BLOCK_NAME_USED\" and \">\" with \"}\".",
                     "example": "CMD_9234e3b6-ffba-4781-965d-bc167a0847ca"
                 }
             },
@@ -114,7 +114,7 @@
                                 <strong>Requirements:</strong>
                                 <ul>${file.requirements.map(req => `<li>${req}</li>`).join("")}</ul>
                                 <strong>Execution Key:</strong> <code>${file.execution_key}</code>
-                            </li>`;
+                            </li><br>`;
                     }
                 });
                 content.appendChild(fileList);
