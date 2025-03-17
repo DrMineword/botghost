@@ -1,6 +1,7 @@
 {
     "initiate": "<NAME.response.wheel.<NAME.response.numbers.1>.colors.<NAME.response.numbers.2>.variable>",
     "loop":"1",
+    "note": "Color names are wrong, the result of a low-level color database used to define the names of the generating script",
     "numbers":{
         "1":"{solve_equation[floor((({time_now_unix} / 3600) % 6) + 0)]}",
         "2":"{solve_equation[floor((({time_now_unix} / 60) % 60) + 0)]}"
