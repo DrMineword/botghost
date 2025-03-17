@@ -5,6 +5,7 @@ This repository contains **advanced BotGhost variables** that are **free to use*
 ## 🔗 Support
 If you need help or have suggestions, join our **support server**:  
 👉 [Support Server](https://drmineword.github.io/botghost/support)
+🗃️ [Api Docs](https://drmineword.github.io/botghost)
 
 ---
 
