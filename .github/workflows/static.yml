@@ -41,3 +41,30 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+
+
+            - name: HTML Preview
+  # You may pin to the exact commit or the version.
+  # uses: pavi2410/html-preview-action@13a4d3c414d839a652df1b34d694ccbbd7c7c764
+  uses: pavi2410/html-preview-action@v4
+  with:
+    # The HTML file you want to preview, relative to the root of the repo
+    html_file: # default is index.html
+    # Prints a job summary with the link
+    job_summary: # optional, default is true
+
+            - name: HTML to APK Action
+  # You may pin to the exact commit or the version.
+  # uses: kimhuilim/web-to-app-action@29eca6ae049b93b63fb00746aa5e608b8b28ad41
+  uses: kimhuilim/web-to-app-action@Alpha3
+  with:
+    # Path to build folder
+    build-folder-path: # optional, default is build
+    # Name of App
+    app-name: # optional, default is MyApp
+    # ID of App (No Spaces)
+    app-id-apk: # default is myappid
+    # Path to output folder
+    output-folder-path: # optional, default is apk
+          
