@@ -15,8 +15,6 @@
 | [https://getpantry.cloud/](https://getpantry.cloud/) | Pantry JSON database (it sometimes gets reset) |
 | [https://ai.spin.rip/chat](https://ai.spin.rip/chat) | CMD_b59e0a1c-839b-438c-ba7d-f802c2c72b15 |
 | [https://goqr.me/api/](https://goqr.me/api/) | QR code API |
-| [https://api.multi-api.xyz/docs/](https://api.multi-api.xyz/docs/) | API made for BotGhost |
-| [https://kings-api.xyz/docs/](https://kings-api.xyz/docs/) | API made for BotGhost |
 | [https://www.thecolorapi.com/id?format=json&hex=F34639](https://www.thecolorapi.com/id?format=json&hex=F34639) | The Color API |
 | [https://dashboard.botghost.com/api/public/captcha](https://dashboard.botghost.com/api/public/captcha) | BotGhost captcha API |
 | [https://api.urlparse.com/v1/query?url=https://example.com](https://api.urlparse.com/v1/query?url=https://example.com) | URL parser |
