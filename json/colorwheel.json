@@ -2580,7 +2580,5 @@
             }
         ]
     }
-],
-"make_browsers_run_script_":"<script scr='human_404.js></script>",
-"note": "Browsers are stupid, it will execute that script that will make user see human readeble 404 page\nWhen api rew will see json"
+]
 }
