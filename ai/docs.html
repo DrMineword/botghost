@@ -55,3 +55,2614 @@ This will allow you to make things like make math variable that return 0-9 and b
 \nExmaple this id generator: {valueAtPosition(['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','0','1','2','3','4','5','6','7','8','9'],[{solve_equation[({time_now_unix}/3600)6]}])}{valueAtPosition(['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','0','1','2','3','4','5','6','7','8','9'],[{solve_equation[({time_now_unix}/60)6]}])}{valueAtPosition(['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','0','1','2','3','4','5','6','7','8','9'],[{solve_equation[({time_now_unix})6]}])}{valueAtPosition(['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','0','1','2','3','4','5','6','7','8','9'],[{solve_equation[({time_now_unix}*2)6]}])} BUT the
 {concat[{valueAtPosition([0,1,2,3,4,5,6,7,8,9],[{solve_equation[floor(({time_now_unix}/10000000000)%10000]}])}],[""],{valueAtPosition([0,1,2,3,4,5,6,7,8,9],[{solve_equation[floor(({time_now_unix}/100000000)%1000]}])}],[""],{valueAtPosition([0,1,2,3,4,5,6,7,8,9],[{solve_equation[floor(({time_now_unix}/1000000)%100]}])}],[""],{valueAtPosition([0,1,2,3,4,5,6,7,8,9],[{solve_equation[floor(({time_now_unix}/10000)%100]}])}]}
  is wrong as it contain inavlid colection variable structur and {concat[]} dont exist
+\n\n
+\n
+>>> LIST OF BOTGHOST NATIV VARIABLES\n
+Copyright: Data from: https://botghost-variable-searcher.netlify.app/
+\n\n
+{channel_id}\n\n
+
+Variable Name: channel id\n\n
+
+Description: Get the id the current channel.\n\n
+
+
+
+{channel_name}\n\n
+
+Variable Name: channel name\n\n
+
+Description: The name of the channel that the message was posted in.\n\n
+
+
+
+{channel_type}\n\n
+
+Variable Name: channel type\n\n
+
+Description: The type of the channel that the message was posted in.\n\n
+
+
+
+{channel}\n\n
+
+Variable Name: channel\n\n
+
+Description: Mention the channel the command was triggered in\n\n
+
+
+
+{charCount(Hello)}\n\n
+
+Variable Name: char count\n\n
+
+Description: Returns the character count of supplied content.\n\n
+
+
+
+{collectionCharacterLength({array})}\n\n
+
+Variable Name: collection character length\n\n
+
+Description: The number of characters within the collection.\n\n
+
+
+
+{collectionCharacterLength({BGVAR_collection_variable})}\n\n
+
+Variable Name: BGVAR Collection Character Length\n\n
+
+Description: Returns the total character length of all values in the collection variable.\n\n
+
+
+
+{currency_balance}\n\n
+
+Variable Name: currency balance\n\n
+
+Description: Returns the currency balance of a user.\n\n
+
+
+
+{economy_currency_name}\n\n
+
+Variable Name: Currency Name\n\n
+
+Description: Economy currency name.\n\n
+
+
+
+{economy_currency_prefix}\n\n
+
+Variable Name: Currency Prefix\n\n
+
+Description: Economy currency prefix.\n\n
+
+
+
+{economy_inventory}\n\n
+
+Variable Name: User Inventory\n\n
+
+Description: The Users inventory as an array of objects.\n\n
+
+
+
+{encode_text[TEXT]}\n\n
+
+Variable Name: encode text\n\n
+
+Description: Encode text given for an API.\n\n
+
+
+
+{escape_characters[{form.reply}]}\n\n
+
+Variable Name: escape characters\n\n
+
+Description: Allows for entering spaces from forms or variables.\n\n
+
+
+
+{event_channel_category_id}\n\n
+
+Variable Name: Deleted Channel Category ID\n\n
+
+Description: ID of the category under which the deleted channel was located (custom event).\n\n
+
+
+
+{event_channel_category_id}\n\n
+
+Variable Name: New Channel Category ID\n\n
+
+Description: ID of the category under which the new channel is created (custom event).\n\n
+
+
+
+{event_channel_createdAt}\n\n
+
+Variable Name: Deleted Channel Created At\n\n
+
+Description: Timestamp when the channel that was deleted was originally created (custom event).\n\n
+
+
+
+{event_channel_createdAt}\n\n
+
+Variable Name: New Channel Created At\n\n
+
+Description: Timestamp when the new channel was created (custom event).\n\n
+
+
+
+{event_channel_full}\n\n
+
+Variable Name: Voice Channel Full\n\n
+
+Description: Indicates if the voice channel is full (true/false).\n\n
+
+
+
+{event_channel_id}\n\n
+
+Variable Name: Deleted Channel ID\n\n
+
+Description: ID of the channel that was deleted (custom event).\n\n
+
+
+
+{event_channel_id}\n\n
+
+Variable Name: New Channel ID\n\n
+
+Description: ID of the new channel created (custom event).\n\n
+
+
+
+{event_channel_id}\n\n
+
+Variable Name: Voice Channel ID\n\n
+
+Description: The ID of the voice channel the user joined.\n\n
+
+
+
+{event_channel_id}\n\n
+
+Variable Name: Voice Channel ID\n\n
+
+Description: The ID of the voice channel the user left.\n\n
+
+
+
+{event_channel_name}\n\n
+
+Variable Name: Deleted Channel Name\n\n
+
+Description: Name of the channel that was deleted (custom event).\n\n
+
+
+
+{event_channel_name}\n\n
+
+Variable Name: New Channel Name\n\n
+
+Description: Name of the new channel created (custom event).\n\n
+
+
+
+{event_channel_name}\n\n
+
+Variable Name: Voice Channel Name\n\n
+
+Description: The name of the voice channel the user joined.\n\n
+
+
+
+{event_channel_name}\n\n
+
+Variable Name: Voice Channel Name\n\n
+
+Description: The name of the voice channel the user left.\n\n
+
+
+
+{event_channel_parent_id}\n\n
+
+Variable Name: Voice Channel Parent ID\n\n
+
+Description: The ID of the parent channel of the voice channel the user joined.\n\n
+
+
+
+{event_channel_parent_id}\n\n
+
+Variable Name: Voice Channel Parent ID\n\n
+
+Description: The ID of the parent channel of the voice channel the user left.\n\n
+
+
+
+{event_channel_type}\n\n
+
+Variable Name: Deleted Channel Type\n\n
+
+Description: Type of the channel that was deleted (e.g., text, voice) (custom event).\n\n
+
+
+
+{event_channel_type}\n\n
+
+Variable Name: New Channel Type\n\n
+
+Description: Type of the new channel created (e.g., text, voice) (custom event).\n\n
+
+
+
+{event_channel_user_limit}\n\n
+
+Variable Name: Voice Channel User Limit\n\n
+
+Description: The user limit of the voice channel the user joined.\n\n
+
+
+
+{event_channel_user_limit}\n\n
+
+Variable Name: Voice Channel User Limit\n\n
+
+Description: The user limit of the voice channel the user left.\n\n
+
+
+
+{event_created_at}\n\n
+
+Variable Name: Deleted Thread Created At\n\n
+
+Description: The creation time of the deleted thread (custom event).\n\n
+
+
+
+{event_created_at}\n\n
+
+Variable Name: event created at\n\n
+
+Description: The time of the original thread's creation.\n\n
+
+
+
+{event_created_at}\n\n
+
+Variable Name: Thread Created At\n\n
+
+Description: The creation time of the thread (custom event).\n\n
+
+
+
+{event_createdAt}\n\n
+
+Variable Name: event created at\n\n
+
+Description: The date and time when the scheduled event was created.\n\n
+
+
+
+{event_createdTimestamp}\n\n
+
+Variable Name: event created timestamp\n\n
+
+Description: The timestamp when the scheduled event was created.\n\n
+
+
+
+{event_creator_id}\n\n
+
+Variable Name: Deleted Thread Creator ID\n\n
+
+Description: The ID of the user who created the deleted thread (custom event).\n\n
+
+
+
+{event_creator_id}\n\n
+
+Variable Name: Thread Creator ID\n\n
+
+Description: The ID of the user who created the thread (custom event).\n\n
+
+
+
+{event_description}\n\n
+
+Variable Name: event description\n\n
+
+Description: The description of the scheduled event.\n\n
+
+
+
+{event_id}\n\n
+
+Variable Name: event id\n\n
+
+Description: The unique identifier of the scheduled event.\n\n
+
+
+
+{event_image}\n\n
+
+Variable Name: event image\n\n
+
+Description: The image associated with the scheduled event.\n\n
+
+
+
+{event_member_verified_update}\n\n
+
+Variable Name: Member Verified Update\n\n
+
+Description: Status update indicating the user has been verified (custom event).\n\n
+
+
+
+{event_message_attachment_1}\n\n
+
+Variable Name: Message Attachment 1\n\n
+
+Description: The first attachment included in the message (message sent event).\n\n
+
+
+
+{event_message_attachment_n}\n\n
+
+Variable Name: Message Attachment N\n\n
+
+Description: The nth attachment included in the message (message sent event). Replace "n" with the attachment number.\n\n
+
+
+
+{event_message_attachment}\n\n
+
+Variable Name: Deleted Message Attachment\n\n
+
+Description: Any attachments included in the deleted message (message deleted event).\n\n
+
+
+
+{event_message_attachments_count}\n\n
+
+Variable Name: Message Attachments Count\n\n
+
+Description: The number of attachments included in the message (message sent event).\n\n
+
+
+
+{event_message_attachments}\n\n
+
+Variable Name: Message Attachments\n\n
+
+Description: All attachments included in the message (message sent event).\n\n
+
+
+
+{event_message_channel_id}\n\n
+
+Variable Name: Deleted Message Channel ID\n\n
+
+Description: The ID of the channel in which the message was deleted (message deleted event).\n\n
+
+
+
+{event_message_channel_id}\n\n
+
+Variable Name: event message channel id\n\n
+
+Description: Get the id the channel the message that triggered the event was sent in.\n\n
+
+
+
+{event_message_channel_id}\n\n
+
+Variable Name: Message Channel ID\n\n
+
+Description: The ID of the channel in which the message was edited (message edited event).\n\n
+
+
+
+{event_message_channel_id}\n\n
+
+Variable Name: Message Channel ID\n\n
+
+Description: The ID of the channel in which the message was sent (message sent event).\n\n
+
+
+
+{event_message_channel_id}\n\n
+
+Variable Name: Reacted Message Channel ID\n\n
+
+Description: The ID of the channel in which the reacted message is located.\n\n
+
+
+
+{event_message_channel_id}\n\n
+
+Variable Name: Reaction Removed Message Channel ID\n\n
+
+Description: The ID of the channel in which the message from which the reaction was removed is located.\n\n
+
+
+
+{event_message_channel_type}\n\n
+
+Variable Name: event message channel type\n\n
+
+Description: Get the type of channel the message that triggered the event was sent in.\n\n
+
+
+
+{event_message_channel_type}\n\n
+
+Variable Name: Message Channel Type\n\n
+
+Description: The type of the channel in which the message was sent (e.g., text, voice) (message sent event).\n\n
+
+
+
+{event_message_channel}\n\n
+
+Variable Name: Deleted Message Channel\n\n
+
+Description: The channel in which the message was deleted (message deleted event).\n\n
+
+
+
+{event_message_channel}\n\n
+
+Variable Name: event message channel\n\n
+
+Description: Get the tag of the channel the message that triggered the event was sent in.\n\n
+
+
+
+{event_message_channel}\n\n
+
+Variable Name: Message Channel\n\n
+
+Description: The channel in which the message was edited (message edited event).\n\n
+
+
+
+{event_message_channel}\n\n
+
+Variable Name: Message Channel\n\n
+
+Description: The channel in which the message was sent (message sent event).\n\n
+
+
+
+{event_message_channel}\n\n
+
+Variable Name: Reacted Message Channel\n\n
+
+Description: The channel in which the reacted message is located.\n\n
+
+
+
+{event_message_channel}\n\n
+
+Variable Name: Reaction Removed Message Channel\n\n
+
+Description: The channel in which the message from which the reaction was removed is located.\n\n
+
+
+
+{event_message_content}\n\n
+
+Variable Name: Deleted Message Content\n\n
+
+Description: The content of the deleted message (message deleted event).\n\n
+
+
+
+{event_message_content}\n\n
+
+Variable Name: event message content\n\n
+
+Description: Get the content of the message that triggered the event.\n\n
+
+
+
+{event_message_content}\n\n
+
+Variable Name: Message Content\n\n
+
+Description: The content of the message sent (message sent event).\n\n
+
+
+
+{event_message_content}\n\n
+
+Variable Name: Reacted Message Content\n\n
+
+Description: The content of the message that was reacted to.\n\n
+
+
+
+{event_message_content}\n\n
+
+Variable Name: Reaction Removed Message Content\n\n
+
+Description: The content of the message from which the reaction was removed.\n\n
+
+
+
+{event_message_createdAt}\n\n
+
+Variable Name: Deleted Message Created At\n\n
+
+Description: The timestamp when the deleted message was originally created (message deleted event).\n\n
+
+
+
+{event_message_createdAt}\n\n
+
+Variable Name: event message created at\n\n
+
+Description: Get the timestamp of when the message was created.\n\n
+
+
+
+{event_message_createdAt}\n\n
+
+Variable Name: Message Created At\n\n
+
+Description: The timestamp when the message was created (message sent event).\n\n
+
+
+
+{event_message_createdAt}\n\n
+
+Variable Name: Message Created At\n\n
+
+Description: The timestamp when the message was edited (message edited event).\n\n
+
+
+
+{event_message_createdAt}\n\n
+
+Variable Name: Reacted Message Created At\n\n
+
+Description: The timestamp when the reacted message was created.\n\n
+
+
+
+{event_message_createdAt}\n\n
+
+Variable Name: Reaction Removed Message Created At\n\n
+
+Description: The timestamp when the message from which the reaction was removed was created.\n\n
+
+
+
+{event_message_id}\n\n
+
+Variable Name: Deleted Message ID\n\n
+
+Description: The ID of the deleted message (message deleted event).\n\n
+
+
+
+{event_message_id}\n\n
+
+Variable Name: Edited Message ID\n\n
+
+Description: The ID of the edited message (message edited event).\n\n
+
+
+
+{event_message_id}\n\n
+
+Variable Name: event message id\n\n
+
+Description: Get the message id of the message that triggered the event.\n\n
+
+
+
+{event_message_id}\n\n
+
+Variable Name: Message ID\n\n
+
+Description: The ID of the message sent (message sent event).\n\n
+
+
+
+{event_message_id}\n\n
+
+Variable Name: Reacted Message ID\n\n
+
+Description: The ID of the message that was reacted to.\n\n
+
+
+
+{event_message_id}\n\n
+
+Variable Name: Reaction Removed Message ID\n\n
+
+Description: The ID of the message from which the reaction was removed.\n\n
+
+
+
+{event_name}\n\n
+
+Variable Name: event name\n\n
+
+Description: The name of the scheduled event.\n\n
+
+
+
+{event_new_channel_full}\n\n
+
+Variable Name: New Voice Channel Full\n\n
+
+Description: Indicates if the new voice channel is full (true/false).\n\n
+
+
+
+{event_new_channel_id}\n\n
+
+Variable Name: New Voice Channel ID\n\n
+
+Description: The ID of the voice channel the user switched to.\n\n
+
+
+
+{event_new_channel_name}\n\n
+
+Variable Name: New Voice Channel Name\n\n
+
+Description: The name of the voice channel the user switched to.\n\n
+
+
+
+{event_new_channel_parent_id}\n\n
+
+Variable Name: New Voice Channel Parent ID\n\n
+
+Description: The ID of the parent channel of the voice channel the user switched to.\n\n
+
+
+
+{event_new_channel_user_limit}\n\n
+
+Variable Name: New Voice Channel User Limit\n\n
+
+Description: The user limit of the voice channel the user switched to.\n\n
+
+
+
+{event_new_discriminator}\n\n
+
+Variable Name: New Discriminator\n\n
+
+Description: New discriminator of the user updated (custom event).\n\n
+
+
+
+{event_new_nickname}\n\n
+
+Variable Name: New Nickname\n\n
+
+Description: New nickname of the user updated (custom event).\n\n
+
+
+
+{event_new_roles}\n\n
+
+Variable Name: New Roles\n\n
+
+Description: New roles of the user updated (custom event).\n\n
+
+
+
+{event_new_status}\n\n
+
+Variable Name: New Status\n\n
+
+Description: New status of the user that triggered the event (custom event).\n\n
+
+
+
+{event_newChannel_category_id}\n\n
+
+Variable Name: New Channel Category ID\n\n
+
+Description: ID of the category under which the new channel is after the update (custom event).\n\n
+
+
+
+{event_newChannel_createdAt}\n\n
+
+Variable Name: New Channel Created At\n\n
+
+Description: Timestamp when the new channel was created (custom event).\n\n
+
+
+
+{event_newChannel_id}\n\n
+
+Variable Name: New Channel ID\n\n
+
+Description: ID of the new channel after the update (custom event).\n\n
+
+
+
+{event_newChannel_name}\n\n
+
+Variable Name: New Channel Name\n\n
+
+Description: Name of the new channel after the update (custom event).\n\n
+
+
+
+{event_newChannel_type}\n\n
+
+Variable Name: New Channel Type\n\n
+
+Description: Type of the new channel after the update (e.g., text, voice) (custom event).\n\n
+
+
+
+{event_newLevel}\n\n
+
+Variable Name: event new level\n\n
+
+Description: The new server boost level after the decrease/increase.\n\n
+
+
+
+{event_newMessage_content}\n\n
+
+Variable Name: New Message Content\n\n
+
+Description: The content of the message after it was edited (message edited event).\n\n
+
+
+
+{event_old_channel_full}\n\n
+
+Variable Name: Old Voice Channel Full\n\n
+
+Description: Indicates if the old voice channel was full (true/false).\n\n
+
+
+
+{event_old_channel_id}\n\n
+
+Variable Name: Old Voice Channel ID\n\n
+
+Description: The ID of the voice channel the user switched from.\n\n
+
+
+
+{event_old_channel_name}\n\n
+
+Variable Name: Old Voice Channel Name\n\n
+
+Description: The name of the voice channel the user switched from.\n\n
+
+
+
+{event_old_channel_parent_id}\n\n
+
+Variable Name: Old Voice Channel Parent ID\n\n
+
+Description: The ID of the parent channel of the voice channel the user switched from.\n\n
+
+
+
+{event_old_channel_user_limit}\n\n
+
+Variable Name: Old Voice Channel User Limit\n\n
+
+Description: The user limit of the voice channel the user switched from.\n\n
+
+
+
+{event_old_discriminator}\n\n
+
+Variable Name: Old Discriminator\n\n
+
+Description: Old discriminator of the user updated (custom event).\n\n
+
+
+
+{event_old_nickname}\n\n
+
+Variable Name: Old Nickname\n\n
+
+Description: Old nickname of the user updated (custom event).\n\n
+
+
+
+{event_old_roles}\n\n
+
+Variable Name: Old Roles\n\n
+
+Description: Old roles of the user updated (custom event).\n\n
+
+
+
+{event_old_status}\n\n
+
+Variable Name: Old Status\n\n
+
+Description: Old status of the user that triggered the event (custom event).\n\n
+
+
+
+{event_oldChannel_category_id}\n\n
+
+Variable Name: Old Channel Category ID\n\n
+
+Description: ID of the category under which the old channel was before the update (custom event).\n\n
+
+
+
+{event_oldChannel_createdAt}\n\n
+
+Variable Name: Old Channel Created At\n\n
+
+Description: Timestamp when the old channel was created (custom event).\n\n
+
+
+
+{event_oldChannel_id}\n\n
+
+Variable Name: Old Channel ID\n\n
+
+Description: ID of the old channel before the update (custom event).\n\n
+
+
+
+{event_oldChannel_name}\n\n
+
+Variable Name: Old Channel Name\n\n
+
+Description: Name of the old channel before the update (custom event).\n\n
+
+
+
+{event_oldChannel_type}\n\n
+
+Variable Name: Old Channel Type\n\n
+
+Description: Type of the old channel before the update (e.g., text, voice) (custom event).\n\n
+
+
+
+{event_oldLevel}\n\n
+
+Variable Name: event old level\n\n
+
+Description: The server boost level before the decrease/increase.\n\n
+
+
+
+{event_oldMessage_content}\n\n
+
+Variable Name: Old Message Content\n\n
+
+Description: The content of the message before it was edited (message edited event).\n\n
+
+
+
+{event_parent_channel_id}\n\n
+
+Variable Name: Deleted Thread Parent Channel ID\n\n
+
+Description: The ID of the parent channel of the deleted thread (custom event).\n\n
+
+
+
+{event_parent_channel_id}\n\n
+
+Variable Name: event parent channel id\n\n
+
+Description: The id of the channel that thread is associated with.\n\n
+
+
+
+{event_parent_channel_id}\n\n
+
+Variable Name: Thread Parent Channel ID\n\n
+
+Description: The ID of the parent channel of the thread (custom event).\n\n
+
+
+
+{event_poll_answer_emoji}\n\n
+
+Variable Name: event poll answer emoji\n\n
+
+Description: The emoji associated with the answer in the event poll.\n\n
+
+
+
+{event_poll_answer_id}\n\n
+
+Variable Name: event poll answer id\n\n
+
+Description: The unique identifier of the answer in the event poll.\n\n
+
+
+
+{event_poll_answer_text}\n\n
+
+Variable Name: event poll answer text\n\n
+
+Description: The text of the answer in the event poll.\n\n
+
+
+
+{event_poll_answer_vote_count}\n\n
+
+Variable Name: event poll answer vote count\n\n
+
+Description: The number of votes the answer has received in the event poll.\n\n
+
+
+
+{event_reaction_count}\n\n
+
+Variable Name: event reaction count\n\n
+
+Description: The number of reactions added.\n\n
+
+
+
+{event_reaction_emoji_id}\n\n
+
+Variable Name: event reaction emoji id\n\n
+
+Description: The ID of the added emote reaction.\n\n
+
+
+
+{event_reaction_emoji_name}\n\n
+
+Variable Name: event reaction emoji name\n\n
+
+Description: The name of the added emote reaction.\n\n
+
+
+
+{event_reaction_emoji}\n\n
+
+Variable Name: event reaction emoji\n\n
+
+Description: The emote added as a reaction.\n\n
+
+
+
+{event_reason}\n\n
+
+Variable Name: Reason\n\n
+
+Description: Reason the user banned from the server (custom event).\n\n
+
+
+
+{event_role_hex_color}\n\n
+
+Variable Name: Created Role Hex Color\n\n
+
+Description: The hex color of the created role (role created event).\n\n
+
+
+
+{event_role_hex_color}\n\n
+
+Variable Name: Deleted Role Hex Color\n\n
+
+Description: The hex color of the deleted role (role deleted event).\n\n
+
+
+
+{event_role_hoisted}\n\n
+
+Variable Name: Created Role Hoisted\n\n
+
+Description: Indicates if the created role is hoisted (displayed separately in the member list) (role created event).\n\n
+
+
+
+{event_role_hoisted}\n\n
+
+Variable Name: Deleted Role Hoisted\n\n
+
+Description: Indicates if the deleted role was hoisted (displayed separately in the member list) (role deleted event).\n\n
+
+
+
+{event_role_iconURL}\n\n
+
+Variable Name: Created Role Icon URL\n\n
+
+Description: The icon URL of the created role (role created event).\n\n
+
+
+
+{event_role_iconURL}\n\n
+
+Variable Name: Deleted Role Icon URL\n\n
+
+Description: The icon URL of the deleted role (role deleted event).\n\n
+
+
+
+{event_role_id}\n\n
+
+Variable Name: Created Role ID\n\n
+
+Description: The ID of the created role (role created event).\n\n
+
+
+
+{event_role_id}\n\n
+
+Variable Name: Deleted Role ID\n\n
+
+Description: The ID of the deleted role (role deleted event).\n\n
+
+
+
+{event_role_id}\n\n
+
+Variable Name: Role ID\n\n
+
+Description: ID of the role added/removed to the user (custom event).\n\n
+
+
+
+{event_role_id}\n\n
+
+Variable Name: Updated Role ID\n\n
+
+Description: The ID of the updated role (role updated event).\n\n
+
+
+
+{event_role_name}\n\n
+
+Variable Name: Created Role Name\n\n
+
+Description: The name of the created role (role created event).\n\n
+
+
+
+{event_role_name}\n\n
+
+Variable Name: Deleted Role Name\n\n
+
+Description: The name of the deleted role (role deleted event).\n\n
+
+
+
+{event_role_name}\n\n
+
+Variable Name: Role Name\n\n
+
+Description: Name of the role added/removed to the user (custom event).\n\n
+
+
+
+{event_role_newColor}\n\n
+
+Variable Name: Updated Role New Color\n\n
+
+Description: The new color of the updated role (role updated event).\n\n
+
+
+
+{event_role_newHoisted}\n\n
+
+Variable Name: Updated Role New Hoisted\n\n
+
+Description: Indicates if the role is newly hoisted (displayed separately in the member list) (role updated event).\n\n
+
+
+
+{event_role_newIconURL}\n\n
+
+Variable Name: Updated Role New Icon URL\n\n
+
+Description: The new icon URL of the updated role (role updated event).\n\n
+
+
+
+{event_role_newName}\n\n
+
+Variable Name: Updated Role New Name\n\n
+
+Description: The new name of the updated role (role updated event).\n\n
+
+
+
+{event_role_oldColor}\n\n
+
+Variable Name: Updated Role Old Color\n\n
+
+Description: The old color of the updated role (role updated event).\n\n
+
+
+
+{event_role_oldHoisted}\n\n
+
+Variable Name: Updated Role Old Hoisted\n\n
+
+Description: Indicates if the role was previously hoisted (displayed separately in the member list) (role updated event).\n\n
+
+
+
+{event_role_oldIconURL}\n\n
+
+Variable Name: Updated Role Old Icon URL\n\n
+
+Description: The old icon URL of the updated role (role updated event).\n\n
+
+
+
+{event_role_oldName}\n\n
+
+Variable Name: Updated Role Old Name\n\n
+
+Description: The old name of the updated role (role updated event).\n\n
+
+
+
+{event_role}\n\n
+
+Variable Name: Created Role\n\n
+
+Description: The role that was created (role created event).\n\n
+
+
+
+{event_role}\n\n
+
+Variable Name: Deleted Role\n\n
+
+Description: The role that was deleted (role deleted event).\n\n
+
+
+
+{event_role}\n\n
+
+Variable Name: Role\n\n
+
+Description: Role added/removed to the user (custom event).\n\n
+
+
+
+{event_role}\n\n
+
+Variable Name: Updated Role\n\n
+
+Description: The role that was updated (role updated event).\n\n
+
+
+
+{event_scheduledEndTimestamp}\n\n
+
+Variable Name: event scheduled end timestamp\n\n
+
+Description: The timestamp of the scheduled end time for the event.\n\n
+
+
+
+{event_status}\n\n
+
+Variable Name: event status\n\n
+
+Description: The current status of the scheduled event (e.g., scheduled, active, completed, canceled).\n\n
+
+
+
+{event_thread_createdTimestamp}\n\n
+
+Variable Name: Deleted Thread Created Timestamp\n\n
+
+Description: The creation timestamp of the deleted thread (custom event).\n\n
+
+
+
+{event_thread_createdTimestamp}\n\n
+
+Variable Name: Thread Created Timestamp\n\n
+
+Description: The creation timestamp of the thread (custom event).\n\n
+
+
+
+{event_thread_id}\n\n
+
+Variable Name: Deleted Thread ID\n\n
+
+Description: The ID of the deleted thread (custom event).\n\n
+
+
+
+{event_thread_id}\n\n
+
+Variable Name: event thread id\n\n
+
+Description: The id of the thread that was updated.\n\n
+
+
+
+{event_thread_id}\n\n
+
+Variable Name: Thread ID\n\n
+
+Description: The ID of the thread (custom event).\n\n
+
+
+
+{event_thread_id}\n\n
+
+Variable Name: Updated Thread ID\n\n
+
+Description: The ID of the thread (updated thread event).\n\n
+
+
+
+{event_thread_name}\n\n
+
+Variable Name: Deleted Thread Name\n\n
+
+Description: The name of the deleted thread (custom event).\n\n
+
+
+
+{event_thread_name}\n\n
+
+Variable Name: Thread Name\n\n
+
+Description: The name of the thread (custom event).\n\n
+
+
+
+{event_url}\n\n
+
+Variable Name: event url\n\n
+
+Description: The URL associated with the scheduled event.\n\n
+
+
+
+{event_user_avatar}\n\n
+
+Variable Name: Boosting User Avatar\n\n
+
+Description: The avatar of the user who boosted the server for the first time.\n\n
+
+
+
+{event_user_avatar}\n\n
+
+Variable Name: event user avatar\n\n
+
+Description: The avatar of the user that triggered the event (custom event).\n\n
+
+
+
+{event_user_avatar}\n\n
+
+Variable Name: Reaction Added User Avatar\n\n
+
+Description: The avatar of the user who added the reaction.\n\n
+
+
+
+{event_user_avatar}\n\n
+
+Variable Name: Reaction Removed User Avatar\n\n
+
+Description: The avatar of the user who removed the reaction.\n\n
+
+
+
+{event_user_avatar}\n\n
+
+Variable Name: Unboosting User Avatar\n\n
+
+Description: The avatar of the user who unboosted the server.\n\n
+
+
+
+{event_user_display_name}\n\n
+
+Variable Name: Boosting User Display Name\n\n
+
+Description: The display name of the user who boosted the server for the first time.\n\n
+
+
+
+{event_user_display_name}\n\n
+
+Variable Name: event user display name\n\n
+
+Description: The display name of the user that triggered the event (custom event).\n\n
+
+
+
+{event_user_display_name}\n\n
+
+Variable Name: Unboosting User Display Name\n\n
+
+Description: The display name of the user who unboosted the server.\n\n
+
+
+
+{event_user_display_name}\n\n
+
+Variable Name: User Joined Voice Channel Display Name\n\n
+
+Description: The display name of the user who joined the voice channel.\n\n
+
+
+
+{event_user_display_name}\n\n
+
+Variable Name: User Left Voice Channel Display Name\n\n
+
+Description: The display name of the user who left the voice channel.\n\n
+
+
+
+{event_user_display_name}\n\n
+
+Variable Name: User Switch Voice Channel Display Name\n\n
+
+Description: The display name of the user who switched voice channels.\n\n
+
+
+
+{event_user_id}\n\n
+
+Variable Name: Boosting User ID\n\n
+
+Description: The ID of the user who boosted the server for the first time.\n\n
+
+
+
+{event_user_id}\n\n
+
+Variable Name: event user id\n\n
+
+Description: The ID of the user that triggered the event (custom event).\n\n
+
+
+
+{event_user_id}\n\n
+
+Variable Name: Reaction Added User ID\n\n
+
+Description: The ID of the user who added the reaction.\n\n
+
+
+
+{event_user_id}\n\n
+
+Variable Name: Reaction Removed User ID\n\n
+
+Description: The ID of the user who removed the reaction.\n\n
+
+
+
+{event_user_id}\n\n
+
+Variable Name: Unboosting User ID\n\n
+
+Description: The ID of the user who unboosted the server.\n\n
+
+
+
+{event_user_id}\n\n
+
+Variable Name: User Joined Voice Channel ID\n\n
+
+Description: The ID of the user who joined the voice channel.\n\n
+
+
+
+{event_user_id}\n\n
+
+Variable Name: User Left Voice Channel ID\n\n
+
+Description: The ID of the user who left the voice channel.\n\n
+
+
+
+{event_user_id}\n\n
+
+Variable Name: User Switch Voice Channel ID\n\n
+
+Description: The ID of the user who switched voice channels.\n\n
+
+
+
+{event_user_name}\n\n
+
+Variable Name: Boosting User Name\n\n
+
+Description: The name of the user who boosted the server for the first time.\n\n
+
+
+
+{event_user_name}\n\n
+
+Variable Name: event user name\n\n
+
+Description: Get the user name of the user that triggered the event.\n\n
+
+
+
+{event_user_name}\n\n
+
+Variable Name: Reaction Added User Name\n\n
+
+Description: The name of the user who added the reaction.\n\n
+
+
+
+{event_user_name}\n\n
+
+Variable Name: Reaction Removed User Name\n\n
+
+Description: The name of the user who removed the reaction.\n\n
+
+
+
+{event_user_name}\n\n
+
+Variable Name: Unboosting User Name\n\n
+
+Description: The name of the user who unboosted the server.\n\n
+
+
+
+{event_user_name}\n\n
+
+Variable Name: User Joined Voice Channel Name\n\n
+
+Description: The name of the user who joined the voice channel.\n\n
+
+
+
+{event_user_name}\n\n
+
+Variable Name: User Left Voice Channel Name\n\n
+
+Description: The name of the user who left the voice channel.\n\n
+
+
+
+{event_user_name}\n\n
+
+Variable Name: User Switch Voice Channel Name\n\n
+
+Description: The name of the user who switched voice channels.\n\n
+
+
+
+{event_user_tag}\n\n
+
+Variable Name: Boosting User Tag\n\n
+
+Description: The tag of the user who boosted the server for the first time.\n\n
+
+
+
+{event_user_tag}\n\n
+
+Variable Name: event user tag\n\n
+
+Description: Get the tag of the user that triggered the event.\n\n
+
+
+
+{event_user_tag}\n\n
+
+Variable Name: Reaction Added User Tag\n\n
+
+Description: The tag of the user who added the reaction.\n\n
+
+
+
+{event_user_tag}\n\n
+
+Variable Name: Reaction Removed User Tag\n\n
+
+Description: The tag of the user who removed the reaction.\n\n
+
+
+
+{event_user_tag}\n\n
+
+Variable Name: Unboosting User Tag\n\n
+
+Description: The tag of the user who unboosted the server.\n\n
+
+
+
+{event_variable_id}\n\n
+
+Variable Name: event variable id\n\n
+
+Description: The associated ID of the variable (user id, channel id, etc).\n\n
+
+
+
+{event_variable_id}\n\n
+
+Variable Name: Variable ID\n\n
+
+Description: The ID of the custom variable whose value was changed.\n\n
+
+
+
+{event_variable_name}\n\n
+
+Variable Name: event variable name\n\n
+
+Description: The name of the variable.\n\n
+
+
+
+{event_variable_name}\n\n
+
+Variable Name: Variable Name\n\n
+
+Description: The name of the custom variable whose value was changed.\n\n
+
+
+
+{event_variable_new_value}\n\n
+
+Variable Name: event new variable value\n\n
+
+Description: The updated value of the variable.\n\n
+
+
+
+{event_variable_new_value}\n\n
+
+Variable Name: New Variable Value\n\n
+
+Description: The new value of the custom variable after it was changed.\n\n
+
+
+
+{event_variable_old_value}\n\n
+
+Variable Name: event old variable value\n\n
+
+Description: The original value of the variable.\n\n
+
+
+
+{event_variable_old_value}\n\n
+
+Variable Name: Old Variable Value\n\n
+
+Description: The old value of the custom variable before it was changed.\n\n
+
+
+
+{event_variable_reference}\n\n
+
+Variable Name: event variable reference\n\n
+
+Description: The current value of the variable (also new).\n\n
+
+
+
+{event_variable_reference}\n\n
+
+Variable Name: Variable Reference\n\n
+
+Description: A reference related to the custom variable whose value was changed.\n\n
+
+
+
+{first_channel_id}\n\n
+
+Variable Name: first channel id\n\n
+
+Description: Returns the first channel id of the server.\n\n
+
+
+
+{getAverage(BGVAR_user_number)}\n\n
+
+Variable Name: Average Value\n\n
+
+Description: The average value of a user number variable\n\n
+
+
+
+{getAverage(BGVAR_variable)}\n\n
+
+Variable Name: average value\n\n
+
+Description: Get the average across users of a particular variable.\n\n
+
+
+
+{getHighestUser(BGVAR_user_number)[1]}\n\n
+
+Variable Name: Highest User\n\n
+
+Description: The highest user of a user number variable\n\n
+
+
+
+{getHighestUser(BGVAR_variable)[1]}\n\n
+
+Variable Name: highest user\n\n
+
+Description: Get the user with the highest value of a particular variable. Use the number [1] to formulate leaderboards!\n\n
+
+
+
+{getHighestValue(BGVAR_user_number)[1]}\n\n
+
+Variable Name: Highest Value\n\n
+
+Description: The highest value of a user number variable\n\n
+
+
+
+{getHighestValue(BGVAR_variable)[1]}\n\n
+
+Variable Name: highest value\n\n
+
+Description: Get the highest value of a particular variable associated with the highest user.\n\n
+
+
+
+{getLowestUser(BGVAR_user_number)[1]}\n\n
+
+Variable Name: Lowest User\n\n
+
+Description: The lowest user of a user number variable\n\n
+
+
+
+{getLowestUser(BGVAR_variable)[1]}\n\n
+
+Variable Name: lowest user\n\n
+
+Description: Get the user with the lowest value of a particular variable.\n\n
+
+
+
+{getLowestValue(BGVAR_user_number)[1]}\n\n
+
+Variable Name: Lowest Value\n\n
+
+Description: The lowest value of a user number variable\n\n
+
+
+
+{getLowestValue(BGVAR_variable)[1]}\n\n
+
+Variable Name: lowest value\n\n
+
+Description: Get the lowest value of a particular variable associated with the lowest user.\n\n
+
+
+
+{getRandomFromCollection({array})}\n\n
+
+Variable Name: random collection entry\n\n
+
+Description: A randomized entry within the collection.\n\n
+
+
+
+{getRandomFromCollection({BGVAR_collection_variable})}\n\n
+
+Variable Name: Random Value from BGVAR Collection\n\n
+
+Description: Returns a random value from the collection variable.\n\n
+
+
+
+{getRankOfUser(BGVAR_user_number)}\n\n
+
+Variable Name: Rank of User\n\n
+
+Description: The rank of the user user number variable\n\n
+
+
+
+{getRankOfUser(BGVAR_variable)[option_user]}\n\n
+
+Variable Name: rank of specified user\n\n
+
+Description: Get the rank of an option user.\n\n
+
+
+
+{getRankOfUser(BGVAR_variable)}\n\n
+
+Variable Name: user rank\n\n
+
+Description: Get the rank of the user interacting for a particular variable.\n\n
+
+
+
+{hasRole([ROLE_ARRAY]),[{user_id[option_user]}]}\n\n
+
+Variable Name: specific user role check has role user option\n\n
+
+Description: Confirm if a specified has a role or not. Returns true or false.\n\n
+
+
+
+{hasRole([ROLE_ARRAY])}\n\n
+
+Variable Name: Has Role\n\n
+
+Description: Returns true or false if the user has a role in the role array.\n\n
+
+
+
+{HEX_to_DECIMAL[HEX]}\n\n
+
+Variable Name: HEX to Decimal\n\n
+
+Description: Converts a Hex number to a Decimal number.\n\n
+
+
+
+{highestValue({array})}\n\n
+
+Variable Name: highest value in collection\n\n
+
+Description: The highest value within the collection.\n\n
+
+
+
+{highestValue({BGVAR_collection_variable})}\n\n
+
+Variable Name: Highest Value in BGVAR Collection\n\n
+
+Description: Returns the highest value in the collection variable.\n\n
+
+
+
+{ifttt_variable1}\n\n
+
+Variable Name: IFTTT Variable 1\n\n
+
+Description: The first IFTTT variable. You can customize the number of variables from 1 to 10.\n\n
+
+
+
+{ifttt_variable10}\n\n
+
+Variable Name: IFTTT Variable 10\n\n
+
+Description: The tenth IFTTT variable. You can customize the number of variables from 1 to 10.\n\n
+
+
+
+{ifttt_variable2}\n\n
+
+Variable Name: IFTTT Variable 2\n\n
+
+Description: The second IFTTT variable. You can customize the number of variables from 1 to 10.\n\n
+
+
+
+{ifttt_variable3}\n\n
+
+Variable Name: IFTTT Variable 3\n\n
+
+Description: The third IFTTT variable. You can customize the number of variables from 1 to 10.\n\n
+
+
+
+{ifttt_variable4}\n\n
+
+Variable Name: IFTTT Variable 4\n\n
+
+Description: The fourth IFTTT variable. You can customize the number of variables from 1 to 10.\n\n
+
+
+
+{ifttt_variable5}\n\n
+
+Variable Name: IFTTT Variable 5\n\n
+
+Description: The fifth IFTTT variable. You can customize the number of variables from 1 to 10.\n\n
+
+
+
+{ifttt_variable6}\n\n
+
+Variable Name: IFTTT Variable 6\n\n
+
+Description: The sixth IFTTT variable. You can customize the number of variables from 1 to 10.\n\n
+
+
+
+{ifttt_variable7}\n\n
+
+Variable Name: IFTTT Variable 7\n\n
+
+Description: The seventh IFTTT variable. You can customize the number of variables from 1 to 10.\n\n
+
+
+
+{ifttt_variable8}\n\n
+
+Variable Name: IFTTT Variable 8\n\n
+
+Description: The eighth IFTTT variable. You can customize the number of variables from 1 to 10.\n\n
+
+
+
+{ifttt_variable9}\n\n
+
+Variable Name: IFTTT Variable 9\n\n
+
+Description: The ninth IFTTT variable. You can customize the number of variables from 1 to 10.\n\n
+
+
+
+{interaction_custom_id}\n\n
+
+Variable Name: interaction custom id\n\n
+
+Description: Returns the custom ID of the interaction. This unique identifier is used to distinguish between different interactions, such as buttons or select menus, in your application.\n\n
+
+
+
+{interaction_id}\n\n
+
+Variable Name: Interaction ID\n\n
+
+Description: ID of the interaction\n\n
+
+
+
+{interaction_token}\n\n
+
+Variable Name: Interaction Token\n\n
+
+Description: Continuation token for responding to the interaction\n\n
+
+
+
+{invite_code}\n\n
+
+Variable Name: invite code\n\n
+
+Description: The unique code of the invite.\n\n
+
+
+
+{invite_created_at}\n\n
+
+Variable Name: invite created at\n\n
+
+Description: The timestamp of when the invite was created.\n\n
+
+
+
+{invite_expires_at}\n\n
+
+Variable Name: invite expires at\n\n
+
+Description: The timestamp of when the invite will expire.\n\n
+
+
+
+{invite_max_age}\n\n
+
+Variable Name: invite max age\n\n
+
+Description: The maximum age of the invite before it expires.\n\n
+
+
+
+{invite_max_uses}\n\n
+
+Variable Name: invite max uses\n\n
+
+Description: The maximum number of times the invite can be used.\n\n
+
+
+
+{invite_url}\n\n
+
+Variable Name: invite url\n\n
+
+Description: The URL of the invite.\n\n
+
+
+
+{invite_uses}\n\n
+
+Variable Name: invite uses\n\n
+
+Description: The number of times the invite has been used.\n\n
+
+
+
+{isBot}\n\n
+
+Variable Name: is bot\n\n
+
+Description: Returns if the given user is a bot or not. (Returns true or false)\n\n
+
+
+
+{isChannel([CHANNEL_ARRAY])}\n\n
+
+Variable Name: Is Channel\n\n
+
+Description: Returns true or false if the channel is in the channel array.\n\n
+
+
+
+{isNumber(10)}\n\n
+
+Variable Name: is number\n\n
+
+Description: Checks if the given value is a number. Returns true or false.\n\n
+
+
+
+{ISO_to_UNIX[Timestamp]}\n\n
+
+Variable Name: ISO to UNIX\n\n
+
+Description: Converts an ISO timestamp to UNIX. ISO is yearmonthday or year-month-day.\n\n
+
+
+
+{lengthOfCollection({array})}\n\n
+
+Variable Name: collection length\n\n
+
+Description: The total number of entries in the collection.\n\n
+
+
+
+{lengthOfCollection({BGVAR_collection_variable})}\n\n
+
+Variable Name: Length of BGVAR Collection\n\n
+
+Description: Returns the length of the collection variable.\n\n
+
+
+
+{loop_count}\n\n
+
+Variable Name: loop count\n\n
+
+Description: Returns the current loop count. Starts at 1.\n\n
+
+
+
+{loop_index}\n\n
+
+Variable Name: loop index\n\n
+
+Description: Returns the current loop index. Starts at 0 and is useful for positions in collections.\n\n
+
+
+
+{lowestValue({array})}\n\n
+
+Variable Name: highest value in collection\n\n
+
+Description: The highest value within the collection.\n\n
+
+
+
+{lowestValue({BGVAR_collection_variable})}\n\n
+
+Variable Name: Lowest Value in BGVAR Collection\n\n
+
+Description: Returns the lowest value in the collection variable.\n\n
+
+
+
+{new_event_thread_name}\n\n
+
+Variable Name: New Thread Name\n\n
+
+Description: The new name of the thread after the update (updated thread event).\n\n
+
+
+
+{new_thread_archived}\n\n
+
+Variable Name: New Thread Archived\n\n
+
+Description: Indicates if the thread is archived after the update (true/false) (updated thread event).\n\n
+
+
+
+{new_thread_locked}\n\n
+
+Variable Name: New Thread Locked\n\n
+
+Description: Indicates if the thread is locked after the update (true/false) (updated thread event).\n\n
+
+
+
+{new_thread}\n\n
+
+Variable Name: Is the thread new?\n\n
+
+Description: Indicates if the thread is new (true/false).\n\n
+
+
+
+{old_event_thread_name}\n\n
+
+Variable Name: old event thread Name\n\n
+
+Description: The old name of the thread before the update (updated thread event).\n\n
+
+
+
+{old_thread_archived}\n\n
+
+Variable Name: Old Thread Archived\n\n
+
+Description: Indicates if the thread was archived before the update (true/false) (updated thread event).\n\n
+
+
+
+{old_thread_locked}\n\n
+
+Variable Name: Old Thread Locked\n\n
+
+Description: Indicates if the thread was locked before the update (true/false) (updated thread event).\n\n
+
+
+
+{positionOfValue({array}),[hello]}\n\n
+
+Variable Name: position of value\n\n
+
+Description: The position of a particular value within the collection.\n\n
+
+
+
+{positionOfValue({BGVAR_collection_variable}),[dog]}\n\n
+
+Variable Name: Position of Value in BGVAR Collection\n\n
+
+Description: Returns the position of the specified value in the collection variable.\n\n
+
+
+
+{previous_numbers(10)}\n\n
+
+Variable Name: previous numbers\n\n
+
+Description: Provides the previous number from the provided digit.\n\n
+
+
+
+{printAllValues({BGVAR_collection_variable}),[Hello $value $index]}\n\n
+
+Variable Name: Print All Values from BGVAR Collection\n\n
+
+Description: Prints all values from the collection variable with a custom format.\n\n
+
+
+
+{printAllValues({BGVAR_variable}),[$value\n]}\n\n
+
+Variable Name: print all values newline\n\n
+
+Description: Print all values with each on a new line.\n\n
+
+
+
+{random[min,max]}\n\n
+
+Variable Name: random number\n\n
+
+Description: Return a random number between a min and a max.\n\n
+
+
+
+{randomCharacters(10)}\n\n
+
+Variable Name: random characters\n\n
+
+Description: Return a random string of characters equal in length to your input.\n\n
+
+
+
+{role_id[option_role]}\n\n
+
+Variable Name: role_id option_role\n\n
+
+Description: Returns the ID of the role specified in the option_role.\n\n
+
+
+
+{server_icon}\n\n
+
+Variable Name: server icon\n\n
+
+Description: Return the icon of the current guild (server).\n\n
+
+
+
+{server_id}\n\n
+
+Variable Name: server id\n\n
+
+Description: Get the server id of the current server.\n\n
+
+
+
+{server_members}\n\n
+
+Variable Name: server members\n\n
+
+Description: Return the member count of the current guild (server).\n\n
+
+
+
+{server_owner_id}\n\n
+
+Variable Name: server owner id\n\n
+
+Description: Returns the user id who owns the guild (server).\n\n
+
+
+
+{server_owner}\n\n
+
+Variable Name: server owner\n\n
+
+Description: Mention the owner of the server.\n\n
+
+
+
+{server}\n\n
+
+Variable Name: server\n\n
+
+Description: Get the name of the Discord Server the command was triggered in.\n\n
+
+
+
+{solve_equation[{BGVAR_variable}+1]}\n\n
+
+Variable Name: solve variable equation\n\n
+
+Description: Solve an equation with a variable.\n\n
+
+
+
+{solve_equation[1+1]}\n\n
+
+Variable Name: solve equation\n\n
+
+Description: Calculates mathematical expressions in square brackets. Supports basic operations (+,-,*,/), advanced functions, decimals, and parentheses. Example: {solve_equation[55+10/2]} = 60. Follows standard order of operations (PEMDAS).\n\n
+
+
+
+{solve_equation[abs(48)]}\n\n
+
+Variable Name: abs\n\n
+
+Description: Returns absolute (positive) value of a number. Example: abs(-48) = abs(48) = 48. Used for calculations where sign doesnt matter, like distances or sizes. Works with decimals.\n\n
+
+
+
+{solve_equation[atan(1)]}\n\n
+
+Variable Name: atan\n\n
+
+Description: Calculates inverse tangent (arctangent), returns angle in radians. Example: atan(1) ≈ 0.785 radians (45 degrees). Results always between -π/2 and π/2. Used for finding angles from ratios.\n\n
+
+
+
+{solve_equation[ceil({variablet}0.25)]}\n\n
+
+Variable Name: ceil variable\n\n
+
+Description: Multiplies variable by 0.25 (25%) then rounds up to next integer. Example: for variablet=10, calculates 10*0.25=2.5, rounds to 3. Used for minimum resource calculations.\n\n
+
+
+
+{solve_equation[ceil(12.34839)]}\n\n
+
+Variable Name: ceil\n\n
+
+Description: Rounds any decimal up to next whole number. Example: ceil(12.34) = 13, ceil(-3.7) = -3. Useful for resource planning and inventory where you need extra capacity.\n\n
+
+
+
+{solve_equation[cos(1)]}\n\n
+
+Variable Name: cos\n\n
+
+Description: Cosine function for angle in radians, returns value between -1 and 1. Example: cos(1) ≈ 0.54. Used for waves, rotations, and periodic calculations.\n\n
+
+
+
+{solve_equation[cosh(1)]}\n\n
+
+Variable Name: cosh\n\n
+
+Description: Hyperbolic cosine function. Example: cosh(1) ≈ 1.54. Returns values ≥1. Used for modeling exponential growth with symmetry, like hanging chains.\n\n
+
+
+
+{solve_equation[exp(1)]}\n\n
+
+Variable Name: exp\n\n
+
+Description: Raises e (≈2.718) to given power. Example: exp(2) ≈ 7.389. Used for compound growth/decay calculations. Negative inputs give small positive results.\n\n
+
+
+
+{solve_equation[floor({variable}0.25)]}\n\n
+
+Variable Name: round down\n\n
+
+Description: Multiplies a number by 0.25 (25%) and rounds down to nearest integer. Example: 100*0.25=25, 99*0.25=24.75 rounds to 24. Useful for percentages and resource calculations.\n\n
+
+
+
+{solve_equation[floor(1+1)]}\n\n
+
+Variable Name: Solve Equation + Round Down\n\n
+
+Description: Solves the equation first, then rounds result down. Example: floor(5/2)=2.5 rounds to 2. Used for calculations needing whole numbers without rounding up.\n\n
+
+
+
+{solve_equation[floor(12.34839)]}\n\n
+
+Variable Name: floor\n\n
+
+Description: Rounds any number down to nearest integer. Example: floor(12.99) = 12, floor(-3.1) = -4. Useful for financial calculations and inventory management.\n\n
+
+
+
+{solve_equation[hypot(1,2,3,4)]}\n\n
+
+Variable Name: hypot\n\n
+
+Description: Calculates square root of sum of squares. Example: hypot(1,2,3,4) = √(1²+2²+3²+4²) = √30 ≈ 5.47. Used for distance calculations in multiple dimensions.\n\n
+
+
+
+{solve_equation[log(10)]}\n\n
+
+Variable Name: log\n\n
+
+Description: Natural logarithm function using base e (≈2.718). Example: log(10) ≈ 2.302. Used for exponential growth calculations. Only works with positive numbers.\n\n
+
+
+
+{solve_equation[log10(10)]}\n\n
+
+Variable Name: log10\n\n
+
+Description: Base-10 logarithm. Example: log10(100) = 2 because 10² = 100. Used for scale conversions and measuring magnitudes (pH, decibels, Richter).\n\n
+
+
+
+{solve_equation[max(10,11,12,23,99,80)]}\n\n
+
+Variable Name: max\n\n
+
+Description: Returns highest value from given numbers. Example: max(10,11,12,23,99,80) returns 99. Works with any number of inputs, including negatives and decimals.\n\n
+
+
+
+{solve_equation[min(10,11,12,23,99,80)]}\n\n
+
+Variable Name: min\n\n
+
+Description: Returns lowest value from given numbers. Example: min(10,11,12,23,99,80) returns 10. Works with any number of inputs, including negatives and decimals.\n\n
+
+
+
+{solve_equation[pow(2,22)]}\n\n
+
+Variable Name: pow\n\n
+
+Description: Raises first number to power of second number. Example: pow(2,3) = 8 (2×2×2). Works with negative and decimal exponents. pow(number,0) always returns 1.\n\n
+
+
+
+{solve_equation[random()]}\n\n
+
+Variable Name: random\n\n
+
+Description: Generates random number between 0 and 1. Example: random()*100 gives number between 0-100. Used for games, simulations, and random selections.\n\n
+
+
+
+{solve_equation[round(1+1)]}\n\n
+
+Variable Name: Solve Equation + Round Nearest\n\n
+
+Description: Solves equation then rounds to nearest whole number. Values ≥.5 round up, <.5 round down. Example: round(2.7+1.4)=4.1 rounds to 4.\n\n
+
+
+
+{solve_equation[round(12.34839)]}\n\n
+
+Variable Name: round\n\n
+
+Description: Rounds to nearest whole number using standard rules: ≥.5 up, <.5 down. Example: round(12.34)=12, round(12.51)=13. Works with negative numbers.\n\n
+
+
+
+{solve_equation[sign(-458)]}\n\n
+
+Variable Name: sign\n\n
+
+Description: Returns number polarity: 1 for positive, -1 for negative, 0 for zero. Example: sign(-458)=-1, sign(1000)=1. Used for direction and trend detection.\n\n
+
+
+
+{solve_equation[sin(1)]}\n\n
+
+Variable Name: sin\n\n
+
+Description: Sine function for angle in radians, returns value between -1 and 1. Example: sin(1) ≈ 0.841. Used for waves, circular motion, and periodic calculations.\n\n
+
+
+
+{solve_equation[sinh(1)]}\n\n
+
+Variable Name: sinh\n\n
+
+Description: Hyperbolic sine function. Example: sinh(1) ≈ 1.175. Used in physics and engineering for exponential calculations with symmetry around zero.\n\n
+
+
+
+{solve_equation[sqrt(81)]}\n\n
+
+Variable Name: sqrt\n\n
+
+Description: Square root function. Example: sqrt(81)=9 because 9×9=81. Cannot process negative numbers. Used for geometry and distance calculations.\n\n
+
+
+
+{solve_equation[tanh(1)]}\n\n
+
+Variable Name: tanh\n\n
+
+Description: Hyperbolic tangent, returns values between -1 and 1. Example: tanh(1) ≈ 0.762. Used in machine learning and signal processing.\n\n
+
+
+
+{solve_equation[trunc(-8.9)]}\n\n
+
+Variable Name: trunc\n\n
+
+Description: Removes decimal places without rounding. Example: trunc(-8.9)=-8, trunc(3.7)=3. Always moves toward zero. Used for simple decimal removal.\n\n
+
+
+
+{subString(Hello World),[0,5]}\n\n
+
+Variable Name: Returns a substring\n\n
+
+Description: Returns a substring of a supplied string.\n\n
+
+
+
+{time_ahead_h_HOURS}\n\n
+
+Variable Name: Hours ahead\n\n
+
+Description: Returns a discord formatted timestamp X hours ahead. Replace HOURS.\n\n
+
+
+
+{time_ahead_m_MINS}\n\n
+
+Variable Name: Minutes ahead\n\n
+
+Description: Returns a discord formatted timestamp X minutes ahead. Replace MINS.\n\n
+
+
+
+{time_ahead_unix_h_HOURS}\n\n
+
+Variable Name: Hours ahead (unix)\n\n
+
+Description: Returns a unix timestamp X hours ahead. Replace HOURS.\n\n
+
+
+
+{time_ahead_unix_m_MINS}\n\n
+
+Variable Name: Minutes ahead (unix)\n\n
+
+Description: Returns a unix timestamp X minutes ahead. Replace MINS.\n\n
+
+
+
+{time_ahead_unix_s_SECS}\n\n
+
+Variable Name: Seconds ahead (unix)\n\n
+
+Description: Returns a unix timestamp X seconds ahead. Replace SECS.\n\n
+
+
+
+{time_now_unix}\n\n
+
+Variable Name: current time unix only\n\n
+
+Description: Displays the current time in unix only. Note: use this when creating a cooldown to compare to now!\n\n
+
+
+
+{time_now}\n\n
+
+Variable Name: current time\n\n
+
+Description: Returns a discord formatted timestamp of the current time.\n\n
+
+
+
+{TOKEN_SECRET}\n\n
+
+Variable Name: TOKEN SECRET\n\n
+
+Description: Returns the bot token, but only works in the "Send an API Request" action block of BotGhost with Discord endpoints; does not work with other non-Discord endpoints.\n\n
+
+
+
+{toUpperCase(hello)}\n\n
+
+Variable Name: to Upper Case\n\n
+
+Description: Convert text to uppercase.\n\n
+
+
+
+{UNIX_to_ISO[Timestamp]}\n\n
+
+Variable Name: UNIX to ISO\n\n
+
+Description: Converts a UNIX timestamp to ISO Timestamp. Note: Unix is a number representing time since January 1970.\n\n
+
+
+
+{user_createdAt}\n\n
+
+Variable Name: user created at\n\n
+
+Description: When this user created their account (Returns time in ISO).\n\n
+
+
+
+{user_discriminator}\n\n
+
+Variable Name: user discriminator\n\n
+
+Description: Get the discriminator of the specified user (#1234).\n\n
+
+
+
+{user_displayName}\n\n
+
+Variable Name: user display name\n\n
+
+Description: Get the specified user's display name (nickname) for the server.\n\n
+
+
+
+{user_icon}\n\n
+
+Variable Name: user icon\n\n
+
+Description: Return the icon of the user who triggered the command.\n\n
+
+
+
+{user_id}\n\n
+
+Variable Name: user id\n\n
+
+Description: Get the ID of the specified user.\n\n
+
+
+
+{user_joined}\n\n
+
+Variable Name: user joined date\n\n
+
+Description: Get when the specified user joined the server.\n\n
+
+
+
+{user_name_encoded}\n\n
+
+Variable Name: encoded user name\n\n
+
+Description: Returns the username of the user encoded for an API.\n\n
+
+
+
+{user_name}\n\n
+
+Variable Name: user name\n\n
+
+Description: Get the username of the specified user.\n\n
+
+
+
+{user_status}\n\n
+
+Variable Name: user status\n\n
+
+Description: Get the specified user's status.\n\n
+
+
+
+{user_tag}\n\n
+
+Variable Name: user tag\n\n
+
+Description: Get the specified user's tag (username#1234).\n\n
+
+
+
+{user}\n\n
+
+Variable Name: user\n\n
+
+Description: Mention the user who triggered the command.\n\n
+
+
+
+{valueAtPosition({array}),[2]}\n\n
+
+Variable Name: value at position\n\n
+
+Description: The value associated with a particular position within the collection.\n\n
+
+
+
+{valueAtPosition({BGVAR_collection_variable}),[2]}\n\n
+
+Variable Name: Value at Position in BGVAR Collection\n\n
+
+Description: Returns the value at the specified position in the collection variable.\n\n
+
+
+
+{websocket_ping}\n\n
+
+Variable Name: websocket ping\n\n
+
+Description: Returns the bot latency.
+
