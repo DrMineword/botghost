@@ -1,4 +1,5 @@
 =-=-= List Of Variables =-=-=\n
+>>> Standard Variables\n
 \n
 {solve_equation[$value]} | Variable for performing calculations, variables can be put inside of it, it allow to do some math and it look like its javascript langue calculator or python BUT it dont use vars like let, const it use just numbers and math symbols (example: {solve_equation[floor((({time_now_unix} / 3600) % 6) + 0)]})\n
 /!\ IMPORTANT: Botghost is no code website so variables will be just you put {variable} that return number \ 5 and you get at end var \ 5 = 1, so there will be no coding things like let var1 = x\n
@@ -8,3 +9,45 @@ Example: {solve_equation["" + floor(({time_now_unix} / 3600) % 24) + ":" + floor
 So wich that logic: "{solve_equation[floor(({time_now_unix} / 3600) % 24)]}:{solve_equation[floor(({time_now_unix} / 60) % 60)]}" is correct version in here to get a simple clock, because it contain ONLY characters and variables botghost can parse
 \n
 {time_now_unix} | return time now in unix
+>>> Collections Variables\n
+(From docs)\n\n
+Collection / Array Variables\n
+BotGhost offers some variables you can use for any array or collection (even from an API response), which allow you to retrieve specific information of the collection.
+\n\n
+Variable\n
+Information\n
+{lowestValue({BGVAR_collection})}\n
+
+Returns the lowest value in a collection.\n\n
+
+{highestValue({BGVAR_collection})}\n
+
+Returns the highest numerical value in a collection.\n\n
+
+{lengthOfCollection({BGVAR_collection})}
+
+Returns the length of a collection.\n
+
+{valueAtPosition({BGVAR_collection}),[2]}\n
+
+Returns the value at a specific position in the collection. Positions start at 0.\n\n
+
+{positionOfValue({BGVAR_collection}),[hello]}\n
+
+Returns the position of a value.\n\n
+
+{collectionCharacterLength({BGVAR_collection})}\n
+
+Returns the total character length of a collection.\n\n
+
+{printAllValues({BGVAR_collection}),[Hello $value]}\n
+
+Prints all values in a collection. The text returned can be set in the []. Use $value to print the value, and $index to display the index of the value shown.\n\n
+
+{getRandomFromCollection({BGVAR_collection})}\n
+
+Returns a random value from the collection.\n\n
+
+NOTES: You don't need to use bgvar to use this\n
+You can make custom array like [value1,value2,value3] and place it in place of {BGVAR_collection}, example: {getRandomFromCollection([value1,value2,value3])}\n
+This will allow you to make things like make math variable that return 0-9 and based on that select value of collection
