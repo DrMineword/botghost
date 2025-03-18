@@ -8,7 +8,8 @@ That would return unexpected character error\n
 Example: {solve_equation["" + floor(({time_now_unix} / 3600) % 24) + ":" + floor(({time_now_unix} / 60) % 60)]} and {solve_equation[strftime("%H:%M", {time_now_unix})]} wont be supported as it contain non variable character ", %H , etc so it will return: NaN or unexpected character\n
 So wich that logic: "{solve_equation[floor(({time_now_unix} / 3600) % 24)]}:{solve_equation[floor(({time_now_unix} / 60) % 60)]}" is correct version in here to get a simple clock, because it contain ONLY characters and variables botghost can parse
 \n
-{time_now_unix} | return time now in unix
+>> List of solve_equlation sub variables: floor() ceil() random() cos() sin() tan() {it is possible that min() max()} ....possible more....\n
+{time_now_unix} | return time now in unix\n
 >>> Collections Variables\n
 (From docs)\n\n
 Collection / Array Variables\n
