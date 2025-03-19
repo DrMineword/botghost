@@ -1,1 +1,1 @@
-Human -> Ai Chat
+TF2 Medic
