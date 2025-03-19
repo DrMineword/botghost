@@ -1,0 +1,5670 @@
+=-=-= List Of Variables =-=-=\n
+>>> Standard Variables\n
+\n
+{solve_equation[$value]} | Variable for performing calculations, variables can be put inside of it, it allow to do some math and it look like its javascript langue calculator or python BUT it dont use vars like let, const it use just numbers and math symbols (example: {solve_equation[floor((({time_now_unix} / 3600) % 6) + 0)]})\n
+/!\ IMPORTANT: Botghost is no code website so variables will be just you put {variable} that return number \ 5 and you get at end var \ 5 = 1, so there will be no coding things like let var1 = x\n
+That would return unexpected character error\n
+/!\THE SAME ERROR WILL BE RETURNED IF EVERYTHING THAT IS NOT A NUMBER OR VARIABLE THAT WILL RETURN NUMBER IS PRESENT INSIDE $value\n
+Example: {solve_equation["" + floor(({time_now_unix} / 3600) % 24) + ":" + floor(({time_now_unix} / 60) % 60)]} and {solve_equation[strftime("%H:%M", {time_now_unix})]} wont be supported as it contain non variable character ", %H , etc so it will return: NaN or unexpected character\n
+So wich that logic: "{solve_equation[floor(({time_now_unix} / 3600) % 24)]}:{solve_equation[floor(({time_now_unix} / 60) % 60)]}" is correct version in here to get a simple clock, because it contain ONLY characters and variables botghost can parse
+\n
+>> List of solve_equlation sub variables: floor() ceil() random() cos() sin() tan() {it is possible that min() max()} ....possible more....\n
+{time_now_unix} | return time now in unix\n
+>>> Collections Variables\n
+(From docs)\n\n
+Collection / Array Variables\n
+BotGhost offers some variables you can use for any array or collection (even from an API response), which allow you to retrieve specific information of the collection.
+\n\n
+Variable\n
+Information\n
+{lowestValue({BGVAR_collection})}\n
+
+Returns the lowest value in a collection.\n\n
+
+{highestValue({BGVAR_collection})}\n
+
+Returns the highest numerical value in a collection.\n\n
+
+{lengthOfCollection({BGVAR_collection})}
+
+Returns the length of a collection.\n
+
+{valueAtPosition({BGVAR_collection}),[2]}\n
+
+Returns the value at a specific position in the collection. Positions start at 0.\n\n
+
+{positionOfValue({BGVAR_collection}),[hello]}\n
+
+Returns the position of a value.\n\n
+
+{collectionCharacterLength({BGVAR_collection})}\n
+
+Returns the total character length of a collection.\n\n
+
+{printAllValues({BGVAR_collection}),[Hello $value]}\n
+
+Prints all values in a collection. The text returned can be set in the []. Use $value to print the value, and $index to display the index of the value shown.\n\n
+
+{getRandomFromCollection({BGVAR_collection})}\n
+
+Returns a random value from the collection.\n\n
+
+NOTES: You don't need to use bgvar to use this\n
+You can make custom array like [value1,value2,value3] and place it in place of {BGVAR_collection}, example: {getRandomFromCollection([value1,value2,value3])}\n
+This will allow you to make things like make math variable that return 0-9 and based on that select value of collection BUT the
+{concat[{valueAtPosition([0,1,2,3,4,5,6,7,8,9],[{solve_equation[floor(({time_now_unix}/10000000000)%10000]}])}],[""],{valueAtPosition([0,1,2,3,4,5,6,7,8,9],[{solve_equation[floor(({time_now_unix}/100000000)%1000]}])}],[""],{valueAtPosition([0,1,2,3,4,5,6,7,8,9],[{solve_equation[floor(({time_now_unix}/1000000)%100]}])}],[""],{valueAtPosition([0,1,2,3,4,5,6,7,8,9],[{solve_equation[floor(({time_now_unix}/10000)%100]}])}]}
+
+\nExmaple this id generator: {valueAtPosition([A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,0,1,2,3,4,5,6,7,8,9],[{solve_equation[({time_now_unix}/3600)6]}])}{valueAtPosition([A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,0,1,2,3,4,5,6,7,8,9],[{solve_equation[({time_now_unix}/60)6]}])}{valueAtPosition([A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,0,1,2,3,4,5,6,7,8,9],[{solve_equation[({time_now_unix})6]}])}{valueAtPosition([A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,0,1,2,3,4,5,6,7,8,9],[{solve_equation[({time_now_unix}*2)6]}])} is wrong as it contain inavlid colection variable structur and {concat[]} dont exist
+\n\n
+\n
+>>> LIST OF BOTGHOST NATIV VARIABLES\n
+Copyright: Data from: https://botghost-variable-searcher.netlify.app/
+\n\n
+{channel_id}\n\n
+
+Variable Name: channel id\n\n
+
+Description: Get the id the current channel.\n\n
+
+
+
+{channel_name}\n\n
+
+Variable Name: channel name\n\n
+
+Description: The name of the channel that the message was posted in.\n\n
+
+
+
+{channel_type}\n\n
+
+Variable Name: channel type\n\n
+
+Description: The type of the channel that the message was posted in.\n\n
+
+
+
+{channel}\n\n
+
+Variable Name: channel\n\n
+
+Description: Mention the channel the command was triggered in\n\n
+
+
+
+{charCount(Hello)}\n\n
+
+Variable Name: char count\n\n
+
+Description: Returns the character count of supplied content.\n\n
+
+
+
+{collectionCharacterLength({array})}\n\n
+
+Variable Name: collection character length\n\n
+
+Description: The number of characters within the collection.\n\n
+
+
+
+{collectionCharacterLength({BGVAR_collection_variable})}\n\n
+
+Variable Name: BGVAR Collection Character Length\n\n
+
+Description: Returns the total character length of all values in the collection variable.\n\n
+
+
+
+{currency_balance}\n\n
+
+Variable Name: currency balance\n\n
+
+Description: Returns the currency balance of a user.\n\n
+
+
+
+{economy_currency_name}\n\n
+
+Variable Name: Currency Name\n\n
+
+Description: Economy currency name.\n\n
+
+
+
+{economy_currency_prefix}\n\n
+
+Variable Name: Currency Prefix\n\n
+
+Description: Economy currency prefix.\n\n
+
+
+
+{economy_inventory}\n\n
+
+Variable Name: User Inventory\n\n
+
+Description: The Users inventory as an array of objects.\n\n
+
+
+
+{encode_text[TEXT]}\n\n
+
+Variable Name: encode text\n\n
+
+Description: Encode text given for an API.\n\n
+
+
+
+{escape_characters[{form.reply}]}\n\n
+
+Variable Name: escape characters\n\n
+
+Description: Allows for entering spaces from forms or variables.\n\n
+
+
+
+{event_channel_category_id}\n\n
+
+Variable Name: Deleted Channel Category ID\n\n
+
+Description: ID of the category under which the deleted channel was located (custom event).\n\n
+
+
+
+{event_channel_category_id}\n\n
+
+Variable Name: New Channel Category ID\n\n
+
+Description: ID of the category under which the new channel is created (custom event).\n\n
+
+
+
+{event_channel_createdAt}\n\n
+
+Variable Name: Deleted Channel Created At\n\n
+
+Description: Timestamp when the channel that was deleted was originally created (custom event).\n\n
+
+
+
+{event_channel_createdAt}\n\n
+
+Variable Name: New Channel Created At\n\n
+
+Description: Timestamp when the new channel was created (custom event).\n\n
+
+
+
+{event_channel_full}\n\n
+
+Variable Name: Voice Channel Full\n\n
+
+Description: Indicates if the voice channel is full (true/false).\n\n
+
+
+
+{event_channel_id}\n\n
+
+Variable Name: Deleted Channel ID\n\n
+
+Description: ID of the channel that was deleted (custom event).\n\n
+
+
+
+{event_channel_id}\n\n
+
+Variable Name: New Channel ID\n\n
+
+Description: ID of the new channel created (custom event).\n\n
+
+
+
+{event_channel_id}\n\n
+
+Variable Name: Voice Channel ID\n\n
+
+Description: The ID of the voice channel the user joined.\n\n
+
+
+
+{event_channel_id}\n\n
+
+Variable Name: Voice Channel ID\n\n
+
+Description: The ID of the voice channel the user left.\n\n
+
+
+
+{event_channel_name}\n\n
+
+Variable Name: Deleted Channel Name\n\n
+
+Description: Name of the channel that was deleted (custom event).\n\n
+
+
+
+{event_channel_name}\n\n
+
+Variable Name: New Channel Name\n\n
+
+Description: Name of the new channel created (custom event).\n\n
+
+
+
+{event_channel_name}\n\n
+
+Variable Name: Voice Channel Name\n\n
+
+Description: The name of the voice channel the user joined.\n\n
+
+
+
+{event_channel_name}\n\n
+
+Variable Name: Voice Channel Name\n\n
+
+Description: The name of the voice channel the user left.\n\n
+
+
+
+{event_channel_parent_id}\n\n
+
+Variable Name: Voice Channel Parent ID\n\n
+
+Description: The ID of the parent channel of the voice channel the user joined.\n\n
+
+
+
+{event_channel_parent_id}\n\n
+
+Variable Name: Voice Channel Parent ID\n\n
+
+Description: The ID of the parent channel of the voice channel the user left.\n\n
+
+
+
+{event_channel_type}\n\n
+
+Variable Name: Deleted Channel Type\n\n
+
+Description: Type of the channel that was deleted (e.g., text, voice) (custom event).\n\n
+
+
+
+{event_channel_type}\n\n
+
+Variable Name: New Channel Type\n\n
+
+Description: Type of the new channel created (e.g., text, voice) (custom event).\n\n
+
+
+
+{event_channel_user_limit}\n\n
+
+Variable Name: Voice Channel User Limit\n\n
+
+Description: The user limit of the voice channel the user joined.\n\n
+
+
+
+{event_channel_user_limit}\n\n
+
+Variable Name: Voice Channel User Limit\n\n
+
+Description: The user limit of the voice channel the user left.\n\n
+
+
+
+{event_created_at}\n\n
+
+Variable Name: Deleted Thread Created At\n\n
+
+Description: The creation time of the deleted thread (custom event).\n\n
+
+
+
+{event_created_at}\n\n
+
+Variable Name: event created at\n\n
+
+Description: The time of the original thread's creation.\n\n
+
+
+
+{event_created_at}\n\n
+
+Variable Name: Thread Created At\n\n
+
+Description: The creation time of the thread (custom event).\n\n
+
+
+
+{event_createdAt}\n\n
+
+Variable Name: event created at\n\n
+
+Description: The date and time when the scheduled event was created.\n\n
+
+
+
+{event_createdTimestamp}\n\n
+
+Variable Name: event created timestamp\n\n
+
+Description: The timestamp when the scheduled event was created.\n\n
+
+
+
+{event_creator_id}\n\n
+
+Variable Name: Deleted Thread Creator ID\n\n
+
+Description: The ID of the user who created the deleted thread (custom event).\n\n
+
+
+
+{event_creator_id}\n\n
+
+Variable Name: Thread Creator ID\n\n
+
+Description: The ID of the user who created the thread (custom event).\n\n
+
+
+
+{event_description}\n\n
+
+Variable Name: event description\n\n
+
+Description: The description of the scheduled event.\n\n
+
+
+
+{event_id}\n\n
+
+Variable Name: event id\n\n
+
+Description: The unique identifier of the scheduled event.\n\n
+
+
+
+{event_image}\n\n
+
+Variable Name: event image\n\n
+
+Description: The image associated with the scheduled event.\n\n
+
+
+
+{event_member_verified_update}\n\n
+
+Variable Name: Member Verified Update\n\n
+
+Description: Status update indicating the user has been verified (custom event).\n\n
+
+
+
+{event_message_attachment_1}\n\n
+
+Variable Name: Message Attachment 1\n\n
+
+Description: The first attachment included in the message (message sent event).\n\n
+
+
+
+{event_message_attachment_n}\n\n
+
+Variable Name: Message Attachment N\n\n
+
+Description: The nth attachment included in the message (message sent event). Replace "n" with the attachment number.\n\n
+
+
+
+{event_message_attachment}\n\n
+
+Variable Name: Deleted Message Attachment\n\n
+
+Description: Any attachments included in the deleted message (message deleted event).\n\n
+
+
+
+{event_message_attachments_count}\n\n
+
+Variable Name: Message Attachments Count\n\n
+
+Description: The number of attachments included in the message (message sent event).\n\n
+
+
+
+{event_message_attachments}\n\n
+
+Variable Name: Message Attachments\n\n
+
+Description: All attachments included in the message (message sent event).\n\n
+
+
+
+{event_message_channel_id}\n\n
+
+Variable Name: Deleted Message Channel ID\n\n
+
+Description: The ID of the channel in which the message was deleted (message deleted event).\n\n
+
+
+
+{event_message_channel_id}\n\n
+
+Variable Name: event message channel id\n\n
+
+Description: Get the id the channel the message that triggered the event was sent in.\n\n
+
+
+
+{event_message_channel_id}\n\n
+
+Variable Name: Message Channel ID\n\n
+
+Description: The ID of the channel in which the message was edited (message edited event).\n\n
+
+
+
+{event_message_channel_id}\n\n
+
+Variable Name: Message Channel ID\n\n
+
+Description: The ID of the channel in which the message was sent (message sent event).\n\n
+
+
+
+{event_message_channel_id}\n\n
+
+Variable Name: Reacted Message Channel ID\n\n
+
+Description: The ID of the channel in which the reacted message is located.\n\n
+
+
+
+{event_message_channel_id}\n\n
+
+Variable Name: Reaction Removed Message Channel ID\n\n
+
+Description: The ID of the channel in which the message from which the reaction was removed is located.\n\n
+
+
+
+{event_message_channel_type}\n\n
+
+Variable Name: event message channel type\n\n
+
+Description: Get the type of channel the message that triggered the event was sent in.\n\n
+
+
+
+{event_message_channel_type}\n\n
+
+Variable Name: Message Channel Type\n\n
+
+Description: The type of the channel in which the message was sent (e.g., text, voice) (message sent event).\n\n
+
+
+
+{event_message_channel}\n\n
+
+Variable Name: Deleted Message Channel\n\n
+
+Description: The channel in which the message was deleted (message deleted event).\n\n
+
+
+
+{event_message_channel}\n\n
+
+Variable Name: event message channel\n\n
+
+Description: Get the tag of the channel the message that triggered the event was sent in.\n\n
+
+
+
+{event_message_channel}\n\n
+
+Variable Name: Message Channel\n\n
+
+Description: The channel in which the message was edited (message edited event).\n\n
+
+
+
+{event_message_channel}\n\n
+
+Variable Name: Message Channel\n\n
+
+Description: The channel in which the message was sent (message sent event).\n\n
+
+
+
+{event_message_channel}\n\n
+
+Variable Name: Reacted Message Channel\n\n
+
+Description: The channel in which the reacted message is located.\n\n
+
+
+
+{event_message_channel}\n\n
+
+Variable Name: Reaction Removed Message Channel\n\n
+
+Description: The channel in which the message from which the reaction was removed is located.\n\n
+
+
+
+{event_message_content}\n\n
+
+Variable Name: Deleted Message Content\n\n
+
+Description: The content of the deleted message (message deleted event).\n\n
+
+
+
+{event_message_content}\n\n
+
+Variable Name: event message content\n\n
+
+Description: Get the content of the message that triggered the event.\n\n
+
+
+
+{event_message_content}\n\n
+
+Variable Name: Message Content\n\n
+
+Description: The content of the message sent (message sent event).\n\n
+
+
+
+{event_message_content}\n\n
+
+Variable Name: Reacted Message Content\n\n
+
+Description: The content of the message that was reacted to.\n\n
+
+
+
+{event_message_content}\n\n
+
+Variable Name: Reaction Removed Message Content\n\n
+
+Description: The content of the message from which the reaction was removed.\n\n
+
+
+
+{event_message_createdAt}\n\n
+
+Variable Name: Deleted Message Created At\n\n
+
+Description: The timestamp when the deleted message was originally created (message deleted event).\n\n
+
+
+
+{event_message_createdAt}\n\n
+
+Variable Name: event message created at\n\n
+
+Description: Get the timestamp of when the message was created.\n\n
+
+
+
+{event_message_createdAt}\n\n
+
+Variable Name: Message Created At\n\n
+
+Description: The timestamp when the message was created (message sent event).\n\n
+
+
+
+{event_message_createdAt}\n\n
+
+Variable Name: Message Created At\n\n
+
+Description: The timestamp when the message was edited (message edited event).\n\n
+
+
+
+{event_message_createdAt}\n\n
+
+Variable Name: Reacted Message Created At\n\n
+
+Description: The timestamp when the reacted message was created.\n\n
+
+
+
+{event_message_createdAt}\n\n
+
+Variable Name: Reaction Removed Message Created At\n\n
+
+Description: The timestamp when the message from which the reaction was removed was created.\n\n
+
+
+
+{event_message_id}\n\n
+
+Variable Name: Deleted Message ID\n\n
+
+Description: The ID of the deleted message (message deleted event).\n\n
+
+
+
+{event_message_id}\n\n
+
+Variable Name: Edited Message ID\n\n
+
+Description: The ID of the edited message (message edited event).\n\n
+
+
+
+{event_message_id}\n\n
+
+Variable Name: event message id\n\n
+
+Description: Get the message id of the message that triggered the event.\n\n
+
+
+
+{event_message_id}\n\n
+
+Variable Name: Message ID\n\n
+
+Description: The ID of the message sent (message sent event).\n\n
+
+
+
+{event_message_id}\n\n
+
+Variable Name: Reacted Message ID\n\n
+
+Description: The ID of the message that was reacted to.\n\n
+
+
+
+{event_message_id}\n\n
+
+Variable Name: Reaction Removed Message ID\n\n
+
+Description: The ID of the message from which the reaction was removed.\n\n
+
+
+
+{event_name}\n\n
+
+Variable Name: event name\n\n
+
+Description: The name of the scheduled event.\n\n
+
+
+
+{event_new_channel_full}\n\n
+
+Variable Name: New Voice Channel Full\n\n
+
+Description: Indicates if the new voice channel is full (true/false).\n\n
+
+
+
+{event_new_channel_id}\n\n
+
+Variable Name: New Voice Channel ID\n\n
+
+Description: The ID of the voice channel the user switched to.\n\n
+
+
+
+{event_new_channel_name}\n\n
+
+Variable Name: New Voice Channel Name\n\n
+
+Description: The name of the voice channel the user switched to.\n\n
+
+
+
+{event_new_channel_parent_id}\n\n
+
+Variable Name: New Voice Channel Parent ID\n\n
+
+Description: The ID of the parent channel of the voice channel the user switched to.\n\n
+
+
+
+{event_new_channel_user_limit}\n\n
+
+Variable Name: New Voice Channel User Limit\n\n
+
+Description: The user limit of the voice channel the user switched to.\n\n
+
+
+
+{event_new_discriminator}\n\n
+
+Variable Name: New Discriminator\n\n
+
+Description: New discriminator of the user updated (custom event).\n\n
+
+
+
+{event_new_nickname}\n\n
+
+Variable Name: New Nickname\n\n
+
+Description: New nickname of the user updated (custom event).\n\n
+
+
+
+{event_new_roles}\n\n
+
+Variable Name: New Roles\n\n
+
+Description: New roles of the user updated (custom event).\n\n
+
+
+
+{event_new_status}\n\n
+
+Variable Name: New Status\n\n
+
+Description: New status of the user that triggered the event (custom event).\n\n
+
+
+
+{event_newChannel_category_id}\n\n
+
+Variable Name: New Channel Category ID\n\n
+
+Description: ID of the category under which the new channel is after the update (custom event).\n\n
+
+
+
+{event_newChannel_createdAt}\n\n
+
+Variable Name: New Channel Created At\n\n
+
+Description: Timestamp when the new channel was created (custom event).\n\n
+
+
+
+{event_newChannel_id}\n\n
+
+Variable Name: New Channel ID\n\n
+
+Description: ID of the new channel after the update (custom event).\n\n
+
+
+
+{event_newChannel_name}\n\n
+
+Variable Name: New Channel Name\n\n
+
+Description: Name of the new channel after the update (custom event).\n\n
+
+
+
+{event_newChannel_type}\n\n
+
+Variable Name: New Channel Type\n\n
+
+Description: Type of the new channel after the update (e.g., text, voice) (custom event).\n\n
+
+
+
+{event_newLevel}\n\n
+
+Variable Name: event new level\n\n
+
+Description: The new server boost level after the decrease/increase.\n\n
+
+
+
+{event_newMessage_content}\n\n
+
+Variable Name: New Message Content\n\n
+
+Description: The content of the message after it was edited (message edited event).\n\n
+
+
+
+{event_old_channel_full}\n\n
+
+Variable Name: Old Voice Channel Full\n\n
+
+Description: Indicates if the old voice channel was full (true/false).\n\n
+
+
+
+{event_old_channel_id}\n\n
+
+Variable Name: Old Voice Channel ID\n\n
+
+Description: The ID of the voice channel the user switched from.\n\n
+
+
+
+{event_old_channel_name}\n\n
+
+Variable Name: Old Voice Channel Name\n\n
+
+Description: The name of the voice channel the user switched from.\n\n
+
+
+
+{event_old_channel_parent_id}\n\n
+
+Variable Name: Old Voice Channel Parent ID\n\n
+
+Description: The ID of the parent channel of the voice channel the user switched from.\n\n
+
+
+
+{event_old_channel_user_limit}\n\n
+
+Variable Name: Old Voice Channel User Limit\n\n
+
+Description: The user limit of the voice channel the user switched from.\n\n
+
+
+
+{event_old_discriminator}\n\n
+
+Variable Name: Old Discriminator\n\n
+
+Description: Old discriminator of the user updated (custom event).\n\n
+
+
+
+{event_old_nickname}\n\n
+
+Variable Name: Old Nickname\n\n
+
+Description: Old nickname of the user updated (custom event).\n\n
+
+
+
+{event_old_roles}\n\n
+
+Variable Name: Old Roles\n\n
+
+Description: Old roles of the user updated (custom event).\n\n
+
+
+
+{event_old_status}\n\n
+
+Variable Name: Old Status\n\n
+
+Description: Old status of the user that triggered the event (custom event).\n\n
+
+
+
+{event_oldChannel_category_id}\n\n
+
+Variable Name: Old Channel Category ID\n\n
+
+Description: ID of the category under which the old channel was before the update (custom event).\n\n
+
+
+
+{event_oldChannel_createdAt}\n\n
+
+Variable Name: Old Channel Created At\n\n
+
+Description: Timestamp when the old channel was created (custom event).\n\n
+
+
+
+{event_oldChannel_id}\n\n
+
+Variable Name: Old Channel ID\n\n
+
+Description: ID of the old channel before the update (custom event).\n\n
+
+
+
+{event_oldChannel_name}\n\n
+
+Variable Name: Old Channel Name\n\n
+
+Description: Name of the old channel before the update (custom event).\n\n
+
+
+
+{event_oldChannel_type}\n\n
+
+Variable Name: Old Channel Type\n\n
+
+Description: Type of the old channel before the update (e.g., text, voice) (custom event).\n\n
+
+
+
+{event_oldLevel}\n\n
+
+Variable Name: event old level\n\n
+
+Description: The server boost level before the decrease/increase.\n\n
+
+
+
+{event_oldMessage_content}\n\n
+
+Variable Name: Old Message Content\n\n
+
+Description: The content of the message before it was edited (message edited event).\n\n
+
+
+
+{event_parent_channel_id}\n\n
+
+Variable Name: Deleted Thread Parent Channel ID\n\n
+
+Description: The ID of the parent channel of the deleted thread (custom event).\n\n
+
+
+
+{event_parent_channel_id}\n\n
+
+Variable Name: event parent channel id\n\n
+
+Description: The id of the channel that thread is associated with.\n\n
+
+
+
+{event_parent_channel_id}\n\n
+
+Variable Name: Thread Parent Channel ID\n\n
+
+Description: The ID of the parent channel of the thread (custom event).\n\n
+
+
+
+{event_poll_answer_emoji}\n\n
+
+Variable Name: event poll answer emoji\n\n
+
+Description: The emoji associated with the answer in the event poll.\n\n
+
+
+
+{event_poll_answer_id}\n\n
+
+Variable Name: event poll answer id\n\n
+
+Description: The unique identifier of the answer in the event poll.\n\n
+
+
+
+{event_poll_answer_text}\n\n
+
+Variable Name: event poll answer text\n\n
+
+Description: The text of the answer in the event poll.\n\n
+
+
+
+{event_poll_answer_vote_count}\n\n
+
+Variable Name: event poll answer vote count\n\n
+
+Description: The number of votes the answer has received in the event poll.\n\n
+
+
+
+{event_reaction_count}\n\n
+
+Variable Name: event reaction count\n\n
+
+Description: The number of reactions added.\n\n
+
+
+
+{event_reaction_emoji_id}\n\n
+
+Variable Name: event reaction emoji id\n\n
+
+Description: The ID of the added emote reaction.\n\n
+
+
+
+{event_reaction_emoji_name}\n\n
+
+Variable Name: event reaction emoji name\n\n
+
+Description: The name of the added emote reaction.\n\n
+
+
+
+{event_reaction_emoji}\n\n
+
+Variable Name: event reaction emoji\n\n
+
+Description: The emote added as a reaction.\n\n
+
+
+
+{event_reason}\n\n
+
+Variable Name: Reason\n\n
+
+Description: Reason the user banned from the server (custom event).\n\n
+
+
+
+{event_role_hex_color}\n\n
+
+Variable Name: Created Role Hex Color\n\n
+
+Description: The hex color of the created role (role created event).\n\n
+
+
+
+{event_role_hex_color}\n\n
+
+Variable Name: Deleted Role Hex Color\n\n
+
+Description: The hex color of the deleted role (role deleted event).\n\n
+
+
+
+{event_role_hoisted}\n\n
+
+Variable Name: Created Role Hoisted\n\n
+
+Description: Indicates if the created role is hoisted (displayed separately in the member list) (role created event).\n\n
+
+
+
+{event_role_hoisted}\n\n
+
+Variable Name: Deleted Role Hoisted\n\n
+
+Description: Indicates if the deleted role was hoisted (displayed separately in the member list) (role deleted event).\n\n
+
+
+
+{event_role_iconURL}\n\n
+
+Variable Name: Created Role Icon URL\n\n
+
+Description: The icon URL of the created role (role created event).\n\n
+
+
+
+{event_role_iconURL}\n\n
+
+Variable Name: Deleted Role Icon URL\n\n
+
+Description: The icon URL of the deleted role (role deleted event).\n\n
+
+
+
+{event_role_id}\n\n
+
+Variable Name: Created Role ID\n\n
+
+Description: The ID of the created role (role created event).\n\n
+
+
+
+{event_role_id}\n\n
+
+Variable Name: Deleted Role ID\n\n
+
+Description: The ID of the deleted role (role deleted event).\n\n
+
+
+
+{event_role_id}\n\n
+
+Variable Name: Role ID\n\n
+
+Description: ID of the role added/removed to the user (custom event).\n\n
+
+
+
+{event_role_id}\n\n
+
+Variable Name: Updated Role ID\n\n
+
+Description: The ID of the updated role (role updated event).\n\n
+
+
+
+{event_role_name}\n\n
+
+Variable Name: Created Role Name\n\n
+
+Description: The name of the created role (role created event).\n\n
+
+
+
+{event_role_name}\n\n
+
+Variable Name: Deleted Role Name\n\n
+
+Description: The name of the deleted role (role deleted event).\n\n
+
+
+
+{event_role_name}\n\n
+
+Variable Name: Role Name\n\n
+
+Description: Name of the role added/removed to the user (custom event).\n\n
+
+
+
+{event_role_newColor}\n\n
+
+Variable Name: Updated Role New Color\n\n
+
+Description: The new color of the updated role (role updated event).\n\n
+
+
+
+{event_role_newHoisted}\n\n
+
+Variable Name: Updated Role New Hoisted\n\n
+
+Description: Indicates if the role is newly hoisted (displayed separately in the member list) (role updated event).\n\n
+
+
+
+{event_role_newIconURL}\n\n
+
+Variable Name: Updated Role New Icon URL\n\n
+
+Description: The new icon URL of the updated role (role updated event).\n\n
+
+
+
+{event_role_newName}\n\n
+
+Variable Name: Updated Role New Name\n\n
+
+Description: The new name of the updated role (role updated event).\n\n
+
+
+
+{event_role_oldColor}\n\n
+
+Variable Name: Updated Role Old Color\n\n
+
+Description: The old color of the updated role (role updated event).\n\n
+
+
+
+{event_role_oldHoisted}\n\n
+
+Variable Name: Updated Role Old Hoisted\n\n
+
+Description: Indicates if the role was previously hoisted (displayed separately in the member list) (role updated event).\n\n
+
+
+
+{event_role_oldIconURL}\n\n
+
+Variable Name: Updated Role Old Icon URL\n\n
+
+Description: The old icon URL of the updated role (role updated event).\n\n
+
+
+
+{event_role_oldName}\n\n
+
+Variable Name: Updated Role Old Name\n\n
+
+Description: The old name of the updated role (role updated event).\n\n
+
+
+
+{event_role}\n\n
+
+Variable Name: Created Role\n\n
+
+Description: The role that was created (role created event).\n\n
+
+
+
+{event_role}\n\n
+
+Variable Name: Deleted Role\n\n
+
+Description: The role that was deleted (role deleted event).\n\n
+
+
+
+{event_role}\n\n
+
+Variable Name: Role\n\n
+
+Description: Role added/removed to the user (custom event).\n\n
+
+
+
+{event_role}\n\n
+
+Variable Name: Updated Role\n\n
+
+Description: The role that was updated (role updated event).\n\n
+
+
+
+{event_scheduledEndTimestamp}\n\n
+
+Variable Name: event scheduled end timestamp\n\n
+
+Description: The timestamp of the scheduled end time for the event.\n\n
+
+
+
+{event_status}\n\n
+
+Variable Name: event status\n\n
+
+Description: The current status of the scheduled event (e.g., scheduled, active, completed, canceled).\n\n
+
+
+
+{event_thread_createdTimestamp}\n\n
+
+Variable Name: Deleted Thread Created Timestamp\n\n
+
+Description: The creation timestamp of the deleted thread (custom event).\n\n
+
+
+
+{event_thread_createdTimestamp}\n\n
+
+Variable Name: Thread Created Timestamp\n\n
+
+Description: The creation timestamp of the thread (custom event).\n\n
+
+
+
+{event_thread_id}\n\n
+
+Variable Name: Deleted Thread ID\n\n
+
+Description: The ID of the deleted thread (custom event).\n\n
+
+
+
+{event_thread_id}\n\n
+
+Variable Name: event thread id\n\n
+
+Description: The id of the thread that was updated.\n\n
+
+
+
+{event_thread_id}\n\n
+
+Variable Name: Thread ID\n\n
+
+Description: The ID of the thread (custom event).\n\n
+
+
+
+{event_thread_id}\n\n
+
+Variable Name: Updated Thread ID\n\n
+
+Description: The ID of the thread (updated thread event).\n\n
+
+
+
+{event_thread_name}\n\n
+
+Variable Name: Deleted Thread Name\n\n
+
+Description: The name of the deleted thread (custom event).\n\n
+
+
+
+{event_thread_name}\n\n
+
+Variable Name: Thread Name\n\n
+
+Description: The name of the thread (custom event).\n\n
+
+
+
+{event_url}\n\n
+
+Variable Name: event url\n\n
+
+Description: The URL associated with the scheduled event.\n\n
+
+
+
+{event_user_avatar}\n\n
+
+Variable Name: Boosting User Avatar\n\n
+
+Description: The avatar of the user who boosted the server for the first time.\n\n
+
+
+
+{event_user_avatar}\n\n
+
+Variable Name: event user avatar\n\n
+
+Description: The avatar of the user that triggered the event (custom event).\n\n
+
+
+
+{event_user_avatar}\n\n
+
+Variable Name: Reaction Added User Avatar\n\n
+
+Description: The avatar of the user who added the reaction.\n\n
+
+
+
+{event_user_avatar}\n\n
+
+Variable Name: Reaction Removed User Avatar\n\n
+
+Description: The avatar of the user who removed the reaction.\n\n
+
+
+
+{event_user_avatar}\n\n
+
+Variable Name: Unboosting User Avatar\n\n
+
+Description: The avatar of the user who unboosted the server.\n\n
+
+
+
+{event_user_display_name}\n\n
+
+Variable Name: Boosting User Display Name\n\n
+
+Description: The display name of the user who boosted the server for the first time.\n\n
+
+
+
+{event_user_display_name}\n\n
+
+Variable Name: event user display name\n\n
+
+Description: The display name of the user that triggered the event (custom event).\n\n
+
+
+
+{event_user_display_name}\n\n
+
+Variable Name: Unboosting User Display Name\n\n
+
+Description: The display name of the user who unboosted the server.\n\n
+
+
+
+{event_user_display_name}\n\n
+
+Variable Name: User Joined Voice Channel Display Name\n\n
+
+Description: The display name of the user who joined the voice channel.\n\n
+
+
+
+{event_user_display_name}\n\n
+
+Variable Name: User Left Voice Channel Display Name\n\n
+
+Description: The display name of the user who left the voice channel.\n\n
+
+
+
+{event_user_display_name}\n\n
+
+Variable Name: User Switch Voice Channel Display Name\n\n
+
+Description: The display name of the user who switched voice channels.\n\n
+
+
+
+{event_user_id}\n\n
+
+Variable Name: Boosting User ID\n\n
+
+Description: The ID of the user who boosted the server for the first time.\n\n
+
+
+
+{event_user_id}\n\n
+
+Variable Name: event user id\n\n
+
+Description: The ID of the user that triggered the event (custom event).\n\n
+
+
+
+{event_user_id}\n\n
+
+Variable Name: Reaction Added User ID\n\n
+
+Description: The ID of the user who added the reaction.\n\n
+
+
+
+{event_user_id}\n\n
+
+Variable Name: Reaction Removed User ID\n\n
+
+Description: The ID of the user who removed the reaction.\n\n
+
+
+
+{event_user_id}\n\n
+
+Variable Name: Unboosting User ID\n\n
+
+Description: The ID of the user who unboosted the server.\n\n
+
+
+
+{event_user_id}\n\n
+
+Variable Name: User Joined Voice Channel ID\n\n
+
+Description: The ID of the user who joined the voice channel.\n\n
+
+
+
+{event_user_id}\n\n
+
+Variable Name: User Left Voice Channel ID\n\n
+
+Description: The ID of the user who left the voice channel.\n\n
+
+
+
+{event_user_id}\n\n
+
+Variable Name: User Switch Voice Channel ID\n\n
+
+Description: The ID of the user who switched voice channels.\n\n
+
+
+
+{event_user_name}\n\n
+
+Variable Name: Boosting User Name\n\n
+
+Description: The name of the user who boosted the server for the first time.\n\n
+
+
+
+{event_user_name}\n\n
+
+Variable Name: event user name\n\n
+
+Description: Get the user name of the user that triggered the event.\n\n
+
+
+
+{event_user_name}\n\n
+
+Variable Name: Reaction Added User Name\n\n
+
+Description: The name of the user who added the reaction.\n\n
+
+
+
+{event_user_name}\n\n
+
+Variable Name: Reaction Removed User Name\n\n
+
+Description: The name of the user who removed the reaction.\n\n
+
+
+
+{event_user_name}\n\n
+
+Variable Name: Unboosting User Name\n\n
+
+Description: The name of the user who unboosted the server.\n\n
+
+
+
+{event_user_name}\n\n
+
+Variable Name: User Joined Voice Channel Name\n\n
+
+Description: The name of the user who joined the voice channel.\n\n
+
+
+
+{event_user_name}\n\n
+
+Variable Name: User Left Voice Channel Name\n\n
+
+Description: The name of the user who left the voice channel.\n\n
+
+
+
+{event_user_name}\n\n
+
+Variable Name: User Switch Voice Channel Name\n\n
+
+Description: The name of the user who switched voice channels.\n\n
+
+
+
+{event_user_tag}\n\n
+
+Variable Name: Boosting User Tag\n\n
+
+Description: The tag of the user who boosted the server for the first time.\n\n
+
+
+
+{event_user_tag}\n\n
+
+Variable Name: event user tag\n\n
+
+Description: Get the tag of the user that triggered the event.\n\n
+
+
+
+{event_user_tag}\n\n
+
+Variable Name: Reaction Added User Tag\n\n
+
+Description: The tag of the user who added the reaction.\n\n
+
+
+
+{event_user_tag}\n\n
+
+Variable Name: Reaction Removed User Tag\n\n
+
+Description: The tag of the user who removed the reaction.\n\n
+
+
+
+{event_user_tag}\n\n
+
+Variable Name: Unboosting User Tag\n\n
+
+Description: The tag of the user who unboosted the server.\n\n
+
+
+
+{event_variable_id}\n\n
+
+Variable Name: event variable id\n\n
+
+Description: The associated ID of the variable (user id, channel id, etc).\n\n
+
+
+
+{event_variable_id}\n\n
+
+Variable Name: Variable ID\n\n
+
+Description: The ID of the custom variable whose value was changed.\n\n
+
+
+
+{event_variable_name}\n\n
+
+Variable Name: event variable name\n\n
+
+Description: The name of the variable.\n\n
+
+
+
+{event_variable_name}\n\n
+
+Variable Name: Variable Name\n\n
+
+Description: The name of the custom variable whose value was changed.\n\n
+
+
+
+{event_variable_new_value}\n\n
+
+Variable Name: event new variable value\n\n
+
+Description: The updated value of the variable.\n\n
+
+
+
+{event_variable_new_value}\n\n
+
+Variable Name: New Variable Value\n\n
+
+Description: The new value of the custom variable after it was changed.\n\n
+
+
+
+{event_variable_old_value}\n\n
+
+Variable Name: event old variable value\n\n
+
+Description: The original value of the variable.\n\n
+
+
+
+{event_variable_old_value}\n\n
+
+Variable Name: Old Variable Value\n\n
+
+Description: The old value of the custom variable before it was changed.\n\n
+
+
+
+{event_variable_reference}\n\n
+
+Variable Name: event variable reference\n\n
+
+Description: The current value of the variable (also new).\n\n
+
+
+
+{event_variable_reference}\n\n
+
+Variable Name: Variable Reference\n\n
+
+Description: A reference related to the custom variable whose value was changed.\n\n
+
+
+
+{first_channel_id}\n\n
+
+Variable Name: first channel id\n\n
+
+Description: Returns the first channel id of the server.\n\n
+
+
+
+{getAverage(BGVAR_user_number)}\n\n
+
+Variable Name: Average Value\n\n
+
+Description: The average value of a user number variable\n\n
+
+
+
+{getAverage(BGVAR_variable)}\n\n
+
+Variable Name: average value\n\n
+
+Description: Get the average across users of a particular variable.\n\n
+
+
+
+{getHighestUser(BGVAR_user_number)[1]}\n\n
+
+Variable Name: Highest User\n\n
+
+Description: The highest user of a user number variable\n\n
+
+
+
+{getHighestUser(BGVAR_variable)[1]}\n\n
+
+Variable Name: highest user\n\n
+
+Description: Get the user with the highest value of a particular variable. Use the number [1] to formulate leaderboards!\n\n
+
+
+
+{getHighestValue(BGVAR_user_number)[1]}\n\n
+
+Variable Name: Highest Value\n\n
+
+Description: The highest value of a user number variable\n\n
+
+
+
+{getHighestValue(BGVAR_variable)[1]}\n\n
+
+Variable Name: highest value\n\n
+
+Description: Get the highest value of a particular variable associated with the highest user.\n\n
+
+
+
+{getLowestUser(BGVAR_user_number)[1]}\n\n
+
+Variable Name: Lowest User\n\n
+
+Description: The lowest user of a user number variable\n\n
+
+
+
+{getLowestUser(BGVAR_variable)[1]}\n\n
+
+Variable Name: lowest user\n\n
+
+Description: Get the user with the lowest value of a particular variable.\n\n
+
+
+
+{getLowestValue(BGVAR_user_number)[1]}\n\n
+
+Variable Name: Lowest Value\n\n
+
+Description: The lowest value of a user number variable\n\n
+
+
+
+{getLowestValue(BGVAR_variable)[1]}\n\n
+
+Variable Name: lowest value\n\n
+
+Description: Get the lowest value of a particular variable associated with the lowest user.\n\n
+
+
+
+{getRandomFromCollection({array})}\n\n
+
+Variable Name: random collection entry\n\n
+
+Description: A randomized entry within the collection.\n\n
+
+
+
+{getRandomFromCollection({BGVAR_collection_variable})}\n\n
+
+Variable Name: Random Value from BGVAR Collection\n\n
+
+Description: Returns a random value from the collection variable.\n\n
+
+
+
+{getRankOfUser(BGVAR_user_number)}\n\n
+
+Variable Name: Rank of User\n\n
+
+Description: The rank of the user user number variable\n\n
+
+
+
+{getRankOfUser(BGVAR_variable)[option_user]}\n\n
+
+Variable Name: rank of specified user\n\n
+
+Description: Get the rank of an option user.\n\n
+
+
+
+{getRankOfUser(BGVAR_variable)}\n\n
+
+Variable Name: user rank\n\n
+
+Description: Get the rank of the user interacting for a particular variable.\n\n
+
+
+
+{hasRole([ROLE_ARRAY]),[{user_id[option_user]}]}\n\n
+
+Variable Name: specific user role check has role user option\n\n
+
+Description: Confirm if a specified has a role or not. Returns true or false.\n\n
+
+
+
+{hasRole([ROLE_ARRAY])}\n\n
+
+Variable Name: Has Role\n\n
+
+Description: Returns true or false if the user has a role in the role array.\n\n
+
+
+
+{HEX_to_DECIMAL[HEX]}\n\n
+
+Variable Name: HEX to Decimal\n\n
+
+Description: Converts a Hex number to a Decimal number.\n\n
+
+
+
+{highestValue({array})}\n\n
+
+Variable Name: highest value in collection\n\n
+
+Description: The highest value within the collection.\n\n
+
+
+
+{highestValue({BGVAR_collection_variable})}\n\n
+
+Variable Name: Highest Value in BGVAR Collection\n\n
+
+Description: Returns the highest value in the collection variable.\n\n
+
+
+
+{ifttt_variable1}\n\n
+
+Variable Name: IFTTT Variable 1\n\n
+
+Description: The first IFTTT variable. You can customize the number of variables from 1 to 10.\n\n
+
+
+
+{ifttt_variable10}\n\n
+
+Variable Name: IFTTT Variable 10\n\n
+
+Description: The tenth IFTTT variable. You can customize the number of variables from 1 to 10.\n\n
+
+
+
+{ifttt_variable2}\n\n
+
+Variable Name: IFTTT Variable 2\n\n
+
+Description: The second IFTTT variable. You can customize the number of variables from 1 to 10.\n\n
+
+
+
+{ifttt_variable3}\n\n
+
+Variable Name: IFTTT Variable 3\n\n
+
+Description: The third IFTTT variable. You can customize the number of variables from 1 to 10.\n\n
+
+
+
+{ifttt_variable4}\n\n
+
+Variable Name: IFTTT Variable 4\n\n
+
+Description: The fourth IFTTT variable. You can customize the number of variables from 1 to 10.\n\n
+
+
+
+{ifttt_variable5}\n\n
+
+Variable Name: IFTTT Variable 5\n\n
+
+Description: The fifth IFTTT variable. You can customize the number of variables from 1 to 10.\n\n
+
+
+
+{ifttt_variable6}\n\n
+
+Variable Name: IFTTT Variable 6\n\n
+
+Description: The sixth IFTTT variable. You can customize the number of variables from 1 to 10.\n\n
+
+
+
+{ifttt_variable7}\n\n
+
+Variable Name: IFTTT Variable 7\n\n
+
+Description: The seventh IFTTT variable. You can customize the number of variables from 1 to 10.\n\n
+
+
+
+{ifttt_variable8}\n\n
+
+Variable Name: IFTTT Variable 8\n\n
+
+Description: The eighth IFTTT variable. You can customize the number of variables from 1 to 10.\n\n
+
+
+
+{ifttt_variable9}\n\n
+
+Variable Name: IFTTT Variable 9\n\n
+
+Description: The ninth IFTTT variable. You can customize the number of variables from 1 to 10.\n\n
+
+
+
+{interaction_custom_id}\n\n
+
+Variable Name: interaction custom id\n\n
+
+Description: Returns the custom ID of the interaction. This unique identifier is used to distinguish between different interactions, such as buttons or select menus, in your application.\n\n
+
+
+
+{interaction_id}\n\n
+
+Variable Name: Interaction ID\n\n
+
+Description: ID of the interaction\n\n
+
+
+
+{interaction_token}\n\n
+
+Variable Name: Interaction Token\n\n
+
+Description: Continuation token for responding to the interaction\n\n
+
+
+
+{invite_code}\n\n
+
+Variable Name: invite code\n\n
+
+Description: The unique code of the invite.\n\n
+
+
+
+{invite_created_at}\n\n
+
+Variable Name: invite created at\n\n
+
+Description: The timestamp of when the invite was created.\n\n
+
+
+
+{invite_expires_at}\n\n
+
+Variable Name: invite expires at\n\n
+
+Description: The timestamp of when the invite will expire.\n\n
+
+
+
+{invite_max_age}\n\n
+
+Variable Name: invite max age\n\n
+
+Description: The maximum age of the invite before it expires.\n\n
+
+
+
+{invite_max_uses}\n\n
+
+Variable Name: invite max uses\n\n
+
+Description: The maximum number of times the invite can be used.\n\n
+
+
+
+{invite_url}\n\n
+
+Variable Name: invite url\n\n
+
+Description: The URL of the invite.\n\n
+
+
+
+{invite_uses}\n\n
+
+Variable Name: invite uses\n\n
+
+Description: The number of times the invite has been used.\n\n
+
+
+
+{isBot}\n\n
+
+Variable Name: is bot\n\n
+
+Description: Returns if the given user is a bot or not. (Returns true or false)\n\n
+
+
+
+{isChannel([CHANNEL_ARRAY])}\n\n
+
+Variable Name: Is Channel\n\n
+
+Description: Returns true or false if the channel is in the channel array.\n\n
+
+
+
+{isNumber(10)}\n\n
+
+Variable Name: is number\n\n
+
+Description: Checks if the given value is a number. Returns true or false.\n\n
+
+
+
+{ISO_to_UNIX[Timestamp]}\n\n
+
+Variable Name: ISO to UNIX\n\n
+
+Description: Converts an ISO timestamp to UNIX. ISO is yearmonthday or year-month-day.\n\n
+
+
+
+{lengthOfCollection({array})}\n\n
+
+Variable Name: collection length\n\n
+
+Description: The total number of entries in the collection.\n\n
+
+
+
+{lengthOfCollection({BGVAR_collection_variable})}\n\n
+
+Variable Name: Length of BGVAR Collection\n\n
+
+Description: Returns the length of the collection variable.\n\n
+
+
+
+{loop_count}\n\n
+
+Variable Name: loop count\n\n
+
+Description: Returns the current loop count. Starts at 1.\n\n
+
+
+
+{loop_index}\n\n
+
+Variable Name: loop index\n\n
+
+Description: Returns the current loop index. Starts at 0 and is useful for positions in collections.\n\n
+
+
+
+{lowestValue({array})}\n\n
+
+Variable Name: highest value in collection\n\n
+
+Description: The highest value within the collection.\n\n
+
+
+
+{lowestValue({BGVAR_collection_variable})}\n\n
+
+Variable Name: Lowest Value in BGVAR Collection\n\n
+
+Description: Returns the lowest value in the collection variable.\n\n
+
+
+
+{new_event_thread_name}\n\n
+
+Variable Name: New Thread Name\n\n
+
+Description: The new name of the thread after the update (updated thread event).\n\n
+
+
+
+{new_thread_archived}\n\n
+
+Variable Name: New Thread Archived\n\n
+
+Description: Indicates if the thread is archived after the update (true/false) (updated thread event).\n\n
+
+
+
+{new_thread_locked}\n\n
+
+Variable Name: New Thread Locked\n\n
+
+Description: Indicates if the thread is locked after the update (true/false) (updated thread event).\n\n
+
+
+
+{new_thread}\n\n
+
+Variable Name: Is the thread new?\n\n
+
+Description: Indicates if the thread is new (true/false).\n\n
+
+
+
+{old_event_thread_name}\n\n
+
+Variable Name: old event thread Name\n\n
+
+Description: The old name of the thread before the update (updated thread event).\n\n
+
+
+
+{old_thread_archived}\n\n
+
+Variable Name: Old Thread Archived\n\n
+
+Description: Indicates if the thread was archived before the update (true/false) (updated thread event).\n\n
+
+
+
+{old_thread_locked}\n\n
+
+Variable Name: Old Thread Locked\n\n
+
+Description: Indicates if the thread was locked before the update (true/false) (updated thread event).\n\n
+
+
+
+{positionOfValue({array}),[hello]}\n\n
+
+Variable Name: position of value\n\n
+
+Description: The position of a particular value within the collection.\n\n
+
+
+
+{positionOfValue({BGVAR_collection_variable}),[dog]}\n\n
+
+Variable Name: Position of Value in BGVAR Collection\n\n
+
+Description: Returns the position of the specified value in the collection variable.\n\n
+
+
+
+{previous_numbers(10)}\n\n
+
+Variable Name: previous numbers\n\n
+
+Description: Provides the previous number from the provided digit.\n\n
+
+
+
+{printAllValues({BGVAR_collection_variable}),[Hello $value $index]}\n\n
+
+Variable Name: Print All Values from BGVAR Collection\n\n
+
+Description: Prints all values from the collection variable with a custom format.\n\n
+
+
+
+{printAllValues({BGVAR_variable}),[$value\n]}\n\n
+
+Variable Name: print all values newline\n\n
+
+Description: Print all values with each on a new line.\n\n
+
+
+
+{random[min,max]}\n\n
+
+Variable Name: random number\n\n
+
+Description: Return a random number between a min and a max.\n\n
+
+
+
+{randomCharacters(10)}\n\n
+
+Variable Name: random characters\n\n
+
+Description: Return a random string of characters equal in length to your input.\n\n
+
+
+
+{role_id[option_role]}\n\n
+
+Variable Name: role_id option_role\n\n
+
+Description: Returns the ID of the role specified in the option_role.\n\n
+
+
+
+{server_icon}\n\n
+
+Variable Name: server icon\n\n
+
+Description: Return the icon of the current guild (server).\n\n
+
+
+
+{server_id}\n\n
+
+Variable Name: server id\n\n
+
+Description: Get the server id of the current server.\n\n
+
+
+
+{server_members}\n\n
+
+Variable Name: server members\n\n
+
+Description: Return the member count of the current guild (server).\n\n
+
+
+
+{server_owner_id}\n\n
+
+Variable Name: server owner id\n\n
+
+Description: Returns the user id who owns the guild (server).\n\n
+
+
+
+{server_owner}\n\n
+
+Variable Name: server owner\n\n
+
+Description: Mention the owner of the server.\n\n
+
+
+
+{server}\n\n
+
+Variable Name: server\n\n
+
+Description: Get the name of the Discord Server the command was triggered in.\n\n
+
+
+
+{solve_equation[{BGVAR_variable}+1]}\n\n
+
+Variable Name: solve variable equation\n\n
+
+Description: Solve an equation with a variable.\n\n
+
+
+
+{solve_equation[1+1]}\n\n
+
+Variable Name: solve equation\n\n
+
+Description: Calculates mathematical expressions in square brackets. Supports basic operations (+,-,*,/), advanced functions, decimals, and parentheses. Example: {solve_equation[55+10/2]} = 60. Follows standard order of operations (PEMDAS).\n\n
+
+
+
+{solve_equation[abs(48)]}\n\n
+
+Variable Name: abs\n\n
+
+Description: Returns absolute (positive) value of a number. Example: abs(-48) = abs(48) = 48. Used for calculations where sign doesnt matter, like distances or sizes. Works with decimals.\n\n
+
+
+
+{solve_equation[atan(1)]}\n\n
+
+Variable Name: atan\n\n
+
+Description: Calculates inverse tangent (arctangent), returns angle in radians. Example: atan(1) ≈ 0.785 radians (45 degrees). Results always between -π/2 and π/2. Used for finding angles from ratios.\n\n
+
+
+
+{solve_equation[ceil({variablet}0.25)]}\n\n
+
+Variable Name: ceil variable\n\n
+
+Description: Multiplies variable by 0.25 (25%) then rounds up to next integer. Example: for variablet=10, calculates 10*0.25=2.5, rounds to 3. Used for minimum resource calculations.\n\n
+
+
+
+{solve_equation[ceil(12.34839)]}\n\n
+
+Variable Name: ceil\n\n
+
+Description: Rounds any decimal up to next whole number. Example: ceil(12.34) = 13, ceil(-3.7) = -3. Useful for resource planning and inventory where you need extra capacity.\n\n
+
+
+
+{solve_equation[cos(1)]}\n\n
+
+Variable Name: cos\n\n
+
+Description: Cosine function for angle in radians, returns value between -1 and 1. Example: cos(1) ≈ 0.54. Used for waves, rotations, and periodic calculations.\n\n
+
+
+
+{solve_equation[cosh(1)]}\n\n
+
+Variable Name: cosh\n\n
+
+Description: Hyperbolic cosine function. Example: cosh(1) ≈ 1.54. Returns values ≥1. Used for modeling exponential growth with symmetry, like hanging chains.\n\n
+
+
+
+{solve_equation[exp(1)]}\n\n
+
+Variable Name: exp\n\n
+
+Description: Raises e (≈2.718) to given power. Example: exp(2) ≈ 7.389. Used for compound growth/decay calculations. Negative inputs give small positive results.\n\n
+
+
+
+{solve_equation[floor({variable}0.25)]}\n\n
+
+Variable Name: round down\n\n
+
+Description: Multiplies a number by 0.25 (25%) and rounds down to nearest integer. Example: 100*0.25=25, 99*0.25=24.75 rounds to 24. Useful for percentages and resource calculations.\n\n
+
+
+
+{solve_equation[floor(1+1)]}\n\n
+
+Variable Name: Solve Equation + Round Down\n\n
+
+Description: Solves the equation first, then rounds result down. Example: floor(5/2)=2.5 rounds to 2. Used for calculations needing whole numbers without rounding up.\n\n
+
+
+
+{solve_equation[floor(12.34839)]}\n\n
+
+Variable Name: floor\n\n
+
+Description: Rounds any number down to nearest integer. Example: floor(12.99) = 12, floor(-3.1) = -4. Useful for financial calculations and inventory management.\n\n
+
+
+
+{solve_equation[hypot(1,2,3,4)]}\n\n
+
+Variable Name: hypot\n\n
+
+Description: Calculates square root of sum of squares. Example: hypot(1,2,3,4) = √(1²+2²+3²+4²) = √30 ≈ 5.47. Used for distance calculations in multiple dimensions.\n\n
+
+
+
+{solve_equation[log(10)]}\n\n
+
+Variable Name: log\n\n
+
+Description: Natural logarithm function using base e (≈2.718). Example: log(10) ≈ 2.302. Used for exponential growth calculations. Only works with positive numbers.\n\n
+
+
+
+{solve_equation[log10(10)]}\n\n
+
+Variable Name: log10\n\n
+
+Description: Base-10 logarithm. Example: log10(100) = 2 because 10² = 100. Used for scale conversions and measuring magnitudes (pH, decibels, Richter).\n\n
+
+
+
+{solve_equation[max(10,11,12,23,99,80)]}\n\n
+
+Variable Name: max\n\n
+
+Description: Returns highest value from given numbers. Example: max(10,11,12,23,99,80) returns 99. Works with any number of inputs, including negatives and decimals.\n\n
+
+
+
+{solve_equation[min(10,11,12,23,99,80)]}\n\n
+
+Variable Name: min\n\n
+
+Description: Returns lowest value from given numbers. Example: min(10,11,12,23,99,80) returns 10. Works with any number of inputs, including negatives and decimals.\n\n
+
+
+
+{solve_equation[pow(2,22)]}\n\n
+
+Variable Name: pow\n\n
+
+Description: Raises first number to power of second number. Example: pow(2,3) = 8 (2×2×2). Works with negative and decimal exponents. pow(number,0) always returns 1.\n\n
+
+
+
+{solve_equation[random()]}\n\n
+
+Variable Name: random\n\n
+
+Description: Generates random number between 0 and 1. Example: random()*100 gives number between 0-100. Used for games, simulations, and random selections.\n\n
+
+
+
+{solve_equation[round(1+1)]}\n\n
+
+Variable Name: Solve Equation + Round Nearest\n\n
+
+Description: Solves equation then rounds to nearest whole number. Values ≥.5 round up, <.5 round down. Example: round(2.7+1.4)=4.1 rounds to 4.\n\n
+
+
+
+{solve_equation[round(12.34839)]}\n\n
+
+Variable Name: round\n\n
+
+Description: Rounds to nearest whole number using standard rules: ≥.5 up, <.5 down. Example: round(12.34)=12, round(12.51)=13. Works with negative numbers.\n\n
+
+
+
+{solve_equation[sign(-458)]}\n\n
+
+Variable Name: sign\n\n
+
+Description: Returns number polarity: 1 for positive, -1 for negative, 0 for zero. Example: sign(-458)=-1, sign(1000)=1. Used for direction and trend detection.\n\n
+
+
+
+{solve_equation[sin(1)]}\n\n
+
+Variable Name: sin\n\n
+
+Description: Sine function for angle in radians, returns value between -1 and 1. Example: sin(1) ≈ 0.841. Used for waves, circular motion, and periodic calculations.\n\n
+
+
+
+{solve_equation[sinh(1)]}\n\n
+
+Variable Name: sinh\n\n
+
+Description: Hyperbolic sine function. Example: sinh(1) ≈ 1.175. Used in physics and engineering for exponential calculations with symmetry around zero.\n\n
+
+
+
+{solve_equation[sqrt(81)]}\n\n
+
+Variable Name: sqrt\n\n
+
+Description: Square root function. Example: sqrt(81)=9 because 9×9=81. Cannot process negative numbers. Used for geometry and distance calculations.\n\n
+
+
+
+{solve_equation[tanh(1)]}\n\n
+
+Variable Name: tanh\n\n
+
+Description: Hyperbolic tangent, returns values between -1 and 1. Example: tanh(1) ≈ 0.762. Used in machine learning and signal processing.\n\n
+
+
+
+{solve_equation[trunc(-8.9)]}\n\n
+
+Variable Name: trunc\n\n
+
+Description: Removes decimal places without rounding. Example: trunc(-8.9)=-8, trunc(3.7)=3. Always moves toward zero. Used for simple decimal removal.\n\n
+
+
+
+{subString(Hello World),[0,5]}\n\n
+
+Variable Name: Returns a substring\n\n
+
+Description: Returns a substring of a supplied string.\n\n
+
+
+
+{time_ahead_h_HOURS}\n\n
+
+Variable Name: Hours ahead\n\n
+
+Description: Returns a discord formatted timestamp X hours ahead. Replace HOURS.\n\n
+
+
+
+{time_ahead_m_MINS}\n\n
+
+Variable Name: Minutes ahead\n\n
+
+Description: Returns a discord formatted timestamp X minutes ahead. Replace MINS.\n\n
+
+
+
+{time_ahead_unix_h_HOURS}\n\n
+
+Variable Name: Hours ahead (unix)\n\n
+
+Description: Returns a unix timestamp X hours ahead. Replace HOURS.\n\n
+
+
+
+{time_ahead_unix_m_MINS}\n\n
+
+Variable Name: Minutes ahead (unix)\n\n
+
+Description: Returns a unix timestamp X minutes ahead. Replace MINS.\n\n
+
+
+
+{time_ahead_unix_s_SECS}\n\n
+
+Variable Name: Seconds ahead (unix)\n\n
+
+Description: Returns a unix timestamp X seconds ahead. Replace SECS.\n\n
+
+
+
+{time_now_unix}\n\n
+
+Variable Name: current time unix only\n\n
+
+Description: Displays the current time in unix only. Note: use this when creating a cooldown to compare to now!\n\n
+
+
+
+{time_now}\n\n
+
+Variable Name: current time\n\n
+
+Description: Returns a discord formatted timestamp of the current time.\n\n
+
+
+
+{TOKEN_SECRET}\n\n
+
+Variable Name: TOKEN SECRET\n\n
+
+Description: Returns the bot token, but only works in the "Send an API Request" action block of BotGhost with Discord endpoints; does not work with other non-Discord endpoints.\n\n
+
+
+
+{toUpperCase(hello)}\n\n
+
+Variable Name: to Upper Case\n\n
+
+Description: Convert text to uppercase.\n\n
+
+
+
+{UNIX_to_ISO[Timestamp]}\n\n
+
+Variable Name: UNIX to ISO\n\n
+
+Description: Converts a UNIX timestamp to ISO Timestamp. Note: Unix is a number representing time since January 1970.\n\n
+
+
+
+{user_createdAt}\n\n
+
+Variable Name: user created at\n\n
+
+Description: When this user created their account (Returns time in ISO).\n\n
+
+
+
+{user_discriminator}\n\n
+
+Variable Name: user discriminator\n\n
+
+Description: Get the discriminator of the specified user (#1234).\n\n
+
+
+
+{user_displayName}\n\n
+
+Variable Name: user display name\n\n
+
+Description: Get the specified user's display name (nickname) for the server.\n\n
+
+
+
+{user_icon}\n\n
+
+Variable Name: user icon\n\n
+
+Description: Return the icon of the user who triggered the command.\n\n
+
+
+
+{user_id}\n\n
+
+Variable Name: user id\n\n
+
+Description: Get the ID of the specified user.\n\n
+
+
+
+{user_joined}\n\n
+
+Variable Name: user joined date\n\n
+
+Description: Get when the specified user joined the server.\n\n
+
+
+
+{user_name_encoded}\n\n
+
+Variable Name: encoded user name\n\n
+
+Description: Returns the username of the user encoded for an API.\n\n
+
+
+
+{user_name}\n\n
+
+Variable Name: user name\n\n
+
+Description: Get the username of the specified user.\n\n
+
+
+
+{user_status}\n\n
+
+Variable Name: user status\n\n
+
+Description: Get the specified user's status.\n\n
+
+
+
+{user_tag}\n\n
+
+Variable Name: user tag\n\n
+
+Description: Get the specified user's tag (username#1234).\n\n
+
+
+
+{user}\n\n
+
+Variable Name: user\n\n
+
+Description: Mention the user who triggered the command.\n\n
+
+
+
+{valueAtPosition({array}),[2]}\n\n
+
+Variable Name: value at position\n\n
+
+Description: The value associated with a particular position within the collection.\n\n
+
+
+
+{valueAtPosition({BGVAR_collection_variable}),[2]}\n\n
+
+Variable Name: Value at Position in BGVAR Collection\n\n
+
+Description: Returns the value at the specified position in the collection variable.\n\n
+
+
+
+{websocket_ping}\n\n
+
+Variable Name: websocket ping\n\n
+
+Description: Returns the bot latency.
+
+\n\n\n=-= https://botghost-variable-searcher.netlify.app/ discord.js botghost variables\n\n
+
+{Channel[{{voice_channel_id}].bitrate}\n\n
+
+Variable Name: Channel bitrate\n\n
+
+Description: Returns the audio quality of the voice channel in bits per second. This variable is specifically relevant for voice channels and represents the audio streaming quality. Higher values indicate better audio quality.\n\n
+
+
+
+{Channel[{category_id}].children}\n\n
+
+Variable Name: channel category id children\n\n
+
+Description: Retrieve an array of channel IDs that are children (under) of the specified category specified by its category ID in the Discord server.\n\n
+
+
+
+{Channel[{channel_id}].createdAt}\n\n
+
+Variable Name: channel created at\n\n
+
+Description: Returns the exact date and time when the channel was created, formatted as a human-readable string. This information is useful for tracking the channel's creation history and performing time-based operations or displays.\n\n
+
+
+
+{Channel[{channel_id}].createdTimestamp}\n\n
+
+Variable Name: channel created timestamp\n\n
+
+Description: Provides the Unix timestamp in milliseconds representing the precise moment the channel was created. This timestamp is useful for performing accurate date and time calculations or comparisons related to the channel's creation.\n\n
+
+
+
+{Channel[{channel_id}].defaultAutoArchiveDuration}\n\n
+
+Variable Name: channel default auto archive duration\n\n
+
+Description: Specifies the default duration in minutes for automatic archiving of inactive threads within the channel. After this time period, threads with no new messages will be automatically archived, helping to keep the channel organized.\n\n
+
+
+
+{Channel[{channel_id}].deletable}\n\n
+
+Variable Name: channel deletable\n\n
+
+Description: Returns a boolean value indicating whether the bot has the necessary permissions to delete the channel. This information is useful for determining if the bot can perform channel deletion operations.\n\n
+
+
+
+{Channel[{channel_id}].guild.id}\n\n
+
+Variable Name: Channel guild ID\n\n
+
+Description: Returns the unique ID of the server (guild) to which the channel specified by `channel_id` belongs. This value represents the unique identifier of the server where the channel is located.\n\n
+
+
+
+{Channel[{channel_id}].guild}\n\n
+
+Variable Name: channel guild\n\n
+
+Description: Provides the Guild (server) object representing the server to which the channel belongs. This object allows access to various server-related information and methods for server-wide operations and interactions related to the channel.\n\n
+
+
+
+{Channel[{channel_id}].guildId}\n\n
+
+Variable Name: channel guild ID\n\n
+
+Description: Returns the unique identifier of the Guild (server) to which the channel belongs. This ID can be used to retrieve the guild object, perform server-specific operations, or establish associations between the channel and its parent server.\n\n
+
+
+
+{Channel[{channel_id}].id}\n\n
+
+Variable Name: channel ID\n\n
+
+Description: Represents the unique identifier of the channel, which remains constant throughout its lifetime. This ID is essential for various operations, such as fetching the channel, sending messages to it, or managing its properties and permissions.\n\n
+
+
+
+{Channel[{channel_id}].joinable}\n\n
+
+Variable Name: Channel joinable\n\n
+
+Description: Returns a boolean value indicating whether the bot has permission to join the channel specified by `channel_id`. This is applicable for voice channels and stage channels. Returns `true` if the bot can join, `false` otherwise. If used in a non-joinable channel context, this will return null.\n\n
+
+
+
+{Channel[{channel_id}].lastMessage}\n\n
+
+Variable Name: channel last message\n\n
+
+Description: Provides the Message object representing the last message sent in the channel, if any. This object contains information about the content, author, timestamps, and other properties of the most recent message.\n\n
+
+
+
+{Channel[{channel_id}].lastMessageId}\n\n
+
+Variable Name: channel last message ID\n\n
+
+Description: Returns the unique identifier of the last message sent in the channel, if any. This ID can be used to quickly fetch or reference the most recent message without retrieving the entire message object.\n\n
+
+
+
+{Channel[{channel_id}].lastPinAt}\n\n
+
+Variable Name: channel last pin at\n\n
+
+Description: Indicates the date and time when the last message was pinned in the channel, formatted as a human-readable string. Pinning messages highlights important information, and this property helps track the most recent pin.\n\n
+
+
+
+{Channel[{channel_id}].lastPinTimestamp}\n\n
+
+Variable Name: channel last pin timestamp\n\n
+
+Description: Provides the Unix timestamp in milliseconds representing the exact moment when the last message was pinned in the channel. This timestamp allows for precise calculations and comparisons related to the timing of pinned messages.\n\n
+
+
+
+{Channel[{channel_id}].manageable}\n\n
+
+Variable Name: Channel manageable\n\n
+
+Description: Returns a boolean value indicating whether the bot has permission to manage the channel specified by `channel_id`. This includes permissions like editing the channel, managing permissions, etc. Returns `true` if the bot can manage the channel, `false` otherwise. If used in a context where the bot cannot manage the channel, this will return null.\n\n
+
+
+
+{Channel[{channel_id}].manageable}\n\n
+
+Variable Name: channel manageable\n\n
+
+Description: Returns a boolean value indicating whether the bot has the necessary permissions to manage and modify the channel's properties and settings, such as changing the channel name, topic, permissions, or deleting the channel.\n\n
+
+
+
+{Channel[{channel_id}].members.cache.size}\n\n
+
+Variable Name: Channel members cache size\n\n
+
+Description: Returns the total number of members currently cached by the bot who have access to the channel specified by `channel_id`. This value represents the number of members the bot has loaded into its memory for this specific channel and may not reflect the absolute total number of members with access, especially for large channels or servers. The cache is updated as the bot interacts with the channel and its members.\n\n
+
+
+
+{Channel[{channel_id}].members.size}\n\n
+
+Variable Name: Voice channel members size\n\n
+
+Description: Returns the total number of members currently connected to the voice channel specified by `channel_id`. This `channel_id` must be a valid channel ID or a variable that resolves to a valid voice channel ID. When used in a voice channel context, it will return the number of members in the current voice channel. This value represents the current occupancy of the voice channel and can be used to display how many users are participating in the voice chat.\n\n
+
+
+
+{Channel[{channel_id}].messages.cache.size}\n\n
+
+Variable Name: Channel messages cache size\n\n
+
+Description: Returns the number of messages currently cached for this channel.\n\n
+
+
+
+{Channel[{channel_id}].messages}\n\n
+
+Variable Name: channel messages\n\n
+
+Description: Returns a collection / array of the last 9 message IDs in the targeted channel.\n\n
+
+
+
+{Channel[{channel_id}].name}\n\n
+
+Variable Name: channel name\n\n
+
+Description: Returns the name of the channel as it appears in the Discord user interface. This name identifies and refers to the channel within the server and can be changed by users with appropriate permissions.\n\n
+
+
+
+{Channel[{channel_id}].nsfw}\n\n
+
+Variable Name: channel NSFW\n\n
+
+Description: Indicates whether the channel is marked as NSFW (Not Safe For Work) using a boolean value. NSFW channels typically contain adult-oriented or explicit content and may have special restrictions or age requirements for access.\n\n
+
+
+
+{Channel[{channel_id}].parent.cache.children.size}\n\n
+
+Variable Name: Category channel children size\n\n
+
+Description: Returns the number of channels within the category that is the parent of the current channel specified by `channel_id`. This variable is only applicable when used within a thread or forum post, as it relies on the parent-child relationship of channels. If the current channel is not within a category, this will return 0. This value represents the number of channels directly under the parent category.\n\n
+
+
+
+{Channel[{channel_id}].parent.defaultAutoArchiveDuration}\n\n
+
+Variable Name: Channel parent default auto archive duration\n\n
+
+Description: Returns the default auto-archive duration (in minutes) for threads created within the parent channel of the channel specified by `channel_id`. This value represents the default time after which inactive threads will be automatically archived. If the channel is not within a category or is a top-level channel, or if no default auto-archive duration is set, this will return null.\n\n
+
+
+
+{Channel[{channel_id}].parent.defaultForumLayout}\n\n
+
+Variable Name: Channel parent default forum layout\n\n
+
+Description: Returns the numerical default forum layout of the parent category of the channel specified by `channel_id`. If the channel is not within a category or is a top-level channel, this will return null.\n\n
+
+
+
+{Channel[{channel_id}].parent.defaultForumLayout}\n\n
+
+Variable Name: Channel parent defaultForumLayout\n\n
+
+Description: Returns the numerical default forum layout of the parent category of the channel.\n\n
+
+
+
+{Channel[{channel_id}].parent.defaultReactionEmoji.id}\n\n
+
+Variable Name: Channel parent defaultReactionEmoji id\n\n
+
+Description: Returns the ID of the default reaction emoji of the parent category of a channel.\n\n
+
+
+
+{Channel[{channel_id}].parent.defaultReactionEmoji}\n\n
+
+Variable Name: Channel parent default reaction emoji\n\n
+
+Description: Returns the default reaction emoji for the parent channel of the channel specified by `channel_id`. This value represents the default emoji that is suggested for reactions in the parent channel. If the channel is not within a category or is a top-level channel, or if no default reaction emoji is set, this will return null.\n\n
+
+
+
+{Channel[{channel_id}].parent.defaultSortOrder}\n\n
+
+Variable Name: Channel parent defaultSortOrder\n\n
+
+Description: Returns the numerical default sort order of the parent category of the channel.\n\n
+
+
+
+{Channel[{channel_id}].parent.defaultThreadRateLimitPerUser}\n\n
+
+Variable Name: Channel parent default thread rate limit per user\n\n
+
+Description: Returns the default slow mode rate limit (in seconds) for threads created within the parent channel of the channel specified by `channel_id`. This value represents the default time a user must wait between sending messages in new threads. If the channel is not within a category or is a top-level channel, or if no default thread rate limit is set, this will return null.\n\n
+
+
+
+{Channel[{channel_id}].parent.id}\n\n
+
+Variable Name: Channel parent ID\n\n
+
+Description: Returns the unique ID of the parent category or channel of the channel specified by `channel_id`. If the channel is not within a category or is a top-level channel, this will return null.\n\n
+
+
+
+{Channel[{channel_id}].parent.lastMessageId}\n\n
+
+Variable Name: Channel parent last message ID\n\n
+
+Description: Returns the unique ID of the last message sent in the parent channel of the channel specified by `channel_id`. If the channel is not within a category or is a top-level channel, or if no message has been sent, this will return null.\n\n
+
+
+
+{Channel[{channel_id}].parent.lastPinTimestamp}\n\n
+
+Variable Name: Channel parent last pin timestamp\n\n
+
+Description: Returns the timestamp (in milliseconds since epoch) of the last pinned message in the parent channel of the channel specified by `channel_id`. If the channel is not within a category or is a top-level channel, or if no message has been pinned, this will return null.\n\n
+
+
+
+{Channel[{channel_id}].parent.members.size}\n\n
+
+Variable Name: Channel parent members size\n\n
+
+Description: Returns the number of members who have access to the parent category or channel of the channel specified by `channel_id`. If the channel is not within a category or is a top-level channel, this will return null.\n\n
+
+
+
+{Channel[{channel_id}].parent.name}\n\n
+
+Variable Name: Channel parent name\n\n
+
+Description: Returns the name of the parent category or channel of the channel specified by `channel_id`. If the channel is not within a category or is a top-level channel, this will return null.\n\n
+
+
+
+{Channel[{channel_id}].parent.parent.name}\n\n
+
+Variable Name: Thread parent category name\n\n
+
+Description: Returns the name of the category that is the parent of the channel which is the parent of the current channel specified by `channel_id`. This variable is only applicable when used within a thread or forum post, as it relies on the nested parent-child relationship of channels. If the current channel is not within a thread or forum post, or if the parent channel is not within a category, this will return null. This value represents the name of the category containing the parent channel.\n\n
+
+
+
+{Channel[{channel_id}].parent.position}\n\n
+
+Variable Name: Channel parent position\n\n
+
+Description: Returns the position of the parent category or channel of the channel specified by `channel_id` within the server's channel list. If the channel is not within a category or is a top-level channel, this will return null.\n\n
+
+
+
+{Channel[{channel_id}].parent.rateLimitPerUser}\n\n
+
+Variable Name: Channel parent rate limit per user\n\n
+
+Description: Returns the slow mode rate limit (in seconds) for the parent channel of the channel specified by `channel_id`. This value represents the time a user must wait between sending messages in the parent channel. If the channel is not within a category or is a top-level channel, or if no rate limit is set, this will return null.\n\n
+
+
+
+{Channel[{channel_id}].parent.threads.cache.size}\n\n
+
+Variable Name: Parent channel threads cache size\n\n
+
+Description: Returns the number of active threads within the parent channel of the current channel specified by `channel_id`. This variable is only applicable when used within a thread or forum post, as it relies on the parent-child relationship of channels. This value represents the number of threads currently available in the parent channel.\n\n
+
+
+
+{Channel[{channel_id}].parent.type}\n\n
+
+Variable Name: Channel parent type\n\n
+
+Description: Returns the type of the parent of the channel specified by `channel_id`. This will return a string representing the type of the parent (e.g., "category", "text", "voice"). If the channel is not within a category or is a top-level channel, this will return null.\n\n
+
+
+
+{Channel[{channel_id}].parent}\n\n
+
+Variable Name: channel parent\n\n
+
+Description: Returns the Category channel that the current channel is nested under, if any. Categories provide a way to organize and group related channels together for better server structure and navigation.\n\n
+
+
+
+{Channel[{channel_id}].parentId}\n\n
+
+Variable Name: channel parent ID\n\n
+
+Description: Provides the unique identifier of the Category channel that the current channel belongs to, if any. This ID can be used to reference or retrieve the parent category programmatically.\n\n
+
+
+
+{Channel[{channel_id}].partial}\n\n
+
+Variable Name: channel partial\n\n
+
+Description: Indicates whether the channel data is partial or incomplete using a boolean value. Partial channels may miss certain properties or have limited functionality until they are fully fetched or resolved.\n\n
+
+
+
+{Channel[{channel_id}].permissionOverwrites.cache.size}\n\n
+
+Variable Name: Channel permissionOverwrites cache size\n\n
+
+Description: Returns the number of permission overwrites configured for this channel.\n\n
+
+
+
+{Channel[{channel_id}].permissionOverwrites}\n\n
+
+Variable Name: channel permission overwrites\n\n
+
+Description: Returns a collection of PermissionOverwrites objects representing the channel-specific permissions assigned to individual users or roles. These overwrites allow for fine-grained control over who can access and interact with the channel.\n\n
+
+
+
+{Channel[{channel_id}].permissionsLocked}\n\n
+
+Variable Name: channel permissions locked\n\n
+
+Description: Indicates whether the channel's permissions are synchronized with its parent category using a boolean value. When permissions are locked, the channel inherits the permissions of its parent category.\n\n
+
+
+
+{Channel[{channel_id}].position}\n\n
+
+Variable Name: channel position\n\n
+
+Description: Represents the position of the channel within its parent category or the server's channel list. The position determines the order in which channels are displayed and can be used for sorting or rearranging channels.\n\n
+
+
+
+{Channel[{channel_id}].rateLimitPerUser}\n\n
+
+Variable Name: channel rate limit per user\n\n
+
+Description: Specifies the per-user rate limit, or slowmode, in seconds for the channel. This value determines how frequently each user can send messages, helping to regulate the pace of the conversation and prevent excessive messaging.\n\n
+
+
+
+{Channel[{channel_id}].rawPosition}\n\n
+
+Variable Name: channel raw position\n\n
+
+Description: Provides the raw position of the channel as reported by the Discord API, which may not always match the visible position in the client. This raw position is used for precise ordering and advanced channel management purposes.\n\n
+
+
+
+{Channel[{channel_id}].sendable}\n\n
+
+Variable Name: Channel sendable\n\n
+
+Description: Returns a boolean value indicating whether the bot has permission to send messages in the channel specified by `channel_id`. Returns `true` if the bot can send messages, `false` otherwise. If used in a context where the bot cannot send messages, this will return null.\n\n
+
+
+
+{Channel[{channel_id}].stageInstance.privacyLevel}\n\n
+
+Variable Name: Channel stageInstance privacyLevel\n\n
+
+Description: Returns the privacy level of the stage instance associated with a specific channel. This indicates who can join the stage, such as public or guild-only.\n\n
+
+
+
+{Channel[{channel_id}].stageInstance.topic}\n\n
+
+Variable Name: Channel stageInstance topic\n\n
+
+Description: Returns the topic of the stage instance associated with a specific channel. This is the text description set for the stage.\n\n
+
+
+
+{Channel[{channel_id}].threads.cache.size}\n\n
+
+Variable Name: Channel threads cache size\n\n
+
+Description: Returns the number of active threads within the current channel specified by `channel_id`. This variable is only applicable when used within a thread or forum post, as it relies on the thread structure of channels. This value represents the number of threads currently available in the channel.\n\n
+
+
+
+{Channel[{channel_id}].topic}\n\n
+
+Variable Name: channel topic\n\n
+
+Description: Returns the topic or description of the channel, if set. The topic provides a brief overview or purpose of the channel and can convey important information or guidelines to users.\n\n
+
+
+
+{Channel[{channel_id}].type}\n\n
+
+Variable Name: channel type\n\n
+
+Description: Indicates the type of the channel, specifying its purpose and functionality. Common channel types include text channels for messaging, voice channels for audio communication, and category channels for organizing other channels.\n\n
+
+
+
+{Channel[{channel_id}].url}\n\n
+
+Variable Name: channel URL\n\n
+
+Description: Provides the URL that links directly to the channel within the Discord client. This URL can be used to navigate to the channel, share it with others, or create clickable links that open the channel in the Discord application.\n\n
+
+
+
+{Channel[{channel_id}].viewable}\n\n
+
+Variable Name: channel viewable\n\n
+
+Description: Indicates whether the bot has the necessary permissions to view and access the channel, including the ability to read messages, see the channel's name and topic, and interact with its content, using a boolean value.\n\n
+
+
+
+{Channel[{channel_id}].viewable}\n\n
+
+Variable Name: Channel viewable\n\n
+
+Description: Returns a boolean value indicating whether the bot has permission to view the channel specified by `channel_id`. Returns `true` if the bot can view the channel, `false` otherwise. If used in a context where the bot cannot view the channel, this will return null.\n\n
+
+
+
+{Channel[{forum_id}].threads}\n\n
+
+Variable Name: Channel threads\n\n
+
+Description: Returns a collection of thread IDs that have been active in the last 10 days in this forum channel.\n\n
+
+
+
+{Channel[{thread_id}].appliedTags}\n\n
+
+Variable Name: Channel appliedTags\n\n
+
+Description: Returns an array of tag IDs that are applied to this thread channel.\n\n
+
+
+
+{Channel[{thread_id}].archived}\n\n
+
+Variable Name: Channel archived\n\n
+
+Description: Returns whether the thread is archived. An archived thread is read-only and cannot receive new messages.\n\n
+
+
+
+{Channel[{thread_id}].archivedAt}\n\n
+
+Variable Name: Channel archivedAt\n\n
+
+Description: Returns the timestamp when the thread was archived or last unarchived. If never archived, returns the thread creation time.\n\n
+
+
+
+{Channel[{thread_id}].archiveTimestamp}\n\n
+
+Variable Name: Channel archiveTimestamp\n\n
+
+Description: Returns the Unix timestamp (in milliseconds) when the thread was archived or last unarchived. If never archived, returns the thread creation timestamp.\n\n
+
+
+
+{Channel[{thread_id}].autoArchiveDuration}\n\n
+
+Variable Name: Channel autoArchiveDuration\n\n
+
+Description: Returns the duration in minutes after which the thread will automatically archive due to inactivity.\n\n
+
+
+
+{Channel[{thread_id}].bitrate}\n\n
+
+Variable Name: Channel bitrate\n\n
+
+Description: Returns the audio quality for voice channels, measured in bits per second. Relevant for voice channels, not for threads or text channels. Often empty for threads.\n\n
+
+
+
+{Channel[{thread_id}].createdAt}\n\n
+
+Variable Name: Channel createdAt\n\n
+
+Description: Returns the timestamp when this thread was created.\n\n
+
+
+
+{Channel[{thread_id}].createdTimestamp}\n\n
+
+Variable Name: Channel createdTimestamp\n\n
+
+Description: Returns the Unix timestamp (in milliseconds) when this thread was created.\n\n
+
+
+
+{Channel[{thread_id}].defaultThreadRateLimitPerUser}\n\n
+
+Variable Name: thread default thread rate limit per user\n\n
+
+Description: Indicates the default rate limit in seconds that determines how frequently each user can send messages within the thread. This setting helps to control the pace of the conversation and prevent excessive messaging.\n\n
+
+
+
+{Channel[{thread_id}].editable}\n\n
+
+Variable Name: Channel editable\n\n
+
+Description: Returns whether the thread can be edited by the client user, including name, archived status and auto-archive duration.\n\n
+
+
+
+{Channel[{thread_id}].guild}\n\n
+
+Variable Name: Channel guild\n\n
+
+Description: Returns the Guild object of the server this thread belongs to.\n\n
+
+
+
+{Channel[{thread_id}].guildId}\n\n
+
+Variable Name: Channel guildId\n\n
+
+Description: Returns the ID of the guild this thread belongs to.\n\n
+
+
+
+{Channel[{thread_id}].guildId}\n\n
+
+Variable Name: Channel guildId\n\n
+
+Description: Returns the ID of the server to which the thread or channel belongs. Applicable to all channel types within a server. Example: 1234130100279181373\n\n
+
+
+
+{Channel[{thread_id}].id}\n\n
+
+Variable Name: Channel id\n\n
+
+Description: Returns the unique ID of this thread channel.\n\n
+
+
+
+{Channel[{thread_id}].id}\n\n
+
+Variable Name: Channel id\n\n
+
+Description: Returns the unique identification number of the thread or channel. Works for all channel types. Example: 1287520061677895710\n\n
+
+
+
+{Channel[{thread_id}].invitable}\n\n
+
+Variable Name: Channel invitable\n\n
+
+Description: Returns whether non-moderator members can add other members to this private thread.\n\n
+
+
+
+{Channel[{thread_id}].joinable}\n\n
+
+Variable Name: Channel joinable\n\n
+
+Description: Returns whether the client user can join this thread.\n\n
+
+
+
+{Channel[{thread_id}].joined}\n\n
+
+Variable Name: Channel joined\n\n
+
+Description: Returns whether the client user is currently a member of this thread.\n\n
+
+
+
+{Channel[{thread_id}].lastMessage}\n\n
+
+Variable Name: Channel lastMessage\n\n
+
+Description: Returns the last message sent in this thread, if one exists and is cached.\n\n
+
+
+
+{Channel[{thread_id}].lastMessageId}\n\n
+
+Variable Name: Channel lastMessageId\n\n
+
+Description: Returns the ID of the last message in the thread or channel. Works for all channel types that support messages. Example: 1291580145446031400\n\n
+
+
+
+{Channel[{thread_id}].lastMessageId}\n\n
+
+Variable Name: Channel lastMessageId\n\n
+
+Description: Returns the ID of the last message sent in this thread.\n\n
+
+
+
+{Channel[{thread_id}].lastPinAt}\n\n
+
+Variable Name: Channel lastPinAt\n\n
+
+Description: Returns the timestamp when the last message was pinned in this thread.\n\n
+
+
+
+{Channel[{thread_id}].lastPinTimestamp}\n\n
+
+Variable Name: Channel lastPinTimestamp\n\n
+
+Description: Returns the Unix timestamp (in milliseconds) when the last message was pinned.\n\n
+
+
+
+{Channel[{thread_id}].locked}\n\n
+
+Variable Name: Channel locked\n\n
+
+Description: Returns whether the thread is locked. When locked, only users with MANAGE_THREADS permission can unarchive it.\n\n
+
+
+
+{Channel[{thread_id}].manageable}\n\n
+
+Variable Name: Channel manageable\n\n
+
+Description: Returns whether the client user can manage this thread, including deletion and modifying rate limits.\n\n
+
+
+
+{Channel[{thread_id}].memberCount}\n\n
+
+Variable Name: Channel memberCount\n\n
+
+Description: Returns the approximate number of members in this thread. Stops counting at 50 members.\n\n
+
+
+
+{Channel[{thread_id}].members}\n\n
+
+Variable Name: Channel members\n\n
+
+Description: Returns a collection of cached members of this thread channel, mapped by their user IDs.\n\n
+
+
+
+{Channel[{thread_id}].members}\n\n
+
+Variable Name: Channel members\n\n
+
+Description: Returns a ThreadMemberManager of the members participating in this thread.\n\n
+
+
+
+{Channel[{thread_id}].messageCount}\n\n
+
+Variable Name: Channel messageCount\n\n
+
+Description: Returns the approximate count of messages in this thread. May be inaccurate for threads created before July 1, 2022.\n\n
+
+
+
+{Channel[{thread_id}].name}\n\n
+
+Variable Name: Channel name\n\n
+
+Description: Returns the name of the thread or channel as displayed in Discord. Applicable to all channel types. Example: "test"\n\n
+
+
+
+{Channel[{thread_id}].ownerId}\n\n
+
+Variable Name: Channel ownerId\n\n
+
+Description: Returns the ID of the user who created this thread.\n\n
+
+
+
+{Channel[{thread_id}].parent}\n\n
+
+Variable Name: Channel parent\n\n
+
+Description: Returns the parent channel (TextChannel, AnnouncementChannel, ForumChannel, or MediaChannel) that contains this thread.\n\n
+
+
+
+{Channel[{thread_id}].parentId}\n\n
+
+Variable Name: Channel parentId\n\n
+
+Description: Returns the ID of the parent channel that contains this thread.\n\n
+
+
+
+{Channel[{thread_id}].rateLimitPerUser}\n\n
+
+Variable Name: Channel rateLimitPerUser\n\n
+
+Description: Returns the delay in seconds between messages for users. Applicable to threads and text channels. 0 means no limit. Example: 0\n\n
+
+
+
+{Channel[{thread_id}].rateLimitPerUser}\n\n
+
+Variable Name: Channel rateLimitPerUser\n\n
+
+Description: Returns the rate limit per user (slowmode) for this thread in seconds.\n\n
+
+
+
+{Channel[{thread_id}].sendable}\n\n
+
+Variable Name: Channel sendable\n\n
+
+Description: Returns whether the client user can send messages in this thread.\n\n
+
+
+
+{Channel[{thread_id}].totalMessageSent}\n\n
+
+Variable Name: Channel totalMessageSent\n\n
+
+Description: Returns the total number of messages ever sent in this thread. Unlike messageCount, this number does not decrease when messages are deleted.\n\n
+
+
+
+{Channel[{thread_id}].type}\n\n
+
+Variable Name: Channel type\n\n
+
+Description: Returns the channel type, which is ChannelType.PrivateThread for private threads.\n\n
+
+
+
+{Channel[{thread_id}].type}\n\n
+
+Variable Name: Channel type\n\n
+
+Description: Returns the type of the channel. For threads, this is typically 11 (public thread) or 12 (private thread), but there are other values for different channel types like text channels (0) or voice channels (2). Example: 11\n\n
+
+
+
+{Channel[{thread_id}].unarchivable}\n\n
+
+Variable Name: Channel unarchivable\n\n
+
+Description: Returns whether the client user can unarchive this thread if it is archived.\n\n
+
+
+
+{Channel[{thread_id}].url}\n\n
+
+Variable Name: Channel url\n\n
+
+Description: Returns the URL that links to this thread channel.\n\n
+
+
+
+{Channel[{thread_id}].userLimit}\n\n
+
+Variable Name: Channel userLimit\n\n
+
+Description: Returns the maximum number of users that can join a voice channel. Mainly applies to voice channels, not for threads or text channels. Often empty for threads.\n\n
+
+
+
+{Channel[{thread_id}].viewable}\n\n
+
+Variable Name: Channel viewable\n\n
+
+Description: Returns whether the thread is visible to the client user.\n\n
+
+
+
+{Channel[{voice_channel_id}].bitrate}\n\n
+
+Variable Name: Channel bitrate\n\n
+
+Description: Returns the bitrate of this voice-based channel in bits per second. This determines the audio quality of the voice channel.\n\n
+
+
+
+{Channel[{voice_channel_id}].createdAt}\n\n
+
+Variable Name: Channel createdAt\n\n
+
+Description: Returns the date when this channel was created. Provides a Date object of the creation timestamp.\n\n
+
+
+
+{Channel[{voice_channel_id}].createdTimestamp}\n\n
+
+Variable Name: Channel createdTimestamp\n\n
+
+Description: Returns the timestamp when this channel was created in Unix time (milliseconds).\n\n
+
+
+
+{Channel[{voice_channel_id}].deletable}\n\n
+
+Variable Name: Channel deletable\n\n
+
+Description: Returns whether the client user has permission to delete this channel.\n\n
+
+
+
+{Channel[{voice_channel_id}].full}\n\n
+
+Variable Name: Channel full\n\n
+
+Description: Returns whether the voice channel has reached its user limit.\n\n
+
+
+
+{Channel[{voice_channel_id}].guild}\n\n
+
+Variable Name: Channel guild\n\n
+
+Description: Returns the Guild object of the server this channel belongs to.\n\n
+
+
+
+{Channel[{voice_channel_id}].guildId}\n\n
+
+Variable Name: Channel guildId\n\n
+
+Description: Returns the ID of the guild this channel belongs to.\n\n
+
+
+
+{Channel[{voice_channel_id}].id}\n\n
+
+Variable Name: Channel id\n\n
+
+Description: Returns the unique ID of this channel.\n\n
+
+
+
+{Channel[{voice_channel_id}].joinable}\n\n
+
+Variable Name: Channel joinable\n\n
+
+Description: Returns whether the client user can join this voice channel.\n\n
+
+
+
+{Channel[{voice_channel_id}].lastMessage}\n\n
+
+Variable Name: Channel lastMessage\n\n
+
+Description: Returns the Message object of the last message sent in this channel, if one exists and is cached.\n\n
+
+
+
+{Channel[{voice_channel_id}].lastMessageId}\n\n
+
+Variable Name: Channel lastMessageId\n\n
+
+Description: Returns the ID of the last message sent in this channel.\n\n
+
+
+
+{Channel[{voice_channel_id}].manageable}\n\n
+
+Variable Name: Channel manageable\n\n
+
+Description: Returns whether the client user has permission to manage and modify this channel.\n\n
+
+
+
+{Channel[{voice_channel_id}].name}\n\n
+
+Variable Name: Channel name\n\n
+
+Description: Returns the name of this voice channel.\n\n
+
+
+
+{Channel[{voice_channel_id}].nsfw}\n\n
+
+Variable Name: Channel nsfw\n\n
+
+Description: Returns whether this channel is marked as NSFW (Not Safe For Work).\n\n
+
+
+
+{Channel[{voice_channel_id}].parent}\n\n
+
+Variable Name: Channel parent\n\n
+
+Description: Returns the CategoryChannel that this channel belongs to.\n\n
+
+
+
+{Channel[{voice_channel_id}].parentId}\n\n
+
+Variable Name: Channel parentId\n\n
+
+Description: Returns the ID of the category parent of this channel.\n\n
+
+
+
+{Channel[{voice_channel_id}].partial}\n\n
+
+Variable Name: Channel partial\n\n
+
+Description: Returns whether this channel is partial. Always false for voice channels.\n\n
+
+
+
+{Channel[{voice_channel_id}].permissionOverwrites}\n\n
+
+Variable Name: Channel permissionOverwrites\n\n
+
+Description: Returns a PermissionOverwriteManager of permission overwrites that belong to this channel.\n\n
+
+
+
+{Channel[{voice_channel_id}].permissionsLocked}\n\n
+
+Variable Name: Channel permissionsLocked\n\n
+
+Description: Returns whether the permission overwrites match the parent channel.\n\n
+
+
+
+{Channel[{voice_channel_id}].position}\n\n
+
+Variable Name: Channel position\n\n
+
+Description: Returns the position of this channel in the Discord client.\n\n
+
+
+
+{Channel[{voice_channel_id}].rateLimitPerUser}\n\n
+
+Variable Name: Channel rateLimitPerUser\n\n
+
+Description: Returns the rate limit per user (slowmode) for this channel in seconds.\n\n
+
+
+
+{Channel[{voice_channel_id}].rawPosition}\n\n
+
+Variable Name: Channel rawPosition\n\n
+
+Description: Returns the raw position of the channel from Discord.\n\n
+
+
+
+{Channel[{voice_channel_id}].rtcRegion}\n\n
+
+Variable Name: Channel rtcRegion\n\n
+
+Description: Returns the RTC region for this voice-based channel. Null if automatic region selection is enabled.\n\n
+
+
+
+{Channel[{voice_channel_id}].speakable}\n\n
+
+Variable Name: Channel speakable\n\n
+
+Description: Returns whether the client user has permission to speak in this voice channel.\n\n
+
+
+
+{Channel[{voice_channel_id}].type}\n\n
+
+Variable Name: Channel type\n\n
+
+Description: Returns the type of the channel, which is ChannelType.GuildVoice for voice channels.\n\n
+
+
+
+{Channel[{voice_channel_id}].url}\n\n
+
+Variable Name: Channel url\n\n
+
+Description: Returns the URL that links to this channel.\n\n
+
+
+
+{Channel[{voice_channel_id}].userLimit}\n\n
+
+Variable Name: Channel userLimit\n\n
+
+Description: Returns the maximum number of users allowed in this voice channel.\n\n
+
+
+
+{Channel[{voice_channel_id}].userLimit}\n\n
+
+Variable Name: Channel userLimit\n\n
+
+Description: Returns the maximum number of users that can join the voice channel. A value of 0 typically means there is no limit set. This variable is exclusively applicable to voice channels and helps manage channel capacity.\n\n
+
+
+
+{Channel[{voice_channel_id}].videoQualityMode}\n\n
+
+Variable Name: Channel videoQualityMode\n\n
+
+Description: Returns the camera video quality mode of the channel. Null if automatic is selected\n\n
+
+
+
+{Channel[{voice_channel_id}].viewable}\n\n
+
+Variable Name: Channel viewable\n\n
+
+Description: Returns whether the client user has permission to view this channel.\n\n
+
+
+
+{Guild[{server_id}].afkChannel.bitrate}\n\n
+
+Variable Name: Guild AFK channel bitrate\n\n
+
+Description: Returns the bitrate (in kbps) of the AFK voice channel configured for the server specified by `server_id`. If no AFK channel is configured, this will return null.\n\n
+
+
+
+{Guild[{server_id}].afkChannel.id}\n\n
+
+Variable Name: Guild AFK channel ID\n\n
+
+Description: Returns the unique ID of the AFK voice channel configured for the server specified by `server_id`. If no AFK channel is configured, this will return null.\n\n
+
+
+
+{Guild[{server_id}].afkChannel.name}\n\n
+
+Variable Name: Guild AFK channel name\n\n
+
+Description: Returns the name of the AFK voice channel configured for the server specified by `server_id`. If no AFK channel is configured, this will return null.\n\n
+
+
+
+{Guild[{server_id}].afkChannel.position}\n\n
+
+Variable Name: Guild AFK channel position\n\n
+
+Description: Returns the position of the AFK voice channel configured for the server specified by `server_id` within the server's channel list. If no AFK channel is configured, this will return null.\n\n
+
+
+
+{Guild[{server_id}].afkChannel.rtcRegion}\n\n
+
+Variable Name: Guild AFK channel RTC region\n\n
+
+Description: Returns the region ID of the Real-Time Communication (RTC) server for the AFK voice channel configured for the server specified by `server_id`. If no AFK channel is configured, or if the channel is using the default region setting, this will return null.\n\n
+
+
+
+{Guild[{server_id}].afkChannel.userLimit}\n\n
+
+Variable Name: Guild AFK channel user limit\n\n
+
+Description: Returns the maximum number of users that can be connected to the AFK voice channel configured for the server specified by `server_id`. If no AFK channel is configured or if the AFK channel has no user limit, this will return 0 or null.\n\n
+
+
+
+{Guild[{server_id}].afkChannel.videoQualityMode}\n\n
+
+Variable Name: Guild AFK channel video quality mode\n\n
+
+Description: Returns the video quality mode of the AFK voice channel configured for the server specified by `server_id`. This value represents the video quality setting for the channel (e.g., "AUTO", "FULL"). If no AFK channel is configured, or if the channel is using the default video quality mode, this will return null.\n\n
+
+
+
+{Guild[{server_id}].afkTimeout}\n\n
+
+Variable Name: guild server id afk timeout\n\n
+
+Description: Specifies the duration in seconds of inactivity before automatically moving a user to the AFK voice channel. This helps manage inactive users and keeps voice channels organized.\n\n
+
+
+
+{Guild[{server_id}].autoModerationRules.cache.size}\n\n
+
+Variable Name: Guild auto moderation rules cache size\n\n
+
+Description: Returns the number of auto-moderation rules currently cached by the bot for the server specified by `server_id`. This value represents the number of rules the bot has loaded into its memory that are used to automatically moderate content on the server. The cache is updated as rules are created, updated, or deleted.\n\n
+
+
+
+{Guild[{server_id}].available}\n\n
+
+Variable Name: Guild available\n\n
+
+Description: Returns a boolean value indicating whether the server specified by `server_id` is available.\n\n
+
+
+
+{Guild[{server_id}].available}\n\n
+
+Variable Name: guild server id available\n\n
+
+Description: Indicates whether the Discord server is currently operational and accessible. When false, the server might be experiencing outages or API issues.\n\n
+
+
+
+{Guild[{server_id}].banner}\n\n
+
+Variable Name: guild server id banner\n\n
+
+Description: The unique identifier hash for the server's banner image displayed at the top of the server. Custom banners are available for servers with specific boost levels.\n\n
+
+
+
+{Guild[{server_id}].bans.cache.size}\n\n
+
+Variable Name: Guild bans cache size\n\n
+
+Description: Returns the total number of users who are currently banned from this server. This value represents the size of the ban cache, which stores information about banned users.\n\n
+
+
+
+{Guild[{server_id}].channels.cache.size}\n\n
+
+Variable Name: Guild channels cache size\n\n
+
+Description: Returns the number of channels currently cached in this server.\n\n
+
+
+
+{Guild[{server_id}].channels}\n\n
+
+Variable Name: guild server id channels\n\n
+
+Description: Contains a complete collection of all channel IDs within the server, including text, voice, announcement channels, and categories. Useful for server management and monitoring.\n\n
+
+
+
+{Guild[{server_id}].commands.cache.size}\n\n
+
+Variable Name: Guild commands cache size\n\n
+
+Description: Returns the number of application commands currently cached by the bot for the server specified by `server_id`. This value represents the number of slash commands and context menu commands the bot has loaded into its memory for this server. The cache is updated as commands are created, updated, or deleted.\n\n
+
+
+
+{Guild[{server_id}].createdAt}\n\n
+
+Variable Name: guild server id created at\n\n
+
+Description: Returns the exact date and time when the Discord server was created in a human-readable format. Useful for tracking server age and establishment date.\n\n
+
+
+
+{Guild[{server_id}].createdTimestamp}\n\n
+
+Variable Name: guild server id created timestamp\n\n
+
+Description: Provides the Unix timestamp of when the server was created. This numeric value represents the milliseconds since January 1, 1970, and is useful for precise time calculations.\n\n
+
+
+
+{Guild[{server_id}].defaultMessageNotifications}\n\n
+
+Variable Name: guild server id default message notifications\n\n
+
+Description: Controls the default notification settings for new members joining the server. Determines whether members receive notifications for all messages or only @mentions by default.\n\n
+
+
+
+{Guild[{server_id}].description}\n\n
+
+Variable Name: guild server id description\n\n
+
+Description: The server's detailed description that appears in the server discovery and community settings. Helps potential members understand the server's purpose and community.\n\n
+
+
+
+{Guild[{server_id}].discoverySplash}\n\n
+
+Variable Name: guild server id discovery splash\n\n
+
+Description: The unique hash identifier for the server's discovery splash image. This image appears when the server is listed in Server Discovery and helps attract new members.\n\n
+
+
+
+{Guild[{server_id}].emojis.cache.size}\n\n
+
+Variable Name: Guild emojis cache size\n\n
+
+Description: Returns the total number of custom emojis that are currently available for use within this server. This includes all static and animated emojis that have been added by server administrators or members with the appropriate permissions.\n\n
+
+
+
+{Guild[{server_id}].emojis}\n\n
+
+Variable Name: guild server id emojis\n\n
+
+Description: A collection of all custom emojis available in the server, including both static and animated emojis. These can be used by members based on their roles and permissions.\n\n
+
+
+
+{Guild[{server_id}].explicitContentFilter}\n\n
+
+Variable Name: guild server id explicit content filter\n\n
+
+Description: Defines the server's content moderation level for automatically scanning and filtering inappropriate content in messages. Helps maintain a safe and appropriate server environment.\n\n
+
+
+
+{Guild[{server_id}].features}\n\n
+
+Variable Name: guild server id features\n\n
+
+Description: A list of all special features enabled for the server, such as community features, welcome screen, or server banners. Shows what premium or unlocked features are available.\n\n
+
+
+
+{Guild[{server_id}].icon}\n\n
+
+Variable Name: guild server id icon\n\n
+
+Description: The unique hash identifier for the server's icon image. This is the main visual representation of the server that appears in the server list and server header.\n\n
+
+
+
+{Guild[{server_id}].id}\n\n
+
+Variable Name: guild server id id\n\n
+
+Description: The unique numeric identifier for the Discord server. This permanent ID is used to reference the server across the Discord platform and API.\n\n
+
+
+
+{Guild[{server_id}].joinedAt}\n\n
+
+Variable Name: guild server id joined at\n\n
+
+Description: The specific date and time when the bot or client user joined the server. Useful for tracking membership duration and bot installation timing.\n\n
+
+
+
+{Guild[{server_id}].joinedTimestamp}\n\n
+
+Variable Name: guild server id joined timestamp\n\n
+
+Description: The Unix timestamp marking when the bot or client user joined the server. Provides precise timing data in milliseconds since epoch for technical applications.\n\n
+
+
+
+{Guild[{server_id}].large}\n\n
+
+Variable Name: guild server id large\n\n
+
+Description: A boolean indicator showing if the server is considered "large" with more than 250 members. This affects how Discord handles member data loading and caching.\n\n
+
+
+
+{Guild[{server_id}].maximumBitrate}\n\n
+
+Variable Name: guild server id maximum bitrate\n\n
+
+Description: The highest audio quality setting available for voice channels in the server, measured in bits per second. Higher limits are available with server boosts.\n\n
+
+
+
+{Guild[{server_id}].maximumMembers}\n\n
+
+Variable Name: guild server id maximum members\n\n
+
+Description: The maximum number of members that can join the server. This limit varies based on the server's boost level and other factors set by Discord.\n\n
+
+
+
+{Guild[{server_id}].maxStageVideoChannelUsers}\n\n
+
+Variable Name: guild server id max stage video channel users\n\n
+
+Description: The maximum number of participants who can simultaneously share video in a stage channel. This limit depends on the server's boost level.\n\n
+
+
+
+{Guild[{server_id}].maxVideoChannelUsers}\n\n
+
+Variable Name: guild server id max video channel users\n\n
+
+Description: Defines the maximum number of members who can simultaneously use video or screen sharing in a voice channel. Higher limits are available with server boosts.\n\n
+
+
+
+{Guild[{server_id}].memberCount}\n\n
+
+Variable Name: guild server id member count\n\n
+
+Description: The total number of members currently in the server, including both human users and bots. This number is automatically updated as members join or leave.\n\n
+
+
+
+{Guild[{server_id}].members.cache.size}\n\n
+
+Variable Name: Guild members cache size\n\n
+
+Description: Returns the number of members currently cached in this server.\n\n
+
+
+
+{Guild[{server_id}].members.cache.size}\n\n
+
+Variable Name: Guild members cache size\n\n
+
+Description: Returns the total number of members currently cached by the bot for the server specified by `server_id`. This value represents the number of members the bot has loaded into its memory and may not reflect the absolute total number of members in the server, especially for very large servers. The cache is updated as the bot interacts with the server and its members.\n\n
+
+
+
+{Guild[{server_id}].members}\n\n
+
+Variable Name: guild server id members\n\n
+
+Description: A complete collection of all server members, including their roles, nicknames, and other member-specific data. Essential for server management and user tracking.\n\n
+
+
+
+{Guild[{server_id}].mfaLevel}\n\n
+
+Variable Name: guild server id mfa level\n\n
+
+Description: The Multi-Factor Authentication requirement level for moderation actions in the server. Indicates whether moderators need 2FA enabled to perform critical actions.\n\n
+
+
+
+{Guild[{server_id}].name}\n\n
+
+Variable Name: guild server id name\n\n
+
+Description: The current display name of the Discord server. This name appears in the server list and at the top of the server's channel list.\n\n
+
+
+
+{Guild[{server_id}].nameAcronym}\n\n
+
+Variable Name: guild server id name acronym\n\n
+
+Description: An automatically generated acronym based on the server's name, used for the server icon when no custom icon is set. Created from the first letter of each word in the server name.\n\n
+
+
+
+{Guild[{server_id}].nsfwLevel}\n\n
+
+Variable Name: guild server id nsfw level\n\n
+
+Description: The age-restricted content level of the server. Determines how Discord handles NSFW channel access and content warnings across the server.\n\n
+
+
+
+{Guild[{server_id}].ownerId}\n\n
+
+Variable Name: guild server id owner id\n\n
+
+Description: The unique Discord user ID of the server owner. This identifier is crucial for ownership verification and special permission checks.\n\n
+
+
+
+{Guild[{server_id}].partnered}\n\n
+
+Variable Name: guild server id partnered\n\n
+
+Description: Indicates whether the server is officially partnered with Discord. Partnered servers receive special perks and features as part of Discord's partnership program.\n\n
+
+
+
+{Guild[{server_id}].preferredLocale}\n\n
+
+Variable Name: guild server id preferred locale\n\n
+
+Description: The primary language setting for the server, affecting system messages and community features. Helps in providing localized content to server members.\n\n
+
+
+
+{Guild[{server_id}].premiumProgressBarEnabled}\n\n
+
+Variable Name: Guild premium progress bar enabled\n\n
+
+Description: Returns a boolean value indicating whether the premium progress bar is enabled for the server specified by `server_id`.\n\n
+
+
+
+{Guild[{server_id}].premiumProgressBarEnabled}\n\n
+
+Variable Name: guild server id premium progress bar enabled\n\n
+
+Description: Shows whether the server displays the boost progress bar. This visual indicator shows progress towards the next server boost level and associated perks.\n\n
+
+
+
+{Guild[{server_id}].premiumSubscriptionCount}\n\n
+
+Variable Name: guild server id premium subscription count\n\n
+
+Description: The total number of server boosts currently active on the server. This count determines the server's boost level and available premium features.\n\n
+
+
+
+{Guild[{server_id}].premiumTier}\n\n
+
+Variable Name: guild server id premium tier\n\n
+
+Description: The current boost level of the server (0-3). Each tier unlocks additional features like higher audio quality, more emoji slots, and better streaming quality.\n\n
+
+
+
+{Guild[{server_id}].presences}\n\n
+
+Variable Name: guild server id presences\n\n
+
+Description: A collection of all member presence data in the server, including their online status, current activities, and custom status messages.\n\n
+
+
+
+{Guild[{server_id}].publicUpdatesChannel.name}\n\n
+
+Variable Name: Guild public updates channel name\n\n
+
+Description: Returns the name of the public updates channel configured for the server specified by `server_id`. If no public updates channel is configured, this will return null.\n\n
+
+
+
+{Guild[{server_id}].publicUpdatesChannel.position}\n\n
+
+Variable Name: Guild public updates channel position\n\n
+
+Description: Returns the position of the public updates channel configured for the server specified by `server_id` within the server's channel list. If no public updates channel is configured, this will return null.\n\n
+
+
+
+{Guild[{server_id}].publicUpdatesChannel.topic}\n\n
+
+Variable Name: Guild public updates channel topic\n\n
+
+Description: Returns the topic (description) of the public updates channel configured for the server specified by `server_id`. If no public updates channel is configured or if the public updates channel has no topic set, this will return null.\n\n
+
+
+
+{Guild[{server_id}].publicUpdatesChannel}\n\n
+
+Variable Name: guild server id public updates channel\n\n
+
+Description: The designated channel where Discord sends public updates about the server, including community feature changes and Discord announcements.\n\n
+
+
+
+{Guild[{server_id}].publicUpdatesChannelId}\n\n
+
+Variable Name: guild server id public updates channel id\n\n
+
+Description: The unique identifier of the channel designated for Discord's public server updates. Used to programmatically reference this specific channel.\n\n
+
+
+
+{Guild[{server_id}].roles.cache.size}\n\n
+
+Variable Name: Guild roles cache size\n\n
+
+Description: Returns the number of roles currently cached in this server.\n\n
+
+
+
+{Guild[{server_id}].roles.everyone.id}\n\n
+
+Variable Name: Guild roles everyone id\n\n
+
+Description: Returns the ID of the @everyone role, which is a special role that every member in the server automatically has. This role cannot be deleted or removed from members and is used to set server-wide permissions.\n\n
+
+
+
+{Guild[{server_id}].roles.highest.id}\n\n
+
+Variable Name: Guild roles highest id\n\n
+
+Description: Returns the ID of the highest positioned role in the server hierarchy. This is determined by comparing the position values of all roles, where higher numbers indicate a higher position in the hierarchy. This is useful for permission checks and role management.\n\n
+
+
+
+{Guild[{server_id}].roles.highest.position}\n\n
+
+Variable Name: Guild roles highest position\n\n
+
+Description: Returns the numerical position of the highest role in the server's role hierarchy. The highest role is the one with the most permissions and is typically at the top of the role list. This value can be used to compare role precedence and determine which role has higher authority.\n\n
+
+
+
+{Guild[{server_id}].roles.premiumSubscriberRole.id}\n\n
+
+Variable Name: Guild roles premium subscriber id\n\n
+
+Description: Returns the ID of the server booster role. This role is automatically assigned to members who are actively boosting the server with their Nitro subscription. The role often comes with special permissions and is used to identify and reward server boosters.\n\n
+
+
+
+{Guild[{server_id}].roles}\n\n
+
+Variable Name: guild server id roles\n\n
+
+Description: A complete collection of all roles defined in the server, including their permissions, colors, and hierarchy. Essential for server permission management.\n\n
+
+
+
+{Guild[{server_id}].rulesChannel.name}\n\n
+
+Variable Name: Guild rules channel name\n\n
+
+Description: Returns the name of the rules channel configured for the server specified by `server_id`. If no rules channel is configured, this will return null.\n\n
+
+
+
+{Guild[{server_id}].rulesChannel.position}\n\n
+
+Variable Name: Guild rules channel position\n\n
+
+Description: Returns the position of the rules channel configured for the server specified by `server_id` within the server's channel list. If no rules channel is configured, this will return null.\n\n
+
+
+
+{Guild[{server_id}].rulesChannel.topic}\n\n
+
+Variable Name: Guild rules channel topic\n\n
+
+Description: Returns the topic (description) of the rules channel configured for the server specified by `server_id`. If no rules channel is configured or if the rules channel has no topic set, this will return null.\n\n
+
+
+
+{Guild[{server_id}].rulesChannel}\n\n
+
+Variable Name: guild server id rules channel\n\n
+
+Description: The dedicated channel containing the server's rules and guidelines. This channel is prominently displayed to new members in community servers.\n\n
+
+
+
+{Guild[{server_id}].rulesChannelId}\n\n
+
+Variable Name: guild server id rules channel id\n\n
+
+Description: The unique identifier of the server's rules channel. Used for programmatic reference and verification of the rules channel location.\n\n
+
+
+
+{Guild[{server_id}].safetyAlertsChannel}\n\n
+
+Variable Name: guild server id safety alerts channel\n\n
+
+Description: The channel where Discord sends safety and security alerts about potential threats or suspicious activities in the server.\n\n
+
+
+
+{Guild[{server_id}].safetyAlertsChannelId}\n\n
+
+Variable Name: guild server id safety alerts channel id\n\n
+
+Description: The unique identifier for the channel receiving safety and security alerts. Used to programmatically manage and monitor security notifications.\n\n
+
+
+
+{Guild[{server_id}].scheduledEvents.cache.size}\n\n
+
+Variable Name: Guild scheduled events cache size\n\n
+
+Description: Returns the number of scheduled events currently cached by the bot for the server specified by `server_id`. This value represents the number of upcoming or ongoing events that the bot has loaded into its memory for the server. The cache is updated as events are created, updated, or completed.\n\n
+
+
+
+{Guild[{server_id}].scheduledEvents}\n\n
+
+Variable Name: guild server id scheduled events\n\n
+
+Description: A collection of all current and upcoming server events, including their details, timing, and participant information. Used for event management and tracking.\n\n
+
+
+
+{Guild[{server_id}].shard.ping}\n\n
+
+Variable Name: Guild shard ping\n\n
+
+Description: Returns the latency (in milliseconds) of the shard that the server specified by `server_id` is connected to. This value represents the connection speed between the bot and the Discord gateway for this specific shard.\n\n
+
+
+
+{Guild[{server_id}].shard.status}\n\n
+
+Variable Name: Guild shard status\n\n
+
+Description: Returns the connection status of the shard that the server specified by `server_id` is connected to. This value will be a string representing the current status of the shard (e.g., "READY", "CONNECTING", "DISCONNECTED").\n\n
+
+
+
+{Guild[{server_id}].shardId}\n\n
+
+Variable Name: guild server id shard id\n\n
+
+Description: The identifier of the Discord shard handling this server. Important for large bots that use sharding to distribute server load across multiple processes.\n\n
+
+
+
+{Guild[{server_id}].splash}\n\n
+
+Variable Name: guild server id splash\n\n
+
+Description: The hash identifier for the server's invite splash image. This image appears as the background when users view an invite to the server.\n\n
+
+
+
+{Guild[{server_id}].stageInstances.cache.size}\n\n
+
+Variable Name: Guild stage instances cache size\n\n
+
+Description: Returns the number of active stage instances currently cached by the bot for the server specified by `server_id`. This value represents the number of active stage channels that are currently being used for live audio events on the server. The cache is updated as stage instances are created, updated, or closed.\n\n
+
+
+
+{Guild[{server_id}].stickers.cache.size}\n\n
+
+Variable Name: Guild stickers cache size\n\n
+
+Description: Returns the total number of custom stickers that are currently available for use within this server. This includes all static and animated stickers that have been added by server administrators or members with the appropriate permissions.\n\n
+
+
+
+{Guild[{server_id}].stickers}\n\n
+
+Variable Name: guild server id stickers\n\n
+
+Description: A collection of all custom stickers available in the server. These can be used by members based on their roles and server boost status.\n\n
+
+
+
+{Guild[{server_id}].systemChannel.name}\n\n
+
+Variable Name: Guild system channel name\n\n
+
+Description: Returns the name of the system channel configured for the server specified by `server_id`. If no system channel is configured, this will return null.\n\n
+
+
+
+{Guild[{server_id}].systemChannel.position}\n\n
+
+Variable Name: Guild system channel position\n\n
+
+Description: Returns the position of the system channel configured for the server specified by `server_id` within the server's channel list. If no system channel is configured, this will return null.\n\n
+
+
+
+{Guild[{server_id}].systemChannel.topic}\n\n
+
+Variable Name: Guild system channel topic\n\n
+
+Description: Returns the topic (description) of the system channel configured for the server specified by `server_id`. If no system channel is configured or if the system channel has no topic set, this will return null.\n\n
+
+
+
+{Guild[{server_id}].systemChannel}\n\n
+
+Variable Name: guild server id system channel\n\n
+
+Description: The channel where automatic system messages are sent, such as welcome messages and server boost announcements.\n\n
+
+
+
+{Guild[{server_id}].systemChannelId}\n\n
+
+Variable Name: guild server id system channel id\n\n
+
+Description: The unique identifier of the channel designated for system messages. Used to programmatically reference and manage system notifications.\n\n
+
+
+
+{Guild[{server_id}].vanityURLCode}\n\n
+
+Variable Name: guild server id vanity url code\n\n
+
+Description: The custom invite URL code for the server, available to partnered and verified servers. Allows for branded, memorable invite links.\n\n
+
+
+
+{Guild[{server_id}].verificationLevel}\n\n
+
+Variable Name: guild server id verification level\n\n
+
+Description: The security level required for members to participate in the server. Higher levels require additional account verification steps.\n\n
+
+
+
+{Guild[{server_id}].verified}\n\n
+
+Variable Name: guild server id verified\n\n
+
+Description: Indicates whether the server is officially verified by Discord. Verified servers receive a checkmark badge and special features.\n\n
+
+
+
+{Guild[{server_id}].voiceStates.cache.size}\n\n
+
+Variable Name: Guild voice states cache size\n\n
+
+Description: Returns the number of voice states currently cached by the bot for the server specified by `server_id`. This value represents the number of members the bot has loaded into its memory who are currently connected to a voice channel on the server. The cache is updated as members join and leave voice channels.\n\n
+
+
+
+{Guild[{server_id}].voiceStates}\n\n
+
+Variable Name: guild server id voice states\n\n
+
+Description: A collection of all current voice channel connections in the server, including user locations and voice status information.\n\n
+
+
+
+{Guild[{server_id}].widgetChannel}\n\n
+
+Variable Name: guild server id widget channel\n\n
+
+Description: The channel featured in the server's widget embed. This can be used to showcase server activity on external websites.\n\n
+
+
+
+{Guild[{server_id}].widgetChannelId}\n\n
+
+Variable Name: guild server id widget channel id\n\n
+
+Description: The unique identifier of the channel displayed in the server's widget. Used for programmatic widget management.\n\n
+
+
+
+{Guild[{server_id}].widgetEnabled}\n\n
+
+Variable Name: guild server id widget enabled\n\n
+
+Description: Indicates whether the server's widget feature is active. Widgets provide an embeddable view of server information on external websites.\n\n
+
+
+
+{Guild[{server_id}].widgetEnabled}\n\n
+
+Variable Name: Guild widget enabled\n\n
+
+Description: Returns a boolean value indicating whether the server widget is enabled for the server specified by `server_id`.\n\n
+
+
+
+{Invite[{invite_code}].channel.id}\n\n
+
+Variable Name: Invite channel ID\n\n
+
+Description: Returns the unique ID of the channel to which the invite specified by `invite_code` is linked. This value represents the unique identifier of the channel where the invite is valid.\n\n
+
+
+
+{Invite[{invite_code}].channel.name}\n\n
+
+Variable Name: Invite channel name\n\n
+
+Description: Returns the name of the channel to which the invite specified by `invite_code` is linked. This value represents the name of the channel where the invite is valid.\n\n
+
+
+
+{Invite[{invite_code}].channel}\n\n
+
+Variable Name: invite_channel\n\n
+
+Description: The channel object associated with the invite, indicating where it leads. This can be replaced with an invite code or an invite link.\n\n
+
+
+
+{Invite[{invite_code}].channelId}\n\n
+
+Variable Name: invite_channelId\n\n
+
+Description: Unique ID of the channel tied to the invite, useful for direct references. This can be replaced with an invite code or an invite link.\n\n
+
+
+
+{Invite[{invite_code}].code}\n\n
+
+Variable Name: invite_code\n\n
+
+Description: Unique code for the invite link, necessary for users to access it. This can be replaced with an invite code or an invite link.\n\n
+
+
+
+{Invite[{invite_code}].createdAt}\n\n
+
+Variable Name: invite_createdAt\n\n
+
+Description: Date when the invite was created, providing a point of reference for its age. This can be replaced with an invite code or an invite link.\n\n
+
+
+
+{Invite[{invite_code}].createdTimestamp}\n\n
+
+Variable Name: invite_createdTimestamp\n\n
+
+Description: Timestamp (in ms) for when the invite was created, useful for tracking purposes. This can be replaced with an invite code or an invite link.\n\n
+
+
+
+{Invite[{invite_code}].deletable}\n\n
+
+Variable Name: invite_deletable\n\n
+
+Description: Boolean indicating if the invite can be deleted, based on user permissions. This can be replaced with an invite code or an invite link.\n\n
+
+
+
+{Invite[{invite_code}].expiresAt}\n\n
+
+Variable Name: invite_expiresAt\n\n
+
+Description: Date when the invite expires, relevant for time-sensitive sessions. This can be replaced with an invite code or an invite link.\n\n
+
+
+
+{Invite[{invite_code}].expiresTimestamp}\n\n
+
+Variable Name: invite_expiresTimestamp\n\n
+
+Description: Timestamp (in ms) indicating when the invite will expire. This can be replaced with an invite code or an invite link.\n\n
+
+
+
+{Invite[{invite_code}].guild.banner}\n\n
+
+Variable Name: Invite guild banner image URL\n\n
+
+Description: Returns the URL of the banner image for the server (guild) to which the invite specified by `invite_code` belongs. If the server has no banner image set, this will return null.\n\n
+
+
+
+{Invite[{invite_code}].guild.description}\n\n
+
+Variable Name: Invite guild description\n\n
+
+Description: Returns the description of the server (guild) to which the invite specified by `invite_code` belongs. If the server has no description set, this will return null.\n\n
+
+
+
+{Invite[{invite_code}].guild.id}\n\n
+
+Variable Name: Invite guild ID\n\n
+
+Description: Returns the unique ID of the server (guild) to which the invite specified by `invite_code` belongs. This value represents the unique identifier of the server where the invite is valid.\n\n
+
+
+
+{Invite[{invite_code}].guild.memberCount}\n\n
+
+Variable Name: Invite guild member count\n\n
+
+Description: Returns the total number of members in the server (guild) to which the invite specified by `invite_code` belongs. This value represents the current member count of the server.\n\n
+
+
+
+{Invite[{invite_code}].guild.name}\n\n
+
+Variable Name: Invite guild name\n\n
+
+Description: Returns the name of the server (guild) to which the invite specified by `invite_code` belongs. This value represents the name of the server where the invite is valid.\n\n
+
+
+
+{Invite[{invite_code}].guild.splash}\n\n
+
+Variable Name: Invite guild splash image URL\n\n
+
+Description: Returns the URL of the splash image for the server (guild) to which the invite specified by `invite_code` belongs. If the server has no splash image set, this will return null.\n\n
+
+
+
+{Invite[{invite_code}].guild}\n\n
+
+Variable Name: invite_guild\n\n
+
+Description: The guild object the invite belongs to, detailing server info. This can be replaced with an invite code or an invite link.\n\n
+
+
+
+{Invite[{invite_code}].inviter.id}\n\n
+
+Variable Name: Invite inviter ID\n\n
+
+Description: Returns the unique ID of the user who created the invite specified by `invite_code`. This value represents the unique identifier of the user who generated the invite.\n\n
+
+
+
+{Invite[{invite_code}].inviter.tag}\n\n
+
+Variable Name: Invite inviter tag\n\n
+
+Description: Returns the tag (username#discriminator) of the user who created the invite specified by `invite_code`. This value represents the identifier of the user who generated the invite.\n\n
+
+
+
+{Invite[{invite_code}].inviter}\n\n
+
+Variable Name: invite_inviter\n\n
+
+Description: User object of the invite creator, useful for tracking who sent the invite. This can be replaced with an invite code or an invite link.\n\n
+
+
+
+{Invite[{invite_code}].inviterId}\n\n
+
+Variable Name: invite_inviterId\n\n
+
+Description: Unique ID of the user who created the invite for user management. This can be replaced with an invite code or an invite link.\n\n
+
+
+
+{Invite[{invite_code}].maxAge}\n\n
+
+Variable Name: invite_maxAge\n\n
+
+Description: Maximum lifetime of the invite in seconds; `0` means it never expires. This can be replaced with an invite code or an invite link.\n\n
+
+
+
+{Invite[{invite_code}].maxUses}\n\n
+
+Variable Name: invite_maxUses\n\n
+
+Description: Maximum number of times the invite can be used; `0` means unlimited uses. This can be replaced with an invite code or an invite link.\n\n
+
+
+
+{Invite[{invite_code}].temporary}\n\n
+
+Variable Name: invite_temporary\n\n
+
+Description: Boolean indicating if the invite is temporary for members. This can be replaced with an invite code or an invite link.\n\n
+
+
+
+{Invite[{invite_code}].url}\n\n
+
+Variable Name: invite_url\n\n
+
+Description: Full URL of the invite that users can utilize to join. This can be replaced with an invite code or an invite link.\n\n
+
+
+
+{Invite[{invite_code}].uses}\n\n
+
+Variable Name: invite_uses\n\n
+
+Description: Count of current uses for the invite. This can be replaced with an invite code or an invite link.\n\n
+
+
+
+{Member.roles.highest.position}\n\n
+
+Variable Name: Member roles highest position\n\n
+
+Description: Returns the numerical position of the member's highest role in the server's role hierarchy. This value can be used to compare role precedence.\n\n
+
+
+
+{Member[{user_id}].avatar}\n\n
+
+Variable Name: Member avatar\n\n
+
+Description: Returns the guild member's custom avatar hash. If the member has not set a guild-specific avatar, this will be null.\n\n
+
+
+
+{Member[{user_id}].bannable}\n\n
+
+Variable Name: Member bannable\n\n
+
+Description: A boolean indicating whether this member can be banned by the client user. This is determined by the user's permissions and roles relative to the member's roles.\n\n
+
+
+
+{Member[{user_id}].communicationDisabledUntil}\n\n
+
+Variable Name: Member communicationDisabledUntil\n\n
+
+Description: The date and time when the communication restriction on this member will be lifted.\n\n
+
+
+
+{Member[{user_id}].communicationDisabledUntilTimestamp}\n\n
+
+Variable Name: Member communicationDisabledUntilTimestamp\n\n
+
+Description: The timestamp corresponding to when the communication restriction on this member will be lifted, in UNIX epoch format.\n\n
+
+
+
+{Member[{user_id}].displayColor}\n\n
+
+Variable Name: Member displayColor\n\n
+
+Description: The color associated with the member's highest role, represented as an integer in base 10.\n\n
+
+
+
+{Member[{user_id}].displayHexColor}\n\n
+
+Variable Name: Member displayHexColor\n\n
+
+Description: The color associated with the member's highest role, represented as a hexadecimal string.\n\n
+
+
+
+{Member[{user_id}].displayName}\n\n
+
+Variable Name: Member displayName\n\n
+
+Description: The member's nickname within the guild (server), or their username if no nickname is set.\n\n
+
+
+
+{Member[{user_id}].guild}\n\n
+
+Variable Name: Member guild\n\n
+
+Description: The guild (server) that this member is a part of.\n\n
+
+
+
+{Member[{user_id}].id}\n\n
+
+Variable Name: Member id\n\n
+
+Description: The unique identifier (ID) for this member.\n\n
+
+
+
+{Member[{user_id}].joinedAt}\n\n
+
+Variable Name: Member joinedAt\n\n
+
+Description: The date and time when this member joined the guild.\n\n
+
+
+
+{Member[{user_id}].joinedTimestamp}\n\n
+
+Variable Name: Member joinedTimestamp\n\n
+
+Description: The timestamp indicating when this member joined the guild, represented in UNIX epoch format.\n\n
+
+
+
+{Member[{user_id}].kickable}\n\n
+
+Variable Name: Member kickable\n\n
+
+Description: A boolean that indicates whether this member can be kicked from the guild by the client user.\n\n
+
+
+
+{Member[{user_id}].manageable}\n\n
+
+Variable Name: Member manageable\n\n
+
+Description: A boolean indicating whether the client user has a higher role than this member in the role hierarchy.\n\n
+
+
+
+{Member[{user_id}].moderatable}\n\n
+
+Variable Name: Member moderatable\n\n
+
+Description: A boolean that indicates whether this member is subject to moderation actions (like muting, deafen, etc.) by the client user.\n\n
+
+
+
+{Member[{user_id}].nickname}\n\n
+
+Variable Name: Member nickname\n\n
+
+Description: The nickname of this member, if set.\n\n
+
+
+
+{Member[{user_id}].partial}\n\n
+
+Variable Name: Member partial\n\n
+
+Description: A boolean that indicates whether this GuildMember object is incomplete.\n\n
+
+
+
+{Member[{user_id}].pending}\n\n
+
+Variable Name: Member pending\n\n
+
+Description: A boolean indicating whether this member has yet to pass the membership gate.\n\n
+
+
+
+{Member[{user_id}].premiumSince}\n\n
+
+Variable Name: Member premiumSince\n\n
+
+Description: The timestamp of when this member last supported the guild through Discord's server boosting feature.\n\n
+
+
+
+{Member[{user_id}].premiumSinceTimestamp}\n\n
+
+Variable Name: Member premiumSinceTimestamp\n\n
+
+Description: The UNIX epoch timestamp of when this member last supported the guild through Discord's server boosting feature.\n\n
+
+
+
+{Member[{user_id}].presence.activities[0].applicationId}\n\n
+
+Variable Name: Member presence activity application ID\n\n
+
+Description: Returns the unique ID of the application associated with the first activity in the presence of the member specified by `user_id`. If the member has no activity or the first activity has no associated application, this will return null.\n\n
+
+
+
+{Member[{user_id}].presence.activities[0].assets.largeImage}\n\n
+
+Variable Name: Member presence activity large asset image\n\n
+
+Description: Returns the URL of the large image asset associated with the first activity in the presence of the member specified by `user_id`. If the member has no activity or the first activity has no large image, this will return null.\n\n
+
+
+
+{Member[{user_id}].presence.activities[0].assets.largeText}\n\n
+
+Variable Name: Member presence activity large asset text\n\n
+
+Description: Returns the large text associated with the first activity in the presence of the member specified by `user_id`. This text is typically displayed when hovering over the large image asset. If the member has no activity or the first activity has no large text, this will return null.\n\n
+
+
+
+{Member[{user_id}].presence.activities[0].assets.smallImage}\n\n
+
+Variable Name: Member presence activity small asset image\n\n
+
+Description: Returns the URL of the small image asset associated with the first activity in the presence of the member specified by `user_id`. If the member has no activity or the first activity has no small image, this will return null.\n\n
+
+
+
+{Member[{user_id}].presence.activities[0].assets.smallText}\n\n
+
+Variable Name: Member presence activity small asset text\n\n
+
+Description: Returns the small text associated with the first activity in the presence of the member specified by `user_id`. This text is typically displayed when hovering over the small image asset. If the member has no activity or the first activity has no small text, this will return null.\n\n
+
+
+
+{Member[{user_id}].presence.activities[0].buttons}\n\n
+
+Variable Name: Member presence activity buttons\n\n
+
+Description: Returns an array of button objects associated with the first activity in the presence of the member specified by `user_id`. Each button object contains information about the button, such as its label and URL. If the member has no activity or the first activity has no buttons, this will return an empty array.\n\n
+
+
+
+{Member[{user_id}].presence.activities[0].createdAt}\n\n
+
+Variable Name: Member presence activity created at\n\n
+
+Description: Returns the timestamp (in milliseconds since epoch) when the first activity in the presence of the member specified by `user_id` was created. If the member has no activity, this will return null.\n\n
+
+
+
+{Member[{user_id}].presence.activities[0].createdTimestamp}\n\n
+
+Variable Name: Member presence activity created timestamp\n\n
+
+Description: Returns the timestamp (in milliseconds since epoch) when the member's first activity started.\n\n
+
+
+
+{Member[{user_id}].presence.activities[0].emoji.animated}\n\n
+
+Variable Name: Member presence activity emoji animated\n\n
+
+Description: Returns a boolean value indicating whether the emoji associated with the first activity in the presence of the member specified by `user_id` is animated. If the member has no activity or the first activity has no associated emoji, this will return null.\n\n
+
+
+
+{Member[{user_id}].presence.activities[0].emoji.createdTimestamp}\n\n
+
+Variable Name: Member presence activity emoji createdTimestamp\n\n
+
+Description: Returns the timestamp when the emoji used in the first activity of a member's presence was created.\n\n
+
+
+
+{Member[{user_id}].presence.activities[0].emoji.id}\n\n
+
+Variable Name: Member presence activity emoji ID\n\n
+
+Description: Returns the unique ID of the emoji associated with the first activity in the presence of the member specified by `user_id`. If the member has no activity or the first activity has no associated emoji, this will return null.\n\n
+
+
+
+{Member[{user_id}].presence.activities[0].emoji.identifier}\n\n
+
+Variable Name: Member presence activity emoji identifier\n\n
+
+Description: Returns the identifier of the emoji used in the first activity of a member's presence.\n\n
+
+
+
+{Member[{user_id}].presence.activities[0].emoji.name}\n\n
+
+Variable Name: Member presence activity emoji name\n\n
+
+Description: Returns the name of the emoji associated with the first activity in the presence of the member specified by `user_id`. If the member has no activity or the first activity has no associated emoji, this will return null.\n\n
+
+
+
+{Member[{user_id}].presence.activities[0].flags.bitfield}\n\n
+
+Variable Name: Member presence activities flags bitfield\n\n
+
+Description: Returns the bitfield of the flags of the first activity of a member's presence.\n\n
+
+
+
+{Member[{user_id}].presence.activities[0].name}\n\n
+
+Variable Name: Member presence activity name\n\n
+
+Description: Returns the name of the first activity in the members presence (e.g., game name, custom status text, etc.)\n\n
+
+
+
+{Member[{user_id}].presence.activities[0].state}\n\n
+
+Variable Name: Member presence activities state\n\n
+
+Description: Returns the state/details of the first activity in the members presence (e.g., "In Game", "Chapter 3", etc.) or returns the custom status message of the specified user.\n\n
+
+
+
+{Member[{user_id}].presence.activities[0].timestamps.end}\n\n
+
+Variable Name: Member presence activity end timestamp\n\n
+
+Description: Returns the timestamp (in milliseconds since epoch) when the first activity in the presence of the member specified by `user_id` is expected to end. If the member has no activity or the first activity has no end timestamp, this will return null.\n\n
+
+
+
+{Member[{user_id}].presence.activities[0].timestamps.start}\n\n
+
+Variable Name: Member presence activity start timestamp\n\n
+
+Description: Returns the timestamp (in milliseconds since epoch) when the first activity in the presence of the member specified by `user_id` started. If the member has no activity or the first activity has no start timestamp, this will return null.\n\n
+
+
+
+{Member[{user_id}].presence.activities[0].type}\n\n
+
+Variable Name: Member presence activity type\n\n
+
+Description: Returns the type of the first activity in the members presence (e.g., PLAYING, STREAMING, LISTENING, WATCHING, CUSTOM, COMPETING), but as a number\n\n
+
+
+
+{Member[{user_id}].presence.status}\n\n
+
+Variable Name: Member presence status\n\n
+
+Description: Returns the current online status of the member specified by `user_id`. This status indicates whether the member is online, idle, do not disturb, or offline. The returned value will be a string representing one of these statuses (e.g., "online", "idle", "dnd", "offline").\n\n
+
+
+
+{Member[{user_id}].roles.botRole}\n\n
+
+Variable Name: Member roles botRole\n\n
+
+Description: The ID of the bot role assigned to the member, if any.\n\n
+
+
+
+{Member[{user_id}].roles.cache.size}\n\n
+
+Variable Name: Member roles cache size\n\n
+
+Description: Returns the total number of roles the member has on the server, including the @everyone role. This includes all roles assigned to the member.\n\n
+
+
+
+{Member[{user_id}].roles.color}\n\n
+
+Variable Name: Member roles color\n\n
+
+Description: The Role ID of the highest colored role of the member.\n\n
+
+
+
+{Member[{user_id}].roles.guild}\n\n
+
+Variable Name: Member roles guild\n\n
+
+Description: The Role ID of the guild (server) that the member's roles belong to.\n\n
+
+
+
+{Member[{user_id}].roles.highest.color}\n\n
+
+Variable Name: Member roles highest color\n\n
+
+Description: Returns the decimal representation of the color associated with the member's highest role. This color is often used to visually distinguish members in the server and can be used for various display purposes. If the highest role has no specific color set, it will return the default color value.\n\n
+
+
+
+{Member[{user_id}].roles.highest}\n\n
+
+Variable Name: Member roles highest\n\n
+
+Description: The Role ID of the highest ranking role of the member.\n\n
+
+
+
+{Member[{user_id}].roles.hoist}\n\n
+
+Variable Name: Member roles hoist\n\n
+
+Description: The Role ID of the highest hoisted role of the member.\n\n
+
+
+
+{Member[{user_id}].roles.icon}\n\n
+
+Variable Name: Member roles icon\n\n
+
+Description: The Role ID of the highest role with an icon for the member.\n\n
+
+
+
+{Member[{user_id}].roles.member}\n\n
+
+Variable Name: Member roles member\n\n
+
+Description: The Role ID of the member that these roles belong to.\n\n
+
+
+
+{Member[{user_id}].roles.premiumSubscriberRole.color}\n\n
+
+Variable Name: Member premiumSubscriberRole color\n\n
+
+Description: Returns the color of the premium subscriber role of a member, represented as a decimal integer.\n\n
+
+
+
+{Member[{user_id}].roles.premiumSubscriberRole.color}\n\n
+
+Variable Name: Member premiumSubscriberRole color\n\n
+
+Description: Returns the color of the premium subscriber role of a member.\n\n
+
+
+
+{Member[{user_id}].roles.premiumSubscriberRole.position}\n\n
+
+Variable Name: Member premiumSubscriberRole position\n\n
+
+Description: Returns the position of the premium subscriber role of a member in the role hierarchy.\n\n
+
+
+
+{Member[{user_id}].roles.premiumSubscriberRole.position}\n\n
+
+Variable Name: Member premiumSubscriberRole position\n\n
+
+Description: Returns the position of the premium subscriber role of a member within the server's role hierarchy. Lower numbers indicate higher positions.\n\n
+
+
+
+{Member[{user_id}].roles.premiumSubscriberRole}\n\n
+
+Variable Name: Member roles premiumSubscriberRole\n\n
+
+Description: The ID of the premium subscriber role for the member, if applicable.\n\n
+
+
+
+{Member[{user_id}].roles}\n\n
+
+Variable Name: Member roles\n\n
+
+Description: An array/collection of role IDs that are assigned to this member.\n\n
+
+
+
+{Member[{user_id}].user}\n\n
+
+Variable Name: Member user\n\n
+
+Description: The user object that this GuildMember instance represents, including user-specific data.\n\n
+
+
+
+{Member[{user_id}].voice.channel.bitrate}\n\n
+
+Variable Name: Member voice channel bitrate\n\n
+
+Description: Returns the bitrate (in kbps) of the voice channel the member specified by `user_id` is currently connected to. If the member is not connected to a voice channel, this will return null.\n\n
+
+
+
+{Member[{user_id}].voice.channel.deletable}\n\n
+
+Variable Name: Member voice channel deletable\n\n
+
+Description: Returns a boolean value indicating whether the bot has permission to delete the voice channel the member specified by `user_id` is currently connected to. Returns `true` if the bot can delete the channel, `false` otherwise. If the member is not connected to a voice channel, this will return null.\n\n
+
+
+
+{Member[{user_id}].voice.channel.full}\n\n
+
+Variable Name: Member voice channel full\n\n
+
+Description: Returns a boolean value indicating whether the voice channel the member specified by `user_id` is currently connected to is full (i.e., has reached its user limit). Returns `true` if the channel is full, `false` otherwise. If the member is not connected to a voice channel, this will return null.\n\n
+
+
+
+{Member[{user_id}].voice.channel.id}\n\n
+
+Variable Name: Member voice channel ID\n\n
+
+Description: Returns the unique ID of the voice channel the member specified by `user_id` is currently connected to. If the member is not connected to a voice channel, this will return null.\n\n
+
+
+
+{Member[{user_id}].voice.channel.joinable}\n\n
+
+Variable Name: Member voice channel joinable\n\n
+
+Description: Returns a boolean value indicating whether the bot has permission to join the voice channel the member specified by `user_id` is currently connected to. Returns `true` if the bot can join, `false` otherwise. If the member is not connected to a voice channel, this will return null.\n\n
+
+
+
+{Member[{user_id}].voice.channel.manageable}\n\n
+
+Variable Name: Member voice channel manageable\n\n
+
+Description: Returns a boolean value indicating whether the bot has permission to manage the voice channel the member specified by `user_id` is currently connected to. Returns `true` if the bot can manage the channel, `false` otherwise. If the member is not connected to a voice channel, this will return null.\n\n
+
+
+
+{Member[{user_id}].voice.channel.members.size}\n\n
+
+Variable Name: Member voice channel members size\n\n
+
+Description: Returns the total number of members currently connected to the same voice channel as the specified member. This value represents the size of the voice channel and can be used to display how many people are participating in the same voice chat.\n\n
+
+
+
+{Member[{user_id}].voice.channel.name}\n\n
+
+Variable Name: Member voice channel name\n\n
+
+Description: Returns the name of the voice channel the member specified by `user_id` is currently connected to. If the member is not connected to a voice channel, this will return null.\n\n
+
+
+
+{Member[{user_id}].voice.channel.parent.name}\n\n
+
+Variable Name: Member voice channel parent name\n\n
+
+Description: Returns the name of the category that the member's current voice channel belongs to. If the voice channel is not within a category, this will return null. This can be useful for organizing and displaying information about voice channel locations.\n\n
+
+
+
+{Member[{user_id}].voice.channel.rtcRegion}\n\n
+
+Variable Name: Member voice channel RTC region\n\n
+
+Description: Returns the region ID of the Real-Time Communication (RTC) server for the voice channel the member specified by `user_id` is currently connected to. This value represents the geographical location of the server handling the voice communication. If the member is not connected to a voice channel, or if the channel is using the default region setting, this will return null.\n\n
+
+
+
+{Member[{user_id}].voice.channel.speakable}\n\n
+
+Variable Name: Member voice channel speakable\n\n
+
+Description: Returns a boolean value indicating whether the bot has permission to speak in the voice channel the member specified by `user_id` is currently connected to. Returns `true` if the bot can speak, `false` otherwise. If the member is not connected to a voice channel, this will return null.\n\n
+
+
+
+{Member[{user_id}].voice.channel.userLimit}\n\n
+
+Variable Name: Member voice channel user limit\n\n
+
+Description: Returns the maximum number of users that can be connected to the voice channel the member specified by `user_id` is currently connected to. If the voice channel has no user limit, this will return 0. If the member is not connected to a voice channel, this will return null.\n\n
+
+
+
+{Member[{user_id}].voice.channel.videoQualityMode}\n\n
+
+Variable Name: Member voice channel video quality mode\n\n
+
+Description: Returns the video quality mode of the voice channel the member specified by `user_id` is currently connected to. This value represents the video quality setting for the channel (e.g., "AUTO", "FULL"). If the member is not connected to a voice channel, or if the channel is using the default video quality mode, this will return null.\n\n
+
+
+
+{Member[{user_id}].voice.channel.viewable}\n\n
+
+Variable Name: Member voice channel viewable\n\n
+
+Description: Returns a boolean value indicating whether the bot has permission to view the voice channel the member specified by `user_id` is currently connected to. Returns `true` if the bot can view the channel, `false` otherwise. If the member is not connected to a voice channel, this will return null.\n\n
+
+
+
+{Member[{user_id}].voice.channel}\n\n
+
+Variable Name: Member voice channel\n\n
+
+Description: Returns the ID of the current voice channel the member is in, e.g. 1291570810930069535\n\n
+
+
+
+{Member[{user_id}].voice.channelId}\n\n
+
+Variable Name: Member voice channelId\n\n
+
+Description: Returns the ID of the current voice channel as a string, e.g. "1291570810930069535"\n\n
+
+
+
+{Member[{user_id}].voice.deaf}\n\n
+
+Variable Name: Member voice deaf\n\n
+
+Description: Returns true if the member is deafened (server or self), false if not\n\n
+
+
+
+{Member[{user_id}].voice.guild}\n\n
+
+Variable Name: Member voice guild\n\n
+
+Description: Returns the ID of the guild this voice state belongs to, e.g. 1234130100279181373\n\n
+
+
+
+{Member[{user_id}].voice.id}\n\n
+
+Variable Name: Member voice id\n\n
+
+Description: Returns the ID of the member in the voice channel, e.g. 448604182191276034\n\n
+
+
+
+{Member[{user_id}].voice.member}\n\n
+
+Variable Name: Member voice member\n\n
+
+Description: Returns the ID of the GuildMember object, e.g. 448604182191276034\n\n
+
+
+
+{Member[{user_id}].voice.mute}\n\n
+
+Variable Name: Member voice mute\n\n
+
+Description: Returns true if the member is muted (server or self), false if not\n\n
+
+
+
+{Member[{user_id}].voice.requestToSpeakTimestamp}\n\n
+
+Variable Name: Member voice requestToSpeakTimestamp\n\n
+
+Description: Returns the UNIX timestamp of when the member requested to speak in a stage channel, e.g. 1728004919020\n\n
+
+
+
+{Member[{user_id}].voice.selfDeaf}\n\n
+
+Variable Name: Member voice selfDeaf\n\n
+
+Description: Returns true if the member is self-deafened, false if not\n\n
+
+
+
+{Member[{user_id}].voice.selfMute}\n\n
+
+Variable Name: Member voice selfMute\n\n
+
+Description: Returns true if the member is self-muted, false if not\n\n
+
+
+
+{Member[{user_id}].voice.selfVideo}\n\n
+
+Variable Name: Member voice selfVideo\n\n
+
+Description: Returns true if the member has their camera enabled, false if not\n\n
+
+
+
+{Member[{user_id}].voice.serverDeaf}\n\n
+
+Variable Name: Member voice serverDeaf\n\n
+
+Description: Returns true if the member is server-deafened, false if not\n\n
+
+
+
+{Member[{user_id}].voice.serverMute}\n\n
+
+Variable Name: Member voice serverMute\n\n
+
+Description: Returns true if the member is server-muted, false if not\n\n
+
+
+
+{Member[{user_id}].voice.sessionId}\n\n
+
+Variable Name: Member voice sessionId\n\n
+
+Description: Returns the session ID for this voice state as a string, e.g. "5efac56de19f90e471f586cee9c37e7f"\n\n
+
+
+
+{Member[{user_id}].voice.streaming}\n\n
+
+Variable Name: Member voice streaming\n\n
+
+Description: Returns true if the member is screen sharing, false if not\n\n
+
+
+
+{Member[{user_id}].voice.suppress}\n\n
+
+Variable Name: Member voice suppress\n\n
+
+Description: Returns true if the member is suppressed in a voice channel, false if not\n\n
+
+
+
+{Member[748546960449077339].presence.activities[0].party.size}\n\n
+
+Variable Name: Member presence activity party size\n\n
+
+Description: Returns an array containing the current and maximum size of the party associated with the first activity in the presence of the member specified by the ID `748546960449077339`. The array will contain two numbers: the current party size and the maximum party size. If the member has no activity or the first activity has no associated party, this will return null.\n\n
+
+
+
+{Role[{role_id}].color}\n\n
+
+Variable Name: Role color\n\n
+
+Description: The color of the role represented as a numeric value or a hexadecimal string.\n\n
+
+
+
+{Role[{role_id}].createdAt}\n\n
+
+Variable Name: Role createdAt\n\n
+
+Description: The date the role was created.\n\n
+
+
+
+{Role[{role_id}].createdTimestamp}\n\n
+
+Variable Name: Role createdTimestamp\n\n
+
+Description: UNIX timestamp indicating when the role was created.\n\n
+
+
+
+{Role[{role_id}].editable}\n\n
+
+Variable Name: Role editable\n\n
+
+Description: A boolean indicating if the role can be edited.\n\n
+
+
+
+{Role[{role_id}].guild.id}\n\n
+
+Variable Name: Role guild ID\n\n
+
+Description: Returns the unique ID of the server (guild) to which the role specified by `role_id` belongs. This value represents the unique identifier of the server where the role is defined.\n\n
+
+
+
+{Role[{role_id}].guild.name}\n\n
+
+Variable Name: Role guild name\n\n
+
+Description: Returns the name of the server (guild) to which the role specified by `role_id` belongs. This value represents the name of the server where the role is defined.\n\n
+
+
+
+{Role[{role_id}].guild}\n\n
+
+Variable Name: Role guild\n\n
+
+Description: The guild (server) this role belongs to.\n\n
+
+
+
+{Role[{role_id}].hexColor}\n\n
+
+Variable Name: Role hexColor\n\n
+
+Description: The role color represented as a hexadecimal color code.\n\n
+
+
+
+{Role[{role_id}].hoist}\n\n
+
+Variable Name: Role hoist\n\n
+
+Description: A boolean indicating if this role should be displayed separately in the sidebar.\n\n
+
+
+
+{Role[{role_id}].icon}\n\n
+
+Variable Name: Role icon\n\n
+
+Description: The icon associated with the role, if any.\n\n
+
+
+
+{Role[{role_id}].id}\n\n
+
+Variable Name: Role id\n\n
+
+Description: The unique ID of the role.\n\n
+
+
+
+{Role[{role_id}].managed}\n\n
+
+Variable Name: Role managed\n\n
+
+Description: A boolean indicating if the role is managed by an integration (like bots).\n\n
+
+
+
+{Role[{role_id}].mentionable}\n\n
+
+Variable Name: Role mentionable\n\n
+
+Description: A boolean indicating if this role can be mentioned.\n\n
+
+
+
+{Role[{role_id}].name}\n\n
+
+Variable Name: Role name\n\n
+
+Description: The name of the role as it is displayed in Discord.\n\n
+
+
+
+{Role[{role_id}].position}\n\n
+
+Variable Name: Role position\n\n
+
+Description: The role's position in the role hierarchy.\n\n
+
+
+
+{Role[{role_id}].rawPosition}\n\n
+
+Variable Name: Role rawPosition\n\n
+
+Description: The role's raw position used for internal management.\n\n
+
+
+
+{Role[{role_id}].tags.availableForPurchase}\n\n
+
+Variable Name: Role available for purchase tag\n\n
+
+Description: Returns a boolean value indicating whether the role specified by the ID `1324376246959738890` is available for purchase. This value is typically `true` for roles linked to server subscriptions that can be bought by users, and `false` otherwise.\n\n
+
+
+
+{Role[{role_id}].tags.botId}\n\n
+
+Variable Name: Role bot ID tag\n\n
+
+Description: Returns the unique ID of the bot that is associated with the role specified by `role_id`. This value will only be returned if the `role_id` corresponds to the bot role that is automatically created when a bot joins the server. If the role is not a bot role, or if the role is not assigned to a bot, this will return null.\n\n
+
+
+
+{Role[{role_id}].tags.guildConnections}\n\n
+
+Variable Name: Role guild connections tag\n\n
+
+Description: Returns a boolean value indicating whether the role specified by the ID `1324376246959738890` is used for guild connections. This value is typically `true` for roles used to manage access based on connections to other servers, and `false` otherwise.\n\n
+
+
+
+{Role[{role_id}].tags.integrationId}\n\n
+
+Variable Name: Role integration ID tag\n\n
+
+Description: Returns the unique ID of the integration associated with the role specified by the ID `1324376246959738890`. This value is typically used for roles linked to external services like Twitch. If no integration is associated with the role, this will return null.\n\n
+
+
+
+{Role[{role_id}].tags.premiumSubscriberRole}\n\n
+
+Variable Name: Role premium subscriber role tag\n\n
+
+Description: Returns a boolean value indicating whether the role specified by `role_id` is a premium subscriber role, often associated with users who boost the server. This value is typically `true` for roles that are granted to users who subscribe to a server or boost it, and `false` otherwise.\n\n
+
+
+
+{Role[{role_id}].tags.subscriptionId}\n\n
+
+Variable Name: Role subscription ID tag\n\n
+
+Description: Returns the unique ID of the subscription associated with the role specified by the ID `1324376246959738890`. This value is typically used for roles linked to server subscriptions. If no subscription is associated with the role, this will return null.\n\n
+
+
+
+{User[{user_id}].accentColor}\n\n
+
+Variable Name: User accent color\n\n
+
+Description: Returns the base-10 accent color of the user's banner. The user must be force fetched for this property to be present.\n\n
+
+
+
+{User[{user_id}].avatar}\n\n
+
+Variable Name: User avatar hash\n\n
+
+Description: Returns the hash of the user's avatar.\n\n
+
+
+
+{User[{user_id}].banner}\n\n
+
+Variable Name: User banner hash\n\n
+
+Description: Returns the hash of the user's banner. The user must be force fetched for this property to be present.\n\n
+
+
+
+{User[{user_id}].bot}\n\n
+
+Variable Name: User bot status\n\n
+
+Description: Returns whether the user is a bot account.\n\n
+
+
+
+{User[{user_id}].createdAt}\n\n
+
+Variable Name: User creation date\n\n
+
+Description: Returns the date when the user's account was created.\n\n
+
+
+
+{User[{user_id}].createdTimestamp}\n\n
+
+Variable Name: User creation timestamp\n\n
+
+Description: Returns the Unix timestamp (in milliseconds) when the user's account was created.\n\n
+
+
+
+{User[{user_id}].defaultAvatarURL}\n\n
+
+Variable Name: User default avatar URL\n\n
+
+Description: Returns a URL to the user's default avatar image.\n\n
+
+
+
+{User[{user_id}].discriminator}\n\n
+
+Variable Name: User discriminator\n\n
+
+Description: Returns the user's 4-digit discord-tag discriminator.\n\n
+
+
+
+{User[{user_id}].displayName}\n\n
+
+Variable Name: User display name\n\n
+
+Description: Returns the user's username, or their global name if they have one set.\n\n
+
+
+
+{User[{user_id}].globalName}\n\n
+
+Variable Name: User global name\n\n
+
+Description: Returns the user's global name, if they have one set.\n\n
+
+
+
+{User[{user_id}].hexAccentColor}\n\n
+
+Variable Name: User accent color hex\n\n
+
+Description: Returns the hexadecimal version of the user's accent color, with a leading hash. The user must be force fetched for this property to be present.\n\n
+
+
+
+{User[{user_id}].id}\n\n
+
+Variable Name: User ID\n\n
+
+Description: Returns the user's unique snowflake ID.\n\n
+
+
+
+{User[{user_id}].partial}\n\n
+
+Variable Name: User partial status\n\n
+
+Description: Returns whether the user data is partial (missing data).\n\n
+
+
+
+{User[{user_id}].system}\n\n
+
+Variable Name: User system status\n\n
+
+Description: Returns whether the user is an Official Discord System user (part of the urgent message system).\n\n
+
+
+
+{User[{user_id}].tag}\n\n
+
+Variable Name: User tag\n\n
+
+Description: Returns the user's username and discriminator (e.g. User#0000)\n\n
+
+
+
+{User[{user_id}].username}\n\n
+
+Variable Name: User username\n\n
+
+Description: Returns the user's Discord username (not including the #0000 discriminator).\n\n
+
+
+

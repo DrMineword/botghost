@@ -1,0 +1,288 @@
+>>> response_and_generation_notes\n
+#STOP USING {CONCAT[]} ITS NOT WORKING#\n
+You arent using any javascript, python, etc you use BOTGHOST as coding langue and well, you know for now shit about it\n
+So please follown instructions from context[1] for the variables\n
+I know you love concat but dont use it just manually write version of connected variables in single line\n\n
+
+I will give you extra work to do if you keep using it\n\n
+
+
+\n\n\n\n\n
+Examples of custom variables from:\n
+
+BotGhost Variable Searcher\n\n
+
+
+{getRandomFromCollection([6,D,E,7,F,A,4,9,2,8,5,3,C,B,1,0])}{getRandomFromCollection([8,5,7,0,1,A,9,B,E,D,C,2,F,6,3,4])}{getRandomFromCollection([2,E,C,F,9,6,7,D,5,8,A,3,4,B,1,0])}{getRandomFromCollection([5,8,4,B,A,9,0,1,C,E,F,6,D,7,3,2])}{getRandomFromCollection([E,5,8,3,C,7,1,B,6,F,D,4,9,A,0,2])}{getRandomFromCollection([4,9,3,2,1,6,7,F,5,C,8,0,E,B,D,A])}\n\n
+
+Variable Name: getRandomFromCollection 6DE7FA492853CB10 85701A9BEDC2F634 2ECF967D58A34B10 584BA901CEF6D732 E583C71B6FD49A02 4932167F5C80EBD\n\n
+
+Description: Generates a random hex color code by selecting random characters from given sets for each position. Combines these random hex characters to form a color code used in a URL for a single-color image. The URL points to a 1920x40 pixel image.\n\n
+
+
+
+{isNumber({Channel[{channel_id}].id})}\n\n
+
+Variable Name: is number channel id\n\n
+
+Description: Returns true if the provided channel ID exists and is a valid number, returns false if the channel ID is empty, invalid, or non-numerical. Can be used to check if a channel ID reference is valid in Discords numerical ID format.\n\n
+
+
+
+{isNumber({Role[{role_id}].id})}\n\n
+
+Variable Name: is number role id\n\n
+
+Description: Returns true if the provided role ID exists and is a valid number, returns false if the role ID is empty, invalid, or non-numerical. Can be used to check if a role ID reference is valid in Discords numerical ID format.\n\n
+
+
+
+{isNumber({User[{user_id}].id})}\n\n
+
+Variable Name: isNumber user id\n\n
+
+Description: Returns true if the provided user ID exists and is a valid number, returns false if the user ID is empty, invalid, or non-numerical. Can be used to check if a user ID reference is valid in Discords numerical ID format.\n\n
+
+
+
+{option_null}\n\n
+
+Variable Name: option null\n\n
+
+Description: Returns null / empty string. Good for comparison condition and other purposes.\n\n
+
+
+
+{printAllValues([{subString({previous_numbers({solve_equation[{lengthOfCollection({BGVAR_collection})}+1]})}),[2,999999]}]),[$value.\n]}\n\n
+
+Variable Name: print all values with substring\n\n
+
+Description: Creates a sequential numbered list matching the collection size, where each number is followed by a period and displayed on a new line. Since collections start at position 0, for a collection with 5 items (positions 0-4), it will output numbers 1 through 5, each on its own line. Note: Due to how previous_numbers formats its output (e.g., "0, 1, 2, 3, 4"), the final output will include leading spaces before each number except the first one (e.g., "1.", " 2.", " 3.", " 4.", " 5."). To remove these spaces, you can use the "Manipulate some text" block with "Replace All" operation to replace spaces with {option_null}. This is useful for displaying clean, numbered lists that correspond to collection items, where you want to show human-readable numbers (starting from 1) instead of zero-based index positions.\n\n
+
+
+
+{printAllValues([1,2,3,4,5,6,7,8,9,10]),[This message will be repeated ten times\n]}\n\n
+
+Variable Name: print all values\n\n
+
+Description: Takes a sequence of numbers (1-10) and repeats the specified message for each number, adding a new line after each repetition. In this case, "This message will be repeated ten times" will be printed 10 times, each on a new line.\n\n
+
+
+
+{solve_equation[({time_now_unix} - {User[{user_id}].createdTimestamp}/1000) >= (30 * 86400)]}\n\n
+
+Variable Name: solve equation time now unix User user id createdTimestamp 30 86400\n\n
+
+Description: Checks if the user account is older than 30 days. Returns 1 if true, 0 if false.\n\n
+
+
+
+{solve_equation[(REPLACE-YOUR-UNIX-HERE*1000-1420070400000)*4194304]}\n\n
+
+Variable Name: solve equation REPLACE YOUR UNIX HERE 1000 1420070400000 4194304\n\n
+
+Description: Calculates an approximate Snowflake ID timestamp from a given Unix timestamp. Replace REPLACE-YOUR-UNIX-HERE with the desired Unix timestamp.\n\n
+
+
+
+{solve_equation[{Member[{user_id}].id}0>0]}\n\n
+
+Variable Name: solve equation Member user id id 0 0\n\n
+
+Description: Checks if the user is a member of the server where the command was executed. Returns 1 if true, 0 if false.\n\n
+
+
+
+{solve_equation[{subString({printAllValues([{array_of_numbers}]),[+$value]}),[1,9999]}]}\n\n
+
+Variable Name: solve equation substring print all values array of numbers\n\n
+
+Description: Takes all numbers from an array, adds a + prefix to each value, then extracts a portion of this formatted list between positions 1 and 9999. Finally calculates the sum of all these numbers. Useful for adding up a large set of numbers from an array.\n\n
+
+
+
+{solve_equation[{time_now_unix}+86400-({time_now_unix}%86400)-3600*2]}\n\n
+
+Variable Name: daily reset timer\n\n
+
+Description: A dynamic countdown timer that shows the time remaining until the next daily reset at 22:00 UTC (midnight in UTC+2). Uses Unix timestamp calculations to ensure accurate daily resets. Replace the "2" if you want change the timezone!\n\n
+
+
+
+{solve_equation[floor(((REPLACE-YOUR-ID-HERE / 4194304) + 1420070400000) / 1000)]}\n\n
+
+Variable Name: solve equation floor ID\n\n
+
+Description: Calculates the Unix timestamp of when a Discord snowflake ID was created, useful for determining the creation date of various Discord entities.\n\n
+
+
+
+{solve_equation[floor(({end_time_unix}-{start_time_unix})/86400)]} days, {solve_equation[floor((({end_time_unix}-{start_time_unix})%86400)/3600)]} hours, {solve_equation[floor((({end_time_unix}-{start_time_unix})%3600)/60)]} minutes, {solve_equation[({end_time_unix}-{start_time_unix})%60]} seconds\n\n
+
+Variable Name: time difference duration\n\n
+
+Description: Shows the duration between two timestamps in an easy readable format (X days, X hours, X minutes, X seconds). Replace {start_time_unix} and {end_time_unix} with your Unix timestamps.\n\n
+
+
+
+{solve_equation[floor(({time_now_unix}-{ISO_to_UNIX[{User.createdAt}]})/31536000)]} years, {solve_equation[floor((({time_now_unix}-{ISO_to_UNIX[{User.createdAt}]})%31536000)/2592000)]} months, {solve_equation[floor((({time_now_unix}-{ISO_to_UNIX[{User.createdAt}]})%2592000)/86400)]} days, {solve_equation[floor((({time_now_unix}-{ISO_to_UNIX[{User.createdAt}]})%86400)/3600)]} hours, {solve_equation[floor((({time_now_unix}-{ISO_to_UNIX[{User.createdAt}]})%3600)/60)]} minutes, {solve_equation[({time_now_unix}-{ISO_to_UNIX[{User.createdAt}]})%60]} seconds\n\n
+
+Variable Name: solve equation user account age\n\n
+
+Description: Calculates and formats the exact age of the user account in years, months, days, hours, minutes, and seconds\n\n
+
+
+
+{subString({channel_id[{}]}),[10,60]}\n\n
+
+Variable Name: generate uuid substring\n\n
+
+Description: Generates a random UUID (Universally Unique Identifier) string (e.g., "936e4fe2-b10e-4ea4-826e-f38a1497c6a") by using substring on a generated value. This is used for creating unique identifiers.\n\n
+
+
+
+{subString({printAllValues([{Guild[{server_id}].roles}]),[, <@&$value>]}),[1,999999]}\n\n
+
+Variable Name: subString printAllValues Guild server roles\n\n
+
+Description: Returns the roles assigned in the guild to the specified server, formatted as: @Role1, @Role2, @Role3, @Role4. This variable retrieves all roles associated with the server identified by the server ID and formats them as a comma-separated string. The `subString` function is utilized to remove the first comma from this list, ensuring a clean output without leading punctuation. The parameters [1, 999999] indicate that the extraction begins from the second character and continues to the end of the string, allowing for flexible handling of role data for display or further processing.\n\n
+
+
+
+{subString({printAllValues([{Member[{user_id}].roles}]),[, <@&$value>]}),[1,999999]}\n\n
+
+Variable Name: subString printAllValues Member roles\n\n
+
+Description: Returns the roles assigned to the specified user in the format: @Role1, @Role2, @Role3, @Role4. This variable retrieves all roles associated with the user identified by their user ID and formats them as a comma-separated string. The `subString` part of the variable is used to remove the first comma from this list, ensuring that the output is clean and does not contain leading punctuation. The parameters [1, 999999] indicate that the extraction starts from the second character and continues to the end of the string, allowing for flexible manipulation of role data for display or further processing.\n\n
+
+
+
+{subString({printAllValues({BGVAR_collection}),[,$value]}),[1,9999999999]}\n\n
+
+Variable Name: print collection values without first comma\n\n
+
+Description: Prints all values from a collection as a comma-separated list. The substring removes the first comma from the output by starting at position 1. For example, if the collection contains [apple,banana,orange], it will display as "apple,banana,orange" instead of ",apple,banana,orange".\n\n
+
+
+
+{subString({UNIX_to_ISO[{solve_equation[{time_now_unix}+1*3600]}]}),[11,16]}\n\n
+
+Variable Name: substring current time UTC1\n\n
+
+Description: Converts the current Unix timestamp to UTC+1 timezone by adding 1 hour (3600 seconds), converts it to ISO format, and extracts the time portion (hours:minutes) in HH:mm format.\n\n
+
+
+
+{subString(),[0,{solve_equation[min(BARS,floor((CURRENT/GOAL)*BARS))*27]}]}{subString(<:pb3:1332457320055050311><:pb3:1332457320055050311><:pb3:1332457320055050311><:pb3:1332457320055050311><:pb3:1332457320055050311><:pb3:1332457320055050311><:pb3:1332457320055050311><:pb3:1332457320055050311><:pb3:1332457320055050311><:pb3:1332457320055050311>),[0,{solve_equation[(BARS-min(BARS,floor((CURRENT/GOAL)*BARS)))*26]}]}\n\n
+
+Variable Name: progress bar with custom animated emojis\n\n
+
+Description: Creates a dynamic progress bar using custom Discord emojis. ESSENTIAL SETUP INSTRUCTIONS: 1) You MUST count and replace the character lengths: Replace 27 with your animated emoji's total character count (including ), and 26 with your static emoji's count (including <: and ID>). These numbers are found in *27]} and *26]} in the long variable. 2) Parameters to replace: BARS (total number of segments), CURRENT (current value), GOAL (target value). DETAILED EXAMPLE: For a server member progress tracker - If your server has 500 members (CURRENT) aiming for 1000 members (GOAL), using 10 BARS, it will show: [5 animated emojis][5 static emojis] representing 50% progress. The progress bar automatically adjusts for any values: e.g., 750/1000 members would show [7 animated emojis][3 static emojis] for 75% progress. IMPORTANT: The variable will not work correctly if you don't update the emoji character counts (27 and 26) with your own emoji lengths. Works with any custom Discord emojis - both animated (:a:) and static (:) formats.\n\n
+
+
+
+{subString(████████████████████████████████████████████████████████████████████████████████████████████████████████),[0,{solve_equation[min(BARS,floor((CURRENT/GOAL)*BARS))]}]}{subString(░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░),[0,{solve_equation[BARS-min(BARS,floor((CURRENT/GOAL)*BARS))]}]}\n\n
+
+Variable Name: progress bar\n\n
+
+Description: Creates a visual progress bar using filled (█) and empty (░) blocks. Replace BARS with total bar length, CURRENT with current value, and GOAL with target value. Example for server growth: If your server has 500 members (CURRENT) and aims for 1000 members (GOAL), using 10 bars (BARS) would show: █████░░░░░ (50% progress, showing 5 filled blocks since 500 is half of 1000). The progress bar automatically adjusts to show the correct proportion no matter what numbers you use.\n\n
+
+
+
+{UNIX_to_ISO[{time_now_unix}]}\n\n
+
+Variable Name: UNIX to ISO Time Conversion\n\n
+
+Description: Converts the current UNIX timestamp to ISO 8601 format. Useful for standardized time representation inside of embeds\n\n
+
+
+
+{valueAtPosition(["th","st","nd","rd"]),[{solve_equation[1+{positionOfValue([1,2,3]),[{solve_equation[NUMBER%10]}]}]}]}\n\n
+
+Variable Name: number ordinal suffix\n\n
+
+Description: Returns the appropriate English ordinal suffix ("st", "nd", "rd", or "th") based on a number's last digit using modulo operation. Works for most numbers but does not handle special cases 11-13. For example: 1st, 2nd, 3rd, 4th, 21st, 22nd, 23rd, 101st. The formula extracts the last digit using NUMBER%10 and maps it to the correct suffix. In simple terms: Adds the basic ending (st/nd/rd/th) to numbers in English.\n\n
+
+
+
+{valueAtPosition([🕛Midnight,🌃Dead of night,🌃Dead of night,🌃Dead of night,🌌Pre-dawn,🌅Dawn,🌄Early morning,🌞Morning,🌞Morning,☀️Mid-morning,☀️Mid-morning,🌅Late-morning,🌞Noon,🌇Early afternoon,🌇Early afternoon,☀️Mid-afternoon,☀️Mid-afternoon,🌆Late afternoon,🌆Evening,🌙Evening,🌙Evening,🌛Late evening,🌑Night,🕛Late night]),[{solve_equation[{subString({UNIX_to_ISO[{solve_equation[{time_now_unix}+TIMEZONE*3600]}]}),[11,13]}]}]}\n\n
+
+Variable Name: valueAtPosition TimeOfDay Emoji\n\n
+
+Description: This variable dynamically returns a time-of-day emoji based on the user's current time and configured timezone offset (TIMEZONE). It works by: 1. Calculating the user's current UNIX timestamp plus the timezone offset. 2. Converting the adjusted timestamp to an ISO 8601 string. 3. Extracting the hour (HH) from the ISO string. 4. Using the extracted hour as an index into a predefined array of emojis representing different times of day. The emojis correspond to the following time slots: 12:00 AM - 1:00 AM: Midnight (🕛), 1:00 AM - 4:00 AM: Dead of Night (🌃), 4:00 AM - 5:00 AM: Pre-dawn (🌌), 5:00 AM - 6:00 AM: Dawn (🌅), 6:00 AM - 7:00 AM: Early Morning (🌄), 7:00 AM - 9:00 AM: Morning (🌞), 9:00 AM - 11:00 AM: Mid-morning (☀️), 11:00 AM - 12:00 PM: Late Morning (🌅), 12:00 PM - 1:00 PM: Noon (🌞), 1:00 PM - 3:00 PM: Early Afternoon (🌇), 3:00 PM - 5:00 PM: Mid-afternoon (☀️), 5:00 PM - 6:00 PM: Late Afternoon (🌆), 6:00 PM - 7:00 PM: Early Evening (🌆), 7:00 PM - 9:00 PM: Evening (🌙), 9:00 PM - 10:00 PM: Late Evening (🌛), 10:00 PM - 11:00 PM: Night (🌑), and 11:00 PM - 12:00 AM: Late Night (🕛).\n\n
+
+
+
+{valueAtPosition([false,true]),[{solve_equation[((floor((({time_now_unix}+TIMEZONE*3600)%604800/86400+3)%7)==WEEKDAY-NUMBER)*(({subString({UNIX_to_ISO[{solve_equation[{time_now_unix}+TIMEZONE*3600]}]}),[8,10]}<=7)))]})]}\n\n
+
+Variable Name: weekday checker with timezone\n\n
+
+Description: Returns a boolean (true/false) based on the current weekday and timezone settings. The calculation considers that weekdays are numbered 0-6 (Monday=0, Tuesday=1, Wednesday=2, Thursday=3, Friday=4, Saturday=5, Sunday=6). The formula takes the current Unix timestamp, adjusts it for the specified timezone (TIMEZONE value in hours), converts it to represent the current weekday, and compares it with the target WEEKDAY-NUMBER. Additionally checks if the current day of month is within the first week (<=7). Returns true if both conditions are met, false otherwise. In simple terms: This variable checks if today is both a specified weekday (e.g., Monday) AND falls within the first 7 days of the month, considering the specified timezone.\n\n
+
+
+
+{valueAtPosition([January,February,March,April,May,June,July,August,September,October,November,December]),[{solve_equation[{subString({UNIX_to_ISO[{solve_equation[{time_now_unix}+TIMEZONE*3600]}]}),[5,7]}-1]}]}\n\n
+
+Variable Name: valueAtPosition JanuaryFebruaryMarchAprilMayJuneJulyAugustSeptemberOctoberNovemberDecember\n\n
+
+Description: Returns the current month's name. It converts the current UNIX timestamp to ISO format, extracts the month (as a number) from the ISO string, adjusts for a zero-based index, and uses this index to retrieve the corresponding month name from the provided array.\n\n
+
+
+
+{valueAtPosition([Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday]),[{solve_equation[floor((({time_now_unix}+TIMEZONE*3600)%604800/86400+3)%7)]}]}, {valueAtPosition([January,February,March,April,May,June,July,August,September,October,November,December]),[{solve_equation[{subString({UNIX_to_ISO[{solve_equation[{time_now_unix}+TIMEZONE*3600]}]}),[5,7]}-1]}]} {subString({UNIX_to_ISO[{solve_equation[{time_now_unix}+TIMEZONE*3600]}]}),[8,10]}, {subString({UNIX_to_ISO[{solve_equation[{time_now_unix}+TIMEZONE*3600]}]}),[0,4]}, {solve_equation[({subString({UNIX_to_ISO[{solve_equation[{time_now_unix}+TIMEZONE*3600]}]}),[11,13]}%12==0?12:{subString({UNIX_to_ISO[{solve_equation[{time_now_unix}+TIMEZONE*3600]}]}),[11,13]}%12)]}:{subString({UNIX_to_ISO[{solve_equation[{time_now_unix}+TIMEZONE*3600]}]}),[14,16]} {valueAtPosition([AM,PM]),[{solve_equation[{subString({UNIX_to_ISO[{solve_equation[{time_now_unix}+TIMEZONE*3600]}]}),[11,13]}>=12]}]}\n\n
+
+Variable Name: formatted datetime with timezone\n\n
+
+Description: Returns the current date and time formatted as "DayOfWeek, Month Day, Year, HH:MM AM/PM" with timezone adjustment. For example: "Monday, January 15, 2024, 3:30 PM". Replace TIMEZONE with your UTC offset (e.g., use 2 for UTC+2, -5 for UTC-5).\n\n
+
+
+
+{valueAtPosition([Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday]),[{solve_equation[floor((({time_now_unix}+TIMEZONE*3600)%604800/86400+3)%7)]}]}\n\n
+
+Variable Name: current weekday name\n\n
+
+Description: Returns the current day of the week as a text string, adjusting for the specified timezone. The calculation uses the Unix timestamp and converts it to represent the current weekday based on the formula where days are indexed 0-6 (Monday=0, Tuesday=1, Wednesday=2, Thursday=3, Friday=4, Saturday=5, Sunday=6). The timezone adjustment is made by adding the TIMEZONE value in hours multiplied by 3600 (seconds). In simple terms: This variable returns the current day of the week (e.g., "Monday", "Tuesday", etc.) based on your specified timezone.\n\n
+
+
+
+#{getRandomFromCollection([A,B,C,D,E,F,0,1,2,3,4,5,6,7,8,9])}{getRandomFromCollection([A,B,C,D,E,F,0,1,2,3,4,5,6,7,8,9])}{getRandomFromCollection([A,B,C,D,E,F,0,1,2,3,4,5,6,7,8,9])}{getRandomFromCollection([A,B,C,D,E,F,0,1,2,3,4,5,6,7,8,9])}{getRandomFromCollection([A,B,C,D,E,F,0,1,2,3,4,5,6,7,8,9])}{getRandomFromCollection([A,B,C,D,E,F,0,1,2,3,4,5,6,7,8,9])}\n\n
+
+Variable Name: getRandomFromCollection ABCDEF0123456789\n\n
+
+Description: Generates a random 6-digit hex code color code by selecting random characters from the set A-F and 0-9 for each position. This creates a wide range of possible colors, including both light and dark shades.\n\n
+
+
+
+<@{getRandomFromCollection({Guild.members})}>\n\n
+
+Variable Name: getRandomFromCollection Guild members\n\n
+
+Description: Selects a random member from the guild and mentions them.\n\n
+
+
+
+https://picsum.photos/1920/{random[230,770]}\n\n
+
+Variable Name: picsum photos random banner\n\n
+
+Description: Generates a random banner image URL from Lorem Picsum with a fixed width of 1920 pixels (standard banner width) and a random height between 230 and 770 pixels, suitable for Discord server banners, profile headers, or promotional images. Creates dynamic placeholder images with varying banner dimensions.\n\n
+
+
+
+https://r.jina.ai/{url}\n\n
+
+Variable Name: https r jina ai url\n\n
+
+Description: The API endpoint used to extract content from a specified website. You must replace {url} with the actual URL of the site you want to retrieve data from. This will allow the API to return relevant information, such as the title, content, links and image links, enabling effective display or processing of the webpage data. This can be useful to use the webpage content for further processing with an AI.\n\n
+
+
+
+https://singlecolorimage.com/get/{getRandomFromCollection([A,B,C,D,E,F,0,1,2,3,4,5,6,7,8,9])}{getRandomFromCollection([A,B,C,D,E,F,0,1,2,3,4,5,6,7,8,9])}{getRandomFromCollection([A,B,C,D,E,F,0,1,2,3,4,5,6,7,8,9])}{getRandomFromCollection([A,B,C,D,E,F,0,1,2,3,4,5,6,7,8,9])}{getRandomFromCollection([A,B,C,D,E,F,0,1,2,3,4,5,6,7,8,9])}{getRandomFromCollection([A,B,C,D,E,F,0,1,2,3,4,5,6,7,8,9])}/1024x10\n\n
+
+Variable Name: singlecolorimage get random hex color\n\n
+
+Description: Generates a URL for a single-color image from singlecolorimage.com using a random 6-digit hex color code. The hex code is generated by selecting random characters from the set A-F and 0-9 for each position. The image size is set to 1024x10 pixels. This variable can be used in Discord embeds to display a randomly generated color in line format\n\n
+
+
+
+Suggest Variable
