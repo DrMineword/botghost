@@ -1,0 +1,33 @@
+# https://docs.cookie-api.com/en/docs/getting-started/faq/api-key/
+
+API Key
+API Key
+Where do I get an API Key?
+You can get an API Key on the Dashboard.
+
+How do I regenerate my API Key?
+You can regenerate your API key from the Dashboard. Navigate to the API key section and click on "Regenerate".
+
+What should i do if my API Key got leaked?
+We strongly recommend to regenerate your API Key if you think that it got leaked.
+
+Where should i Include my API Key?
+You can include your API key in the URL parameters or the request headers of each request. Here’s how it can be formatted:
+
+Request Headers
+URL Parameters
+Name	Value
+Authorization	<API Key>
+Curl
+
+Terminal window
+curl --location 'https://api.cookie-api.com/any-endpoint' \
+--header 'Authorization: API_Key'
+
+Last updated: Mar 17, 2025
+
+Previous
+Welcome to Cookie API
+
+Next
+Common Errors
