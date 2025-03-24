@@ -1,0 +1,53 @@
+# https://docs.cookie-api.com/en/docs/getting-started/welcome-to-cookie-api/
+
+Skip to content
+Cookie API Documentation
+
+
+Welcome to Cookie API
+Welcome to the Cookie API Documentation!
+Welcome to the Cookie API Documentation! This documentation is designed to assist you in integrating the Cookie API into your project seamlessly. Whether you're a seasoned developer or a newbie, you'll find all the information you need to make the most out of the Cookie API. If you need further assistance, our friendly community on our Discord Server is always ready to help.
+
+Getting Started
+Authentication
+API Key
+The Cookie API uses API keys to authenticate requests. You can obtain your API key from your dashboard. Ensure you keep your API key secure.
+
+How to Use Your API Key
+Include your API key in the URL Params or Request Headers of every request:
+
+Request Headers
+URL Params
+Name	Value
+Authorization	<API Key>
+Curl
+
+Terminal window
+curl --location 'https://api.cookie-api.com/any-endpoint' \
+--header 'Authorization: API_Key'
+
+Tip
+
+For security reasons, we recommend using the API key in the request headers.
+
+Rate Limits
+To ensure fair usage, the Cookie API imposes rate limits. Each account is allowed 80 requests per minute. If you exceed this limit, you will receive a 429 Too Many Requests response.
+
+Error Handling
+The Cookie API uses standard HTTP status codes to indicate the success or failure of an API request. Here are some common status codes:
+
+200 OK: The request was successful.
+400 Bad Request: The request was invalid or cannot be otherwise served.
+401 Unauthorized: Missing or Invalid API Key.
+404 Not Found: The requested resource could not be found.
+500 Internal Server Error: Something went really wrong. (Report it in the Discord Server)
+502 Bad Gateway: Usually happens when the server restarted or is restarting.
+For all Possible errors along with a detailed description and a way on how to resolve it, you will find on our Status Codes FAQ Page below:
+
+Support
+If you need further assistance, join our Discord Server to get help from our community and the Cookie API team. Our support team is active and ready to assist you with any issues you may face.
+
+Last updated: Mar 17, 2025
+
+Next
+API Key
