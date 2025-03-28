@@ -4,53 +4,60 @@
 <title>Base64 Encoder</title>
 <style>
 body { font-family: sans-serif; }
-#progress { width: 300px; }
-#base64 { white-space: pre-wrap; }  /* Allow line breaks in the output */
+#progress-bar { width: 0%; height: 20px; background-color: #4CAF50; transition: width 0.1s ease-in-out; }
+#progress-bar-container { width: 300px; border: 1px solid #ddd; }
 </style>
 </head>
 <body>
 
 <h1>Base64 Encoder</h1>
 
-<input type="file" id="fileInput" accept="*">
-<progress id="progress" value="0" max="100"></progress>
-<div id="base64"></div>
+<input type="file" id="fileInput">
+<br><br>
+
+<div id="progress-bar-container">
+  <div id="progress-bar"></div>
+</div>
+<div id="progress-percent">0.0000%</div>
+
+
+<textarea id="base64Output" readonly rows="10" cols="80"></textarea>
+<button id="copyButton">Copy to Clipboard</button>
 
 <script>
 const fileInput = document.getElementById('fileInput');
-const progress = document.getElementById('progress');
-const base64Output = document.getElementById('base64');
+const base64Output = document.getElementById('base64Output');
+const progressBar = document.getElementById('progress-bar');
+const progressPercent = document.getElementById('progress-percent');
+const copyButton = document.getElementById('copyButton');
 
-fileInput.addEventListener('change', async () => {
-    const file = fileInput.files[0];
-    if (!file) return;
+fileInput.addEventListener('change', async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
 
-    const reader = new FileReader();
-    let base64 = '';
-    let totalBytesRead = 0;
-    const fileSize = file.size;
+  const reader = new FileReader();
+  reader.onload = async (e) => {
+    const data = e.target.result;
+    let encoded = '';
+    let progress = 0;
+    const totalBytes = data.length;
 
-    reader.onload = (e) => {
-        base64 += e.target.result;
-        totalBytesRead += reader.result.length;
-        const percentage = Math.round((totalBytesRead / fileSize) * 100);
-        progress.value = percentage;
-        base64Output.textContent = base64;
+    for (let i = 0; i < totalBytes; i++) {
+      encoded += data.charCodeAt(i).toString(16).padStart(2, '0');
+      progress = (i + 1) / totalBytes * 100;
+      progressBar.style.width = progress + '%';
+      progressPercent.textContent = progress.toFixed(4) + '%';
+      await new Promise(resolve => setTimeout(resolve, 0)); //Simulate slow encoding
+    }
 
-        if (totalBytesRead < fileSize) {
-            // Read the next chunk
-            const chunkSize = 1024 * 1024; // 1MB chunk size - adjust as needed
-            const startPos = totalBytesRead;
-            const endPos = Math.min(totalBytesRead + chunkSize, fileSize);
-            const blob = file.slice(startPos, endPos);
-            reader.readAsDataURL(blob); // Use readAsDataURL for Base64 encoding
-        }
-    };
+    base64Output.value = btoa(encoded); //Encode as Base64
+  };
+  reader.readAsBinaryString(file); //Read file as binary string for better handling of various characters.
+});
 
-    //Start reading in chunks
-    const chunkSize = 1024 * 1024;
-    const blob = file.slice(0, chunkSize);
-    reader.readAsDataURL(blob);
+copyButton.addEventListener('click', () => {
+  base64Output.select();
+  document.execCommand('copy');
 });
 </script>
 
