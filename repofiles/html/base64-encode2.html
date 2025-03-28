@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Base64 Encoder</title>
+<style>
+body { font-family: sans-serif; }
+#base64-output { white-space: pre-wrap; }
+</style>
+</head>
+<body>
+
+<h1>Base64 Encoder (Instant Encoding, Slow Display)</h1>
+
+<input type="file" id="fileInput">
+<button id="encodeButton">Encode</button>
+<textarea id="base64-output" readonly></textarea>
+<button id="copyButton">Copy Base64</button>
+
+<script>
+const fileInput = document.getElementById('fileInput');
+const encodeButton = document.getElementById('encodeButton');
+const base64Output = document.getElementById('base64-output');
+const copyButton = document.getElementById('copyButton');
+
+encodeButton.addEventListener('click', () => {
+  const file = fileInput.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const arrayBuffer = e.target.result;
+    const uint8Array = new Uint8Array(arrayBuffer);
+    const base64 = btoa(String.fromCharCode(...uint8Array));
+    const displaySpeed = parseInt(prompt("Podaj prędkość wyświetlania (znaki na sekundę):", "1024")); // Customize display speed
+
+    let displayedChars = 0;
+    let displayInterval = setInterval(() => {
+      const chunkSize = Math.min(displaySpeed, base64.length - displayedChars);
+      base64Output.value = base64.substring(0, displayedChars + chunkSize);
+      displayedChars += chunkSize;
+      if (displayedChars >= base64.length) {
+        clearInterval(displayInterval);
+      }
+    }, 1000);
+  };
+  reader.readAsArrayBuffer(file);
+});
+
+copyButton.addEventListener('click', () => {
+  base64Output.select();
+  document.execCommand('copy');
+});
+</script>
+
+</body>
+</html>
