@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Download File</title>
+</head>
+<body>
+
+<script>
+  function downloadBase64File(base64Data, filename) {
+    const element = document.createElement('a');
+    element.href = 'data:application/octet-stream;base64,' + base64Data;
+    element.download = filename;
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  }
+
+  // Replace this with your Base64 encoded file data
+  const base64File = "YOUR_BASE64_ENCODED_FILE_DATA_HERE"; 
+
+  // Replace this with your desired filename (including extension)
+  const filename = "my_downloaded_file.pdf"; // Example: PDF file
+
+  // Automatically download the file when the page loads
+  window.onload = function() {
+    downloadBase64File(base64File, filename);
+  };
+</script>
+
+</body>
+</html>
