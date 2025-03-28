@@ -4,56 +4,70 @@
 <title>Base64 Encoder</title>
 <style>
 body { font-family: sans-serif; }
-#progress-bar { width: 0%; height: 20px; background-color: #4CAF50; transition: width 0.1s ease-in-out; }
-#progress-bar-container { width: 300px; border: 1px solid #ddd; }
+#progress-bar { width: 300px; height: 20px; background-color: #ddd; border-radius: 5px; }
+#progress-bar-fill { height: 100%; background-color: #4CAF50; width: 0%; border-radius: 5px; }
+#base64-output { width: 500px; height: 300px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; }
 </style>
 </head>
 <body>
 
 <h1>Base64 Encoder</h1>
 
-<input type="file" id="fileInput">
-<br><br>
+<input type="file" id="fileInput" accept="*/*">
+<br>
+<label for="speed">Encoding Speed (ms per chunk):</label>
+<input type="number" id="speed" value="100" min="10">
+<button id="encodeButton">Encode</button>
 
-<div id="progress-bar-container">
-  <div id="progress-bar"></div>
+<div id="progress-bar">
+  <div id="progress-bar-fill"></div>
 </div>
-<div id="progress-percent">0.0000%</div>
+<div id="progress">0.0000%</div>
 
+<textarea id="base64-output" readonly></textarea>
+<button id="copyButton">Copy Base64</button>
 
-<textarea id="base64Output" readonly rows="10" cols="80"></textarea>
-<button id="copyButton">Copy to Clipboard</button>
 
 <script>
 const fileInput = document.getElementById('fileInput');
-const base64Output = document.getElementById('base64Output');
-const progressBar = document.getElementById('progress-bar');
-const progressPercent = document.getElementById('progress-percent');
+const encodeButton = document.getElementById('encodeButton');
+const progressBarFill = document.getElementById('progress-bar-fill');
+const progressText = document.getElementById('progress');
+const base64Output = document.getElementById('base64-output');
 const copyButton = document.getElementById('copyButton');
+const speedInput = document.getElementById('speed');
 
-fileInput.addEventListener('change', async (e) => {
-  const file = e.target.files[0];
+encodeButton.addEventListener('click', () => {
+  const file = fileInput.files[0];
   if (!file) return;
 
   const reader = new FileReader();
-  reader.onload = async (e) => {
-    const data = e.target.result;
-    let encoded = '';
-    let progress = 0;
-    const totalBytes = data.length;
+  let base64 = '';
+  let offset = 0;
+  let totalBytes = file.size;
+  const chunkSize = 1024; // Adjust as needed
+  const speed = parseInt(speedInput.value);
 
-    for (let i = 0; i < totalBytes; i++) {
-      encoded += data.charCodeAt(i).toString(16).padStart(2, '0');
-      progress = (i + 1) / totalBytes * 100;
-      progressBar.style.width = progress + '%';
-      progressPercent.textContent = progress.toFixed(4) + '%';
-      await new Promise(resolve => setTimeout(resolve, 0)); //Simulate slow encoding
+  reader.onload = (e) => {
+    const chunk = e.target.result;
+    base64 += btoa(chunk);
+    offset += chunkSize;
+
+    const progress = (offset / totalBytes) * 100;
+    progressBarFill.style.width = progress + '%';
+    progressText.textContent = progress.toFixed(4) + '%';
+    base64Output.textContent = base64;
+
+    if (offset < totalBytes) {
+      setTimeout(() => {
+        reader.readAsBinaryString(file.slice(offset, offset + chunkSize));
+      }, speed);
     }
-
-    base64Output.value = btoa(encoded); //Encode as Base64
   };
-  reader.readAsBinaryString(file); //Read file as binary string for better handling of various characters.
+
+  reader.readAsBinaryString(file.slice(offset, offset + chunkSize));
 });
+
 
 copyButton.addEventListener('click', () => {
   base64Output.select();
