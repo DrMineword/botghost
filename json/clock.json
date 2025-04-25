@@ -1,15 +1,4 @@
 {
-    "_v": "1",
-    "_v_stats": {
-        "0": {
-            "allow": false,
-            "msg": "```fix\nA new version of this json file is available\nHowever, the changes do not allow you to use it in the same way as before\n```"
-        },
-        "1": {
-            "allow": true,
-            "msg": "```fix\nA new version of this json file is available\nHowever, the changes do not allow you to use it in the same way as before\n```"
-        }
-    },
     "id": "{solve_equation[floor(({solve_equation[({timezone}*(60*60))+{time_now_unix}]} / 60) % 1440)]}",
     "clock-arrays": {
         "model1": [
