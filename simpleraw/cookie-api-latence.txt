@@ -1,4 +1,1 @@
-{solve_equation[{decimal}*1000]}
-{solve_equation[floor({decimal}*1)]}
-
-{solve_equation[1000 < {solve_equation[{decimal}*1000]}]}
+{valueAtPosition([ , {solve_equation[floor({decimal}*1)]}s ),[{solve_equation[1000 < {solve_equation[{decimal}*1000]}]}]}{solve_equation[({decimal}*1000)-{valueAtPosition([0,{solve_equation[{solve_equation[floor({decimal}*1)]}*1000]}),[{solve_equation[1000 < {solve_equation[{decimal}*1000]}]}]}]}ms
