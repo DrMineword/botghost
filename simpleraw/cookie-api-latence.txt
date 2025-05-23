@@ -1,1 +1,3 @@
-{decimal}
+{solve_equation[{decimal}*1000]}
+
+{solve_equation[1 < {solve_equation[{decimal}*1000]}]}
